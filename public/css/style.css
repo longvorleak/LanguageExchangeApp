@@ -1,1 +1,40 @@
-/* comment */
+:root {
+    --dark-color: #76c893;
+    --medium-color: #99d98c;
+    --main-color: #b5e48c;
+    --light-color: #d9ed92;
+    --white-color: #FFFFFF;
+    --button-radius: 25px;
+    --border-radius: 15px;
+}
+
+/* Style Buttons */
+
+button {
+    border-radius: var(--button-radius);
+    padding: 10px;
+    text-transform: uppercase;
+    background-color: var(--dark-color);
+    color: var(--white-color);
+}
+
+button:hover {
+    color: var(--dark-color);
+    border: 1px solid var(--dark-color);
+}
+
+/* position header */
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+footer {
+    background-color: var(--dark-color);
+    color: var(--white-color);
+}
+
+.section-one-right {
+    display: flex;
+}
