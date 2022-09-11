@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 10, 2022 at 03:14 PM
+-- Generation Time: Sep 11, 2022 at 01:07 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -110,6 +110,31 @@ CREATE TABLE `followers` (
 CREATE TABLE `friends` (
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `google_login`
+--
+
+CREATE TABLE `google_login` (
+  `id` int(11) NOT NULL,
+  `email` varchar(100) NOT NULL DEFAULT '',
+  `last_name` varchar(50) NOT NULL DEFAULT '',
+  `first_name` varchar(50) NOT NULL DEFAULT '',
+  `gender` varchar(50) NOT NULL DEFAULT '',
+  `full_name` varchar(100) NOT NULL DEFAULT '',
+  `picture` varchar(255) NOT NULL DEFAULT '',
+  `verified_email` int(11) NOT NULL DEFAULT 0,
+  `token` varchar(255) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `google_login`
+--
+
+INSERT INTO `google_login` (`id`, `email`, `last_name`, `first_name`, `gender`, `full_name`, `picture`, `verified_email`, `token`) VALUES
+(1, 'mikemendez12328@gmail.com', 'Mendez', 'Mike', '', 'Mike Mendez', 'https://lh3.googleusercontent.com/a/AItbvmlIDN0wQh4dFtqeuFuDV7YIPHh1dU12nw80lAXg=s96-c', 1, '104735560652395024395');
 
 -- --------------------------------------------------------
 
@@ -254,6 +279,12 @@ ALTER TABLE `friends`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `google_login`
+--
+ALTER TABLE `google_login`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `known_language_map`
 --
 ALTER TABLE `known_language_map`
@@ -334,6 +365,12 @@ ALTER TABLE `followers`
 --
 ALTER TABLE `friends`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `google_login`
+--
+ALTER TABLE `google_login`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `known_language_map`
