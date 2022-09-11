@@ -1,3 +1,4 @@
 # list of files to not push to gitHub
 .DS_Store
 vendor
+googleAPI.txt
