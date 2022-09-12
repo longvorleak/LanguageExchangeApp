@@ -5,9 +5,10 @@ require_once './vendor/autoload.php';
 session_start();
 
 // Init configuration
-$clientID = 'CLIENT ID';
-$clientSecret = 'CLIENT SECRET';
-$redirectUri = 'http://localhost/sites/LanguageExchangeApp/loginWelcome.php';
+// $clientID = 'CLIENT ID';
+// $clientSecret = 'CLIENT SECRET';
+// $redirectUri = 'http://localhost/sites/LanguageExchangeApp/loginWelcome.php';
+require 'googleAPI.php';
 
 // Create client Request to access Google API
 $client = new Google_Client();
