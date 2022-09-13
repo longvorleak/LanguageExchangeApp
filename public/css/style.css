@@ -1,40 +1,128 @@
+/* default style */
 :root {
-    --dark-color: #76c893;
-    --medium-color: #99d98c;
+    --dark-color: #46a094;
+    --medium-color: #6bbd99;
     --main-color: #b5e48c;
-    --light-color: #d9ed92;
-    --white-color: #FFFFFF;
+    --light-color: #c4e8c2;
+    --white-color: #FFF;
     --button-radius: 25px;
     --border-radius: 15px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
 }
 
 /* Style Buttons */
 
 button {
-    border-radius: var(--button-radius);
-    padding: 10px;
-    text-transform: uppercase;
     background-color: var(--dark-color);
     color: var(--white-color);
+    border-radius: var(--button-radius);
+    border: 2px solid var(--dark-color);
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 button:hover {
+    border: 2px solid var(--dark-color);
+    background-color: var(--white-color);
     color: var(--dark-color);
-    border: 1px solid var(--dark-color);
 }
 
-/* position header */
+/* Header */
 
 header {
     display: flex;
     justify-content: space-between;
 }
 
-footer {
+/* Footer */
+
+.footer {
     background-color: var(--dark-color);
     color: var(--white-color);
+    text-align: center;
+    font-size: xx-small;
 }
 
 .section-one-right {
     display: flex;
+}
+
+/* Font */
+
+h1{
+    text-transform: capitalize;
+    text-align: center;
+}
+
+/* About us page */
+.dark {
+    background-color: var(--medium-color);
+    color: var(--white-color);
+    text-align: center;
+    padding: 20px 100px;
+}
+
+.light {
+    padding: 20px 0;
+}
+
+.team {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px 50px;
+}
+
+.contact {
+    display: flex;
+    justify-content: center;
+}
+
+.contact > div {
+    width: 500px;
+    padding: 0 20px;
+}
+
+.contact-text {
+    height: 70px;
+}
+
+.member{
+    padding: 20px;
+}
+
+.name {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+.position {
+    margin: 5px 0 20px 0;
+}
+
+.fa-solid {
+    font-size: 3em;
+}
+
+@media screen and (max-width: 945px) {
+    .contact {
+        display: block;
+    }
+
+    .contact > div {
+        width: auto;
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .dark {
+        padding: 20px;
+    }
 }
