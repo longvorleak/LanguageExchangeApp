@@ -1,9 +1,10 @@
+/* default style */
 :root {
-    --dark-color: #76c893;
-    --medium-color: #99d98c;
+    --dark-color: #46a094;
+    --medium-color: #6bbd99;
     --main-color: #b5e48c;
-    --light-color: #d9ed92;
-    --white-color: #FFFFFF;
+    --light-color: #c4e8c2;
+    --white-color: #FFF;
     --button-radius: 25px;
     --border-radius: 15px;
 }
