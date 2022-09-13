@@ -67,30 +67,11 @@ p i{
 }
 
 span{
-    font-size:1.2em;
-    
-}
-/* BUTTONS */
-button{
-    font-size: 1.1em;
-    text-decoration: none;
-    background-color: var(--dark-color);
-    font-weight:400;
-    border-radius: 25px;
-    padding: 5px;
+    font-size:1.2em;   
 }
 
-button:nth-child(1){
-    border: 2px solid black;
-    color: black;
-}
-
-button:nth-child(2){
-    color: var(--dark-color);
-    border: none;
-    background-color: black;
-    margin: 0 20px 0 10px;
-
+li{
+    padding-bottom: 20px;
 }
 
 /* //////////////////////////////////////////// */
@@ -108,10 +89,10 @@ header{
     align-items: center;
 }
 
-header div:nth-child(2){
+
+.header-middle{
     display: flex;
     gap: 20px;
-    margin-left: 40vw;
     font-size: 1em;
 }
 
@@ -127,6 +108,31 @@ header div span a:hover{
     transition: 0.1s ease-in-out;
     z-index: 3;
 }
+
+/* LOGIN SIGNUP */
+button{
+    font-size: 1.1em;
+    text-decoration: none;
+    background-color: var(--dark-color);
+    font-weight:400;
+    border-radius: 25px;
+    padding: 5px;
+    width: 150px;
+    border: 2px solid black;
+}
+
+.login{
+    color: black;
+    margin-left: 30px;
+}
+
+.signup{
+    color: var(--dark-color);
+    border: none;
+    background-color: black;
+    margin-right: 10px;
+}
+
 
 /* FOOTER */
 
@@ -161,6 +167,7 @@ footer div a{
     width: 102px;
     text-align: center;
     transition: all 0.3s ease 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s; 
+    height: auto;
 }
 
 .language:hover ~ .language-popup,
@@ -170,9 +177,9 @@ footer div a{
     opacity: 1;
     z-index: 2;
     width: 102px;
-    transform: translateY(57.5px);
+    transform: translateY(70px);
     transition-delay: 0s, 0s, 0.3s;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: #46a094;
     border-radius: 0px 0px 25px 25px;
 }
 
@@ -183,7 +190,8 @@ footer div a{
 .language:hover,
 .language:focus-within,
 .language:focus{
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(204, 204, 205, 0.2);
+    
 }
 
 /* //////////////////////////////////////////// */
