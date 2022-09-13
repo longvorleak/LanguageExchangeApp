@@ -4,27 +4,62 @@ require_once("Manager.php");
 
 class LoginManager extends Manager
 {
-    public function userCheck($google_fetch)
+    public function uidCreate()
     {
-        $db = $this->dbConnect();
+        function crypto_rand_secure($min, $max) //https://www.php.net/manual/en/function.openssl-random-pseudo-bytes.php#104322
+        {
+            $range = $max - $min;
+            if ($range < 1) return $min; // not so random...
+            $log = ceil(log($range, 2));
+            $bytes = (int) ($log / 8) + 1; // length in bytes
+            $bits = (int) $log + 1; // length in bits
+            $filter = (int) (1 << $bits) - 1; // set all lower bits to 1
+            do {
+                $rnd = hexdec(bin2hex(openssl_random_pseudo_bytes($bytes)));
+                $rnd = $rnd & $filter; // discard irrelevant bits
+            } while ($rnd > $range);
 
-        $req = $db->prepare('SELECT * FROM users WHERE email = ?');
-        $req->execute(array($google_fetch['email']));
+            return $min + $rnd;
+        }
+
+        $token = "";
+        $codeAlphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ";
+        $codeAlphabet .= "abcdefghijkmnopqrstuvwxyz";
+        $codeAlphabet .= "123456789";
+        $max = strlen($codeAlphabet); // edited
+
+        for ($i = 0; $i < 10; $i++) {
+            $token .= $codeAlphabet[crypto_rand_secure(0, $max - 1)];
+        }
+
+        return $token;
+    }
+
+    public function userCheck($user_fetch) {
+        $uid = $this->uidCreate(); // creating unique id for user
+
+        $db = $this->dbConnect();
+        
+        $req = $db->prepare('SELECT * FROM users WHERE email = ? OR uid = ?');
+        $req->execute(array($user_fetch['email'], $uid));
         $response = $req->fetch(PDO::FETCH_ASSOC);
         $req->closeCursor();
+        
 
         if (!empty($response)) {
             return $response['firstname'];
         } else {
-            $req = $db->prepare('INSERT INTO users (firstname, lastname, email) VALUES(:inFirstName, :inLastName, :inEmail)');
+            $req = $db->prepare('INSERT INTO users (uid, firstname, lastname, username, email) VALUES(:inUID, :inFirstName, :inLastName, :inUsername, :inEmail)');
             $req->execute(array(
-                'inFirstName' => $google_fetch['given_name'],
-                'inLastName' => $google_fetch['given_name'],
-                'inEmail' => $google_fetch['email']
+                'inUID' => $uid,
+                'inFirstName' => $user_fetch['given_name'],
+                'inLastName' => $user_fetch['family_name'],
+                'inUsername' => $user_fetch['email'],
+                'inEmail' => $user_fetch['email']
             ));
 
             $req = $db->prepare('SELECT * FROM users WHERE email = ?');
-            $req->execute(array($google_fetch['email']));
+            $req->execute(array($user_fetch['email']));
             $response = $req->fetch(PDO::FETCH_ASSOC);
             $req->closeCursor();
 

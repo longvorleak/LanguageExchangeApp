@@ -9,6 +9,8 @@
         <script src="https://accounts.google.com/gsi/client" async defer></script>
         <title><?= $title; ?></title>
     </head>
-    <body><?= $content; ?></body>
-    <footer>©2022 All rights reserved.</footer>
+    <body>
+        <?= $content; ?>
+        <footer>©2022 All rights reserved.</footer>
+    </body>
 </html>
