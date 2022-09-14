@@ -4,7 +4,7 @@
         </div>
         <div>
             <span class="header-right"> 
-                <span><a href="#" class="menu">About us</a></span>
+                <span><a href="./aboutUsView.php" class="menu">About us</a></span>
                 <span><a href="#" class="menu">Premium</a></span>
                 <span><a href="#" class="menu">Blog</a></span> 
                 <span>

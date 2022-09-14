@@ -2,6 +2,8 @@
 
 <?php ob_start(); ?>
 
+<?php include("headerView.php"); ?>
+
 <div class="dark">
     <h1>Who We Are</h1>
     <p>We're a global team of language and technology lovers, with offices and team members in nearly every continent! Our mission is to connect the world through language, culture, and community. With over 30 million members, you're in good company.</p>
@@ -56,6 +58,9 @@
         </div>
     </div>
 </div>
+
+
+<?php include("footerView.php"); ?>
 
 <?php $content = ob_get_clean(); ?>
 
