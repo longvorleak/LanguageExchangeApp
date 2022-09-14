@@ -23,3 +23,7 @@ function emailLogin($response) {
 function newSignUp() {
 
 }
+
+function startSplash() {
+    require('./view/splashView.php');
+}

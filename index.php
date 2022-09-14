@@ -19,6 +19,7 @@ try {
             // do something
             break;
         default:
+            startSplash();
             break;
     }
 } catch (Exception $e) { // if we catch an exception
