@@ -9,7 +9,17 @@ try {
         case "googleLogin":
             googleLogin($_REQUEST);
             break;
+        case "newSignUp":
+            newSignUp($_REQUEST);
+            break;
+        case "emailLogin":
+            // do something
+            break;
+        case "kakaoLogin":
+            // do something
+            break;
         default:
+            startSplash();
             break;
     }
 } catch (Exception $e) { // if we catch an exception
