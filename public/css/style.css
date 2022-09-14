@@ -23,16 +23,12 @@ html{
 body{
         height: 100%;
         overflow: auto;
+        overflow-x: hidden;
 }
 
 img{
     height: 10vh;
     width: auto;
-}
-
-a{
-    text-decoration: none;
-    color: black;
 }
 
 h1{
@@ -51,6 +47,7 @@ h1::after, h2::after{
     width: 90px;
     height: 10px;
     background-color: var(--dark-color);
+    margin-top: 10px;
 }
 
 p{
@@ -74,23 +71,32 @@ li{
     padding-bottom: 20px;
 }
 
+a{
+    text-decoration: none;
+}
+
 /* //////////////////////////////////////////// */
 /* /////////////HEADER AND FOOTER////////////// */
 /* //////////////////////////////////////////// */
 
 /* HEADER */
 
+.logo img{
+    width: 400px;
+
+}
+
 header{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     position: fixed;
     width: 99vw;
     background-color: var(--dark-color);
     align-items: center;
+    box-shadow:  0px 2px 1px rgba(204, 204, 205, 0.5);
 }
 
-
-.header-middle{
+.header-right{
     display: flex;
     gap: 20px;
     font-size: 1em;
@@ -101,6 +107,7 @@ header div span a{
     border: none;
     border-radius: 25px;
     padding: 8px;
+    color: black;
 }
 
 header div span a:hover{
@@ -110,27 +117,39 @@ header div span a:hover{
 }
 
 /* LOGIN SIGNUP */
-button{
+.login, .signup{
     font-size: 1.1em;
-    text-decoration: none;
-    background-color: var(--dark-color);
     font-weight:400;
     border-radius: 25px;
     padding: 5px;
     width: 150px;
     border: 2px solid black;
+    text-align: center;
 }
 
 .login{
-    color: black;
     margin-left: 30px;
+    color: black;
+    background-color: var(--dark-color);
+}
+
+.login:hover{
+    transform: scale(1.1);
+    background-color: var(--dark-color);
+    transition: 0.1s ease-in-out;
 }
 
 .signup{
-    color: var(--dark-color);
     border: none;
     background-color: black;
     margin-right: 10px;
+    color: var(--dark-color);
+}
+
+.signup:hover{
+    transform: scale(1.1);
+    background-color: black;
+    transition: 0.1s ease-in-out;
 }
 
 
@@ -160,7 +179,7 @@ footer div a{
     position: absolute;
     visibility: hidden;  
     opacity: 0;
-    top:0;
+    top:20;
     transform: translateY(0);
     list-style: none;
     z-index: -1;
@@ -177,7 +196,7 @@ footer div a{
     opacity: 1;
     z-index: 2;
     width: 102px;
-    transform: translateY(70px);
+    transform: translateY(20px);
     transition-delay: 0s, 0s, 0.3s;
     background-color: #46a094;
     border-radius: 0px 0px 25px 25px;
@@ -185,6 +204,8 @@ footer div a{
 
 .language{
     border-radius: 25px 25px 0px 0px;
+    text-decoration: none;
+    color: black;
 }
 
 .language:hover,
@@ -206,9 +227,8 @@ section img{
     display: flex;
     align-items: center;
     height: 100vh;
+    padding: 30px;
 }
-
-
 
 .section3, .section5{
     background-color: rgb(255,255,255);
@@ -252,6 +272,7 @@ section img{
 /* SECTION 2 */
 .section2{
     height: 100vh;
+    padding: 30px;
 }
 
 .section2-header {
@@ -271,7 +292,10 @@ section img{
     display: flex;
     text-align: center;
     margin: 20px 0 20px 0;
-    
+}
+
+.section2-div p{
+    padding: 0 40px 0 0;
 }
 
 .section2-div div{
@@ -285,4 +309,64 @@ section img{
     display: flex;
 }
 
+@media screen and (max-width: 1217px){
+    .logo img{
+        width: 300px;
+    }
+    .section, .section2{
+        height: auto;
+    }
+    .section1{
+        margin-top: 50px;
+    }
+    .section2 p{
+        width: auto;
+    }
+}
 
+@media screen and (max-width: 1116px){
+    .signup, .login{
+        width: 100px;
+    }
+}
+
+@media screen and (max-width: 1016px){
+    .header-right{
+        gap: 5px;
+    }
+}
+
+@media screen and (max-width: 939px){
+
+    .logo img{
+        width: 200px;
+    }
+    .signup, .login{
+        width: 70px;
+    }
+    .header-right{
+        gap: 3px;
+    }
+
+    .section{
+        margin-top: 100px;
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
+
+    section img{
+        height: 40vh;
+    }
+
+    .section2-header h2{
+        margin-left: 120px;
+    }
+
+}
+
+@media screen and (max-width: 768px){
+
+    footer{
+        flex-direction: column;
+    }
+}
