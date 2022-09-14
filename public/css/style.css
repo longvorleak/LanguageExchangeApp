@@ -1,40 +1,288 @@
+/* default style */
 :root {
-    --dark-color: #76c893;
-    --medium-color: #99d98c;
+    --dark-color: #46a094;
+    --medium-color: #6bbd99;
     --main-color: #b5e48c;
-    --light-color: #d9ed92;
-    --white-color: #FFFFFF;
+    --light-color: #c4e8c2;
+    --white-color: #FFF;
     --button-radius: 25px;
     --border-radius: 15px;
 }
 
-/* Style Buttons */
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Mochiy Pop One', sans-serif;
+}
 
-button {
-    border-radius: var(--button-radius);
-    padding: 10px;
-    text-transform: uppercase;
+html{
+    overflow: hidden;
+    height: 100%;
+}
+
+body{
+        height: 100%;
+        overflow: auto;
+}
+
+img{
+    height: 10vh;
+    width: auto;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+h1{
+    font-size: 3em;
+    margin-bottom: 35px;
+}
+
+h2{
+    font-size: 3em;
+    margin-bottom: 60px;
+}
+
+h1::after, h2::after{
+    display: block;
+    content: '';
+    width: 90px;
+    height: 10px;
     background-color: var(--dark-color);
-    color: var(--white-color);
 }
 
-button:hover {
-    color: var(--dark-color);
-    border: 1px solid var(--dark-color);
+p{
+    color: rgba(0,0,0,0.4);
+    font-size: 1.2em;
 }
 
-/* position header */
+i{
+    font-size: 1.7em;
+}
 
-header {
+p i{
+    font-size: 0.7em;
+}
+
+span{
+    font-size:1.2em;   
+}
+
+li{
+    padding-bottom: 20px;
+}
+
+/* //////////////////////////////////////////// */
+/* /////////////HEADER AND FOOTER////////////// */
+/* //////////////////////////////////////////// */
+
+/* HEADER */
+
+header{
     display: flex;
     justify-content: space-between;
-}
-
-footer {
+    position: fixed;
+    width: 99vw;
     background-color: var(--dark-color);
-    color: var(--white-color);
+    align-items: center;
 }
 
-.section-one-right {
+
+.header-middle{
+    display: flex;
+    gap: 20px;
+    font-size: 1em;
+}
+
+header div span a{
+    transition-duration: 2s ease-in-out;
+    border: none;
+    border-radius: 25px;
+    padding: 8px;
+}
+
+header div span a:hover{
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: 0.1s ease-in-out;
+    z-index: 3;
+}
+
+/* LOGIN SIGNUP */
+button{
+    font-size: 1.1em;
+    text-decoration: none;
+    background-color: var(--dark-color);
+    font-weight:400;
+    border-radius: 25px;
+    padding: 5px;
+    width: 150px;
+    border: 2px solid black;
+}
+
+.login{
+    color: black;
+    margin-left: 30px;
+}
+
+.signup{
+    color: var(--dark-color);
+    border: none;
+    background-color: black;
+    margin-right: 10px;
+}
+
+
+/* FOOTER */
+
+footer{
+    display: flex;
+    justify-content: space-around;
+    height: 15vh;  
+    align-items: center;
+    background-color: var(--dark-color);
+}
+
+footer div{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+footer div a{
+    color: rgba(0,0,0,0.6);
+
+}
+
+/* LANGUAGE POPUP */
+.language-popup{
+    position: absolute;
+    visibility: hidden;  
+    opacity: 0;
+    top:0;
+    transform: translateY(0);
+    list-style: none;
+    z-index: -1;
+    width: 102px;
+    text-align: center;
+    transition: all 0.3s ease 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s; 
+    height: auto;
+}
+
+.language:hover ~ .language-popup,
+.language:focus-within ~ .language-popup,
+.language:focus ~ .language-popup{
+    visibility: visible;
+    opacity: 1;
+    z-index: 2;
+    width: 102px;
+    transform: translateY(70px);
+    transition-delay: 0s, 0s, 0.3s;
+    background-color: #46a094;
+    border-radius: 0px 0px 25px 25px;
+}
+
+.language{
+    border-radius: 25px 25px 0px 0px;
+}
+
+.language:hover,
+.language:focus-within,
+.language:focus{
+    background-color: rgba(204, 204, 205, 0.2);
+    
+}
+
+/* //////////////////////////////////////////// */
+/* /////////////////SECTIONS/////////////////// */
+/* //////////////////////////////////////////// */
+
+section img{
+    height: 60vh;
+}
+
+.section{
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}
+
+
+
+.section3, .section5{
+    background-color: rgb(255,255,255);
+    width: 100%;
+    height: 100vh;
+}
+
+.section2, .section4, .section6{
+    background-color: rgba(204, 204, 205, 0.2);
+    width: 100%;
+    height: 100vh;
+}
+
+.section1-text, .section3-text, .section4-text, .section5-text, .section6-text{
+    width: 50%;
+    margin: 0 10vh 0 10vh;
+}
+
+.section1-img, .section3-img, .section4-img, .section5-img, .section6-img{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+/* SECTION 1 */
+
+.section1{
+    width: 100%;
+    height: 100vh;
+}
+
+.section1-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 100px;
+    width: 50vw;
+
+}
+
+/* SECTION 2 */
+.section2{
+    height: 100vh;
+}
+
+.section2-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.section2-header p{
+    margin-top: -40px;
+    margin-bottom: 70px;
+    color: black;
+}
+
+.section2-div{
+    display: flex;
+    text-align: center;
+    margin: 20px 0 20px 0;
+    
+}
+
+.section2-div div{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* SECTION 3 */
+.section3{
     display: flex;
 }
+
+
