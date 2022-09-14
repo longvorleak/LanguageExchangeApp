@@ -1,4 +1,4 @@
-<!-- <?php $css = "../public/css/signUp.css"; ?> -->
+<?php $css = "../public/css/signUp.css"; ?>
 <?php $script = "../public/js/script.js"; ?>
 
 <?php $title = "Login"; ?>

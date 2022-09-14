@@ -38,7 +38,7 @@ class SignUpManager extends Manager {
             $req ->execute(array(
                 'inUser' => $username,
                 'inUid' => $uid,
-                'inEmail' =>  $email
+                'inEmail' => $email
             ));
             $res = $req->fetchAll(PDO::FETCH_ASSOC);
 
