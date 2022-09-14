@@ -1,3 +1,4 @@
+<?php $css = "./public/css/style.css"; ?>
 <?php $title = "Welcome $google_login!" ?>
 
 <?php ob_start(); ?>

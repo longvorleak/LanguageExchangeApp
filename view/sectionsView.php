@@ -48,13 +48,13 @@
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit eum explicabo nobis ex distinctio itaque possimus eligendi! Ullam vero similique, ab illum dignissimos ut laudantium iste quaerat quo quis accusamus?</p>
         </div>
         <div class="section3-img">
-            <img src="../public/images/langEx4.png"/>
+            <img src="./public/images/langEx4.png"/>
         </div>
     </section>
     <!-- SECTION 4 -->
     <section class="section section4">
         <div class="section4-img">
-            <img src="../public/images/langEx2.png">
+            <img src="./public/images/langEx2.png">
         </div>
         <div class="section4-text">
             <h2>Join live events!</h2>
@@ -68,13 +68,13 @@
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit eum explicabo nobis ex distinctio itaque possimus eligendi! Ullam vero similique, ab illum dignissimos ut laudantium iste quaerat quo quis accusamus?</p>
         </div>
         <div class="section5-img">
-            <img src="../public/images/undraw_Chatting_re_j55r.png"/>
+            <img src="./public/images/undraw_Chatting_re_j55r.png"/>
         </div>
     </section>
     <!-- SECTION 6 -->
     <section class="section section6">
         <div class="section6-img">
-            <img src="../public/images/langEx3.png"/>
+            <img src="./public/images/langEx3.png"/>
         </div>
         <div class="section6-text">
             <h2>Make new friends!</h2>

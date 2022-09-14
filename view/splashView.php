@@ -1,4 +1,5 @@
-
+<?php $css = "./public/css/style.css"; ?>
+<?php $script = "./public/js/script.js"; ?>
 <?php $title = "splash" ?>
 
 <?php ob_start();?>
