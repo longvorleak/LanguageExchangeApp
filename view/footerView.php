@@ -1,4 +1,5 @@
 <footer>
+    <div>
         <div>
             <p>Follow us on : </p>
             <a href="#"><i class="fa-brands fa-youtube"></i></a>
@@ -12,4 +13,6 @@
             <p><a href="#">Blog</a></p>
             <p><a href="#">Terms of Service</a></p>
         </div>
+</div>
+        ©2022 Batch17. All rights reserved.
     </footer>
