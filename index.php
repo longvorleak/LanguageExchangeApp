@@ -9,8 +9,8 @@ try {
         case "googleLogin":
             googleLogin($_REQUEST);
             break;
-        case "newSignUp":
-            newSignUp($_REQUEST);
+        case "signUp":
+            signUp($_REQUEST);
             break;
         case "emailLogin":
             // do something

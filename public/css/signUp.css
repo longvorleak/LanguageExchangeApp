@@ -58,7 +58,7 @@ input[type="text"]{
 }
 
 input[type="checkbox"]{
-    position: absolute;
+    /* position: absolute; */
 }
 label {
     left: 30px;

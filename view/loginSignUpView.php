@@ -1,3 +1,6 @@
+<!-- <?php $css = "../public/css/signUp.css"; ?> -->
+<?php $script = "../public/js/script.js"; ?>
+
 <?php $title = "Login"; ?>
 
 <?php ob_start(); ?>
@@ -37,7 +40,7 @@
             <div class="signUp">
                 <h1 class="animate-charcter">Sign Up</h1>
                 <div class="form" id="signUp">
-                    <form method="POST" action="../index.php?action=newSignUp"> 
+                    <form method="POST" action="http://localhost/sites/LanguageExchangeApp/index.php?action=signUp"> 
                         <input type="text" name="firstname" id="firstname" placeholder="Firstname"/>
                         <input type="text" name="lastname" id="lastname" placeholder="Lastname"/>
                         <input type="text" name="username" id="username" placeholder="Username*" required/>
