@@ -1,10 +1,13 @@
 /* default style */
 :root {
-    --dark-color: #46a094;
-    --medium-color: #6bbd99;
-    --main-color: #b5e48c;
-    --light-color: #c4e8c2;
-    --white-color: #FFF;
+    --dark-primary: #014557;
+    --main-primary: #00a2ae;
+    --light-primary: #b2dfdb;
+    --divider: #f9f6f6;
+    --accent-color: #f7a701;
+    --primary-text:#212121;
+    --secondary-text: #757575;
+    --white-text: #FFF;
     --button-radius: 25px;
     --border-radius: 15px;
 }
@@ -21,9 +24,9 @@ html{
 }
 
 body{
-        height: 100%;
-        overflow: auto;
-        overflow-x: hidden;
+    height: 100%;
+    overflow: auto;
+    overflow-x: hidden;
 }
 
 img{
@@ -31,9 +34,15 @@ img{
     width: auto;
 }
 
+.flex {
+    display: flex;
+}
+
 h1{
     font-size: 3em;
     margin-bottom: 35px;
+    text-transform: capitalize;
+    color: var(--primary-text);
 }
 
 h2{
@@ -46,12 +55,11 @@ h1::after, h2::after{
     content: '';
     width: 90px;
     height: 10px;
-    background-color: var(--dark-color);
+    background-color: var(--dark-primary);
     margin-top: 10px;
 }
 
 p{
-    color: rgba(0,0,0,0.4);
     font-size: 1.2em;
 }
 
@@ -91,7 +99,7 @@ header{
     justify-content: space-around;
     position: fixed;
     width: 99vw;
-    background-color: var(--dark-color);
+    background-color: var(--dark-primary);
     align-items: center;
     box-shadow:  0px 2px 1px rgba(204, 204, 205, 0.5);
 }
@@ -107,7 +115,7 @@ header div span a{
     border: none;
     border-radius: 25px;
     padding: 8px;
-    color: black;
+    color: var(--white-text);
 }
 
 header div span a:hover{
@@ -123,32 +131,32 @@ header div span a:hover{
     border-radius: 25px;
     padding: 5px;
     width: 150px;
-    border: 2px solid black;
+    border: 2px solid var(--divider);
     text-align: center;
 }
 
 .login{
     margin-left: 30px;
-    color: black;
-    background-color: var(--dark-color);
+    color: var(--divider);
+    background-color: var(--dark-primary);
 }
 
 .login:hover{
     transform: scale(1.1);
-    background-color: var(--dark-color);
+    background-color: var(--dark-primary);
     transition: 0.1s ease-in-out;
 }
 
 .signup{
     border: none;
-    background-color: black;
+    background-color: var(--divider);
     margin-right: 10px;
-    color: var(--dark-color);
+    color: var(--dark-primary);
 }
 
 .signup:hover{
     transform: scale(1.1);
-    background-color: black;
+    background-color: var(--light-primary);
     transition: 0.1s ease-in-out;
 }
 
@@ -160,7 +168,7 @@ footer{
     justify-content: space-around;
     height: 15vh;  
     align-items: center;
-    background-color: var(--dark-color);
+    background-color: var(--dark-primary);
 }
 
 footer div{
@@ -169,8 +177,8 @@ footer div{
     gap: 20px;
 }
 
-footer div a{
-    color: rgba(0,0,0,0.6);
+footer div a, footer {
+    color: var(--white-text);
 
 }
 
@@ -198,14 +206,13 @@ footer div a{
     width: 102px;
     transform: translateY(20px);
     transition-delay: 0s, 0s, 0.3s;
-    background-color: #46a094;
+    background-color: var(--dark-primary);
     border-radius: 0px 0px 25px 25px;
 }
 
 .language{
     border-radius: 25px 25px 0px 0px;
     text-decoration: none;
-    color: black;
 }
 
 .language:hover,
@@ -231,7 +238,7 @@ section img{
 }
 
 .section3, .section5{
-    background-color: rgb(255,255,255);
+    background-color: var(--white-text);
     width: 100%;
     height: 100vh;
 }
@@ -285,7 +292,7 @@ section img{
 .section2-header p{
     margin-top: -40px;
     margin-bottom: 70px;
-    color: black;
+    color: var(--primary-text);
 }
 
 .section2-div{
