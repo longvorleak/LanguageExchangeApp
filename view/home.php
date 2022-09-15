@@ -31,7 +31,15 @@
 
         <div class="middle1">
             <h2>Home</h2>
-            <p>language selector</p>
+            <span>
+            <a href="#" class="language">language selector</a>
+            <ul class="language-popup">
+                <li><a href="#">English</a></li>
+                <li><a href="#">Korean</a></li>
+                <li><a href="#">Spanish</a></li>
+                <li><a href="#">Dutch</a></li>
+            </ul>
+        </span>
         </div>
 
         <div class="middle2">
