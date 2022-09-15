@@ -27,10 +27,6 @@ function regularLogin($response) {
     }
 }
 
-// function loginFailed() {
-//     header("Location: ./view/loginSignUpView.php?action=loginFailed");
-// }
-
 function googleLogin($response) {
     $response = json_decode(base64_decode(str_replace('', '/', str_replace('-', '+', explode('.', $response['credential'])[1]))),true);
     $login_manager = new LoginManager();

@@ -13,8 +13,6 @@ class SignUpManager extends Manager {
         $password = $response['password'];
         $passwordConfirm = $response['passwordConfirm'];
 
-        // echo $firstname;
-
         $db = $this->dbConnect();
 
         /* 
@@ -44,10 +42,7 @@ class SignUpManager extends Manager {
 
             if(count($res)!== 0){
                 $uid = $this->uidCreate(); // creating unique id for user
-                echo "<script>alert('This username is taken. You should use a unique name!');
-                </script>"; 
-                // window.history.go(-1);
-
+                echo "<script>alert('This username is taken. You should use a unique name!');</script>"; 
             }else{
                 
                 // $_SESSION['login'] = $username; 
@@ -78,20 +73,15 @@ class SignUpManager extends Manager {
                         'inEmail' => $email,
                         'inPassword' => $password                
                     ));
-                    // print_r($req);
                     echo "<script>alert('You are succefully signed up!');</script>";
-                    // 
                 } else {
                     $error = '';
-                // $newArr = array_count_values(array_values($control));
                 foreach(array_values($control) as $key){
                     if ($key != 'true')
                         $error .= $key . ' ';
                 }
-                echo "<script>alert('$error');
-                </script>"; //window.history.go(-1);
+                echo "<script>alert('$error');</script>";
                 }
-                // header("Location: index.php");
             }
 
         }
