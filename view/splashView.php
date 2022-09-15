@@ -1,8 +1,9 @@
 <?php $css = "../public/css/splash.css"; ?>
 <?php $script = "./public/js/script.js"; ?>
+
 <?php $title = "splash" ?>
 
-<?php ob_start();?>
+<?php ob_start(); ?>
 
 <!-- SECTION 1 -->
     <section class="section odd">
@@ -134,5 +135,4 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require("template.php")?>
-
+<?php require("template.php") ?>
