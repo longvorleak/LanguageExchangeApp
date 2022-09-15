@@ -1,15 +1,5 @@
 @import url("style.css");
 
-h1::after {
-    display: block;
-    content: '';
-    width: 90px;
-    height: 10px;
-    display: block;
-    background-color: var(--main-primary);
-    margin: 10px 0;
-}
-
 .splash-img {
     height: 50vh;
     width: auto;

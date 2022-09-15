@@ -1,5 +1,5 @@
-<?php $css = "../public/css/home.css"; ?>
-<?php $script = "./public/js/script.js"; ?>
+<link rel="stylesheet" href="./public/css/home.css">
+
 <?php $title = "Dashboard" ?>
 
 <?php ob_start();?>
@@ -15,11 +15,11 @@
                 <span></span>
                 <ul id="menu">
                     <a href="#"><li><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"/>My Account</li></a>
-                    <a href="#"><li><i class="fa-solid fa-house"></i>Home</li></a>
-                    <a href="#"><li><i class="fa-solid fa-user-group"></i>Browse</li></a>
-                    <a href="#"><li><i class="fa-solid fa-graduation-cap"></i>Learn</li></a>
-                    <a href="#"><li><i class="fa-solid fa-calendar"></i>Events</li></a>
-                    <a href="#"><li><i class="fa-solid fa-gear"></i>Settings</li></a>
+                    <a href="#"><li><i class="fa-solid fa-house home-icon"></i>Home</li></a>
+                    <a href="#"><li><i class="fa-solid fa-user-group home-icon"></i>Browse</li></a>
+                    <a href="#"><li><i class="fa-solid fa-graduation-cap home-icon"></i>Learn</li></a>
+                    <a href="#"><li><i class="fa-solid fa-calendar home-icon"></i>Events</li></a>
+                    <a href="#"><li><i class="fa-solid fa-gear home-icon"></i>Settings</li></a>
                     <a href="#"><li>Upgrade</li></a>
                     <a href="#"><li>Sign out</li></a>
                 </ul>
