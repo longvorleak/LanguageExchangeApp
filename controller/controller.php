@@ -1,6 +1,23 @@
 <?php
 
 require_once("./model/LoginManager.php");
+require_once("./model/SignUpManager.php");
+function startSplash() {
+    require('./view/splashView.php');
+}
+
+function signUp($response) {
+    // print_r($response);
+    $signUp_manager = new SignUpManager();
+    $google_login = $signUp_manager->signUp($response);
+    require('./view/userDashboardView.php');
+}
+
+function regularLogin($response) {
+    $login_manager = new LoginManager();
+    $regular_login = $login_manager->userCheck($response);
+    require('./view/userDashboardView.php');
+}
 
 function startSplash() {
     require('./view/splashView.php');
@@ -31,4 +48,6 @@ function googleLogin($response) {
 
 function kakaoLogin() {
     // do something
+
 }
+

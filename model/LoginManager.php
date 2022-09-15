@@ -4,6 +4,7 @@ require_once("Manager.php");
 
 class LoginManager extends Manager
 {
+
     public function uidCreate()
     {
         function crypto_rand_secure($min, $max) //https://www.php.net/manual/en/function.openssl-random-pseudo-bytes.php#104322
@@ -34,7 +35,7 @@ class LoginManager extends Manager
 
         return $token;
     }
-
+    
     public function userCheck($user_fetch) {
         $uid = $this->uidCreate(); // creating unique id for user
         $db = $this->dbConnect();
@@ -87,6 +88,8 @@ class LoginManager extends Manager
             return $response['firstname'];
         }
     }
+
+}
 
     public function kakaoCheck($user_fetch) {
 
