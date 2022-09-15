@@ -18,6 +18,9 @@ try {
         case "kakaoLogin":
             kakaoLogin($_REQUEST);
             break;
+        case "signUpFailed":
+            signUpFailed();
+            break;
         default:
             startSplash();
             break;
