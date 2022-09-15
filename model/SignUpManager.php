@@ -95,6 +95,6 @@ class SignUpManager extends Manager {
             }
 
         }
+        return $username;
     }
-}
 }
