@@ -242,9 +242,9 @@ footer p {
     
     #hamburger {
     display: block;
-    position: relative;
+    position: absolute;
     top: 50px;
-    left: 50px;
+    right: 50px;
     z-index: 1;
     -webkit-user-select: none;
     user-select: none;
@@ -338,23 +338,24 @@ footer p {
     position: absolute;
     width: 100vw;
     height: fit-content;
-    margin: -100px 0 0 -50px;
-    padding: 50px;
+    margin: -100px 0 0 0;
+    padding: 125px 50px 20px 50px;
     padding-top: 125px;
-    
+    right:-100px;
     background: var(--light-primary);
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
     /* to stop flickering of text in safari */
     
     transform-origin: 0% 0%;
-    transform: translate(-100%, 0);
+    transform: translate(100%, 0);
     
     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
     }
 
     #hamburger-menu li {
     padding: 10px 0;
+    margin-left: 20px;
     font-size: 22px;
     }
 

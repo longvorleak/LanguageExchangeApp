@@ -1,3 +1,4 @@
+<?php $css = "../public/css/aboutUs.css"; ?>
 <?php $title = "About Us"; ?>
 
 <?php ob_start(); ?>

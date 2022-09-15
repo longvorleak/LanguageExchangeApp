@@ -20,27 +20,37 @@ h1::after {
 /* //////////////////////////////////////////// */
 
 .section {
-    display: flex;
     align-items: center;
+    justify-content: center;
     height: 100vh;
-    /* padding: 30px; */
+    width: 100%;
 }
 
-.uneven {
+.odd {
+    display: flex;
     background-color: var(--white-text);
-    width: 100%;
-    height: 100vh;
 }
 
-#section2, .even {
+.even {
+    display: flex;
     background-color: var(--divider);
-    width: 100%;
-    height: 100vh;
+}
+
+.center {
+    flex-direction: column;
 }
 
 .section-text {
     width: 50%;
     margin: 0 10vh 0 10vh;
+}
+
+.center-p {
+    margin-bottom: 70px;
+    color: var(--primary-text);
+    font-size: 1.3em;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .section-img {
@@ -49,34 +59,8 @@ h1::after {
     justify-content: center;
 }
 
-/* SECTION 1 */
-.section1-div{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    margin-top: 100px;
-    width: 50vw;
-}
-
 /* SECTION 2 */
-#section2 {
-    height: 100vh;
-    padding: 30px;
-}
-
-.section2-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 50px;
-}
-
-.section2-header p{
-    margin-bottom: 70px;
-    color: var(--primary-text);
-}
-
-.section2-div{
+.section2-div {
     display: flex;
     text-align: center;
     margin: 10px 50px 10px 50px;
@@ -88,11 +72,34 @@ h1::after {
     margin: 0 50px;
 }
 
-.section2-header p{
-    font-size: 1.3em;
-    text-align: center;
-    margin-bottom: 0;
+/* SECTION 6: Review Section */
+
+.section-box {
+    display: flex;
 }
+
+.section-card {
+    background-color: var(--light-primary);
+    color: var(--divider);
+    border-radius: var(--border-radius);
+    padding: 15px;
+    margin: 10px;
+    width: 250px;
+}
+
+.checked {
+    color: var(--accent-color);
+  }
+
+ .profile-rating {
+    border-radius: 50%;
+    display: block;
+    margin: 5px auto 15px auto;
+ }
+
+/* //////////////////////////////////////////// */
+/* ///////////// MEDIA QUERIES //////////////// */
+/* //////////////////////////////////////////// */
 
 @media screen and (max-width: 940px){
     .header-right{
@@ -100,26 +107,27 @@ h1::after {
     }
 
     .section {
-        margin-top: 100px;
+        padding: 50px 0;
         flex-direction: column;
-        margin-bottom: 50px;
+        height: fit-content;
     }
 
     .splash-img {
         height: 40vh;
+        margin: 50px 0;
     }
 
-    #section2, .section {
-        height: fit-content;
-    }
-
-    .section2-div {
+    .section2-div, .section-box {
         flex-direction: column; 
     }
 
     .section2-div div{
         margin: auto;
-        width: 50%;
+        width: 80%;
+    }
+    
+    .section-text, h1, .center-p {
+        width: 80%;
     }
 
 }
