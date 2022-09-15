@@ -1,9 +1,12 @@
-<?php $css = "../public/css/splash.css"; ?>
+<link rel="stylesheet" href="../public/css/splash.css">
+
 <?php $script = "./public/js/script.js"; ?>
 
 <?php $title = "splash" ?>
 
 <?php ob_start(); ?>
+
+<?php include("headerView.php"); ?>
 
 <!-- SECTION 1 -->
     <section class="section odd">
@@ -23,24 +26,24 @@
         <p class="center-p">Learn a language, explore new cultures, and make friends</p>
         <div class="section2-div">
             <div>
-                <i class="fa-solid fa-earth-americas"></i>
+                <i class="fa-solid fa-earth-americas accent-icon"></i>
                 <h4>Global reach</h4>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci libero nihil debitis omnis, quae aliquam nemo iure vitae voluptates error totam deserunt enim atque architecto animi dignissimos ipsa, maiores natus.</p>
             </div>
             <div>
-                <i class="fa-solid fa-film"></i>
+                <i class="fa-solid fa-film accent-icon"></i>
                 <h4>Memories</h4>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis animi distinctio veritatis, nostrum totam officia placeat obcaecati pariatur rerum deserunt aperiam eveniet asperiores quisquam recusandae, qui tempore excepturi nulla maxime.</p>
             </div>
         </div>
         <div class="section2-div">
             <div>
-                <i class="fa-solid fa-language"></i>
+                <i class="fa-solid fa-language accent-icon"></i>
                 <h4>Advance language tools</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam deserunt eligendi nisi natus! Quam nemo magni rem accusamus quas perferendis dignissimos ex hic laudantium illum, ipsa dolorem culpa harum earum.</p>
             </div>
             <div>
-                <i class="fa-solid fa-champagne-glasses"></i>
+                <i class="fa-solid fa-champagne-glasses accent-icon"></i>
                 <h4>Social meet ups</h4>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, laboriosam corrupti modi enim architecto exercitationem ratione accusamus sequi porro ea doloremque, dolor sed perspiciatis suscipit esse. Blanditiis voluptatum modi sapiente?</p>
             </div>
@@ -132,6 +135,8 @@
         </div>
     </div>
     </section>
+
+<?php include("footerView.php"); ?>
 
 <?php $content = ob_get_clean(); ?>
 

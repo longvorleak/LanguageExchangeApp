@@ -10,7 +10,7 @@ function startSplash() {
 function signUp($response){
     $signup_manager = new SignUpManager();
     $user_login = $signup_manager->signUp($response);
-    require('./view/userDashboardView.php');
+    require('./view/home.php');
 }
 
 function signUpFailed($response) {
@@ -21,7 +21,7 @@ function regularLogin($response) {
     $login_manager = new LoginManager();
     $user_login = $login_manager->userLogin($response);
     if ($user_login) {
-        require('./view/userDashboardView.php');
+        require('./view/home.php');
     } else {
         header('Location: ./view/loginSignUpView.php?action=loginFailed');
     }
@@ -31,7 +31,7 @@ function googleLogin($response) {
     $response = json_decode(base64_decode(str_replace('', '/', str_replace('-', '+', explode('.', $response['credential'])[1]))),true);
     $login_manager = new LoginManager();
     $user_login = $login_manager->googleCheck($response);
-    require('./view/userDashboardView.php');
+    require('./view/home.php');
 }
 
 function kakaoLogin() {
