@@ -45,7 +45,7 @@
                 <span class="header-animation"><a href="./aboutUsView.php" class="menu">About us</a></span>
                 <span class="header-animation"><a href="#" class="menu">Premium</a></span>
                 <span class="header-animation">
-                    <a href="#" class="language" class="menu">Language</a>
+                    <a href="#" id="language" class="menu">Language</a>
                     <ul class="language-popup">
                         <li><a href="#">English</a></li>
                         <li><a href="#">Korean</a></li>
