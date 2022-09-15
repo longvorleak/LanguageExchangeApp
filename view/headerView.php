@@ -34,7 +34,7 @@
                 <span class="header-animation"><a href="./aboutUsView.php" class="menu">About us</a></span>
                 <span class="header-animation"><a href="#" class="menu">Premium</a></span> 
                 <span class="header-animation">
-                    <a href="#" class="language" class="menu">Language</a>
+                    <a href="#" id="language" class="menu">Language</a>
                     <ul class="language-popup">
                         <li><a href="#">English</a></li>
                         <li><a href="#">Korean</a></li>
@@ -43,8 +43,8 @@
                     </ul>
                 </span>
             
-                <a href="#" id="login">Log in</a>
-                <a href="#" id="signup">Sign up</a>
+                <a href="loginSignUpView.php" id="login">Log in</a>
+                <a href="loginSignUpView.php" id="signup">Sign up</a>
             
             </span>
         </div>

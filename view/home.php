@@ -11,26 +11,32 @@
 <body>
     <section class="dashboard">
         <h2>Menu</h2>
-        <ul>
-            <li><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"/>My Account</li>
-            <li><i class="fa-solid fa-house"></i>Home</li>
-            <li><i class="fa-solid fa-user-group"></i>Browse</li>
-            <li><i class="fa-solid fa-graduation-cap"></i>Learn</li>
-            <li><i class="fa-solid fa-calendar"></i>Events</li>
-            <li><i class="fa-solid fa-gear"></i>Settings</li>
-        </ul>
-        <div class="dashboard-bottom">
-            <div>
-                <p>Upgrade</p>
-                <p>Learn more</p>
+        <nav role='navigation'>
+            <div id="menuToggle">
+
+                <input id="hamburger-checkbox" type="checkbox" />
+                
+                <span></span>
+                <span></span>
+                <span></span>
+                <ul id="menu">
+                    <a href="#"><li><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"/>My Account</li></a>
+                    <a href="#"><li><i class="fa-solid fa-house"></i>Home</li></a>
+                    <a href="#"><li><i class="fa-solid fa-user-group"></i>Browse</li></a>
+                    <a href="#"><li><i class="fa-solid fa-graduation-cap"></i>Learn</li></a>
+                    <a href="#"><li><i class="fa-solid fa-calendar"></i>Events</li></a>
+                    <a href="#"><li><i class="fa-solid fa-gear"></i>Settings</li></a>
+                    <a href="#"><li>Upgrade</li></a>
+                    <a href="#"><li>Sign out</li></a>
+                </ul>
             </div>
-            <a href="#">Sign out</a>
-        </div>
+        </nav>
     </section>
     <section class="middle-section">
 
         <div class="middle1">
             <h2>Home</h2>
+            <h3>Hello <?=$user_login?>!</h3>
             <span>
             <a href="#" class="language">language selector</a>
             <ul class="language-popup">
