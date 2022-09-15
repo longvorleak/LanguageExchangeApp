@@ -2,22 +2,6 @@
 
 require_once("./model/LoginManager.php");
 require_once("./model/SignUpManager.php");
-function startSplash() {
-    require('./view/splashView.php');
-}
-
-function signUp($response) {
-    // print_r($response);
-    $signUp_manager = new SignUpManager();
-    $google_login = $signUp_manager->signUp($response);
-    require('./view/userDashboardView.php');
-}
-
-function regularLogin($response) {
-    $login_manager = new LoginManager();
-    $regular_login = $login_manager->userCheck($response);
-    require('./view/userDashboardView.php');
-}
 
 function startSplash() {
     require('./view/splashView.php');
@@ -25,7 +9,7 @@ function startSplash() {
 
 function signUp($response){
     $signup_manager = new SignUpManager();
-    // $user_login = $signup_manager->signUp($response);
+    $user_login = $signup_manager->signUp($response);
     require('./view/userDashboardView.php');
 }
 
@@ -35,8 +19,12 @@ function signUpFailed($response) {
 
 function regularLogin($response) {
     $login_manager = new LoginManager();
-    $user_login = $login_manager->userCheck($response);
-    require('./view/userDashboardView.php');
+    $user_login = $login_manager->userLogin($response);
+    if ($user_login) {
+        require('./view/userDashboardView.php');
+    } else {
+        header('Location: ./view/loginSignUpView.php?action=loginFailed');
+    }
 }
 
 function googleLogin($response) {
@@ -48,6 +36,5 @@ function googleLogin($response) {
 
 function kakaoLogin() {
     // do something
-
 }
 

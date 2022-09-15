@@ -1,4 +1,9 @@
-checkPassword = () => {
+let password = document.getElementById('password');
+password.addEventListener("keyup", checkPassword);
+let passConfirm = document.querySelector('#passwordConfirm');
+passConfirm.addEventListener('keyup',checkPassConfirm);
+
+const checkPassword = () => {
     let myRegex = /^[a-z0-9_\-!+*.]{8,}$/i;
     if(myRegex.test(password.value)){
             password.className = 'green';
@@ -11,7 +16,7 @@ checkPassword = () => {
         }
 }
 
-checkPassConfirm = () => {
+const checkPassConfirm = () => {
     let value1 = password.value;
     let value2 = passConfirm.value;
     if (value1 === value2 && value1 != '' && value2 != '') {
@@ -26,10 +31,6 @@ checkPassConfirm = () => {
 }
 
 
-let password = document.getElementById('password');
-password.addEventListener("keyup", checkPassword);
-let passConfirm = document.querySelector('#passwordConfirm');
-passConfirm.addEventListener('keyup',checkPassConfirm);
 
 
 let myForm = document.getElementById('signUp');

@@ -19,8 +19,11 @@ try {
             kakaoLogin($_REQUEST);
             break;
         case "signUpFailed":
-            signUpFailed();
+            // signUpFailed();
             break;
+        // case "loginFailed":
+        //     loginFailed();
+        //     break;
         default:
             startSplash();
             break;
