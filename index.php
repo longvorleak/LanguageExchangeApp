@@ -6,17 +6,20 @@ try {
     $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : null;
 
     switch ($action) {
+        case "signUp":
+            signUp($_REQUEST);
+            break;
+        case "regularLogin":
+            regularLogin($_REQUEST);
+            break;
         case "googleLogin":
             googleLogin($_REQUEST);
             break;
-        case "newSignUp":
-            newSignUp($_REQUEST);
-            break;
-        case "emailLogin":
-            // do something
-            break;
         case "kakaoLogin":
-            // do something
+            kakaoLogin($_REQUEST);
+            break;
+        case "signUpFailed":
+            signUpFailed();
             break;
         default:
             startSplash();

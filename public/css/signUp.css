@@ -1,0 +1,120 @@
+.main {
+    display: flex;
+    justify-content: center;
+    margin: 5%;
+    padding: 10px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, .12);
+    border-radius: 10px;
+}
+
+.signIn, .signUp{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    padding: 5%;
+
+}
+
+.signUp {
+    color: white;
+    background-color: tomato;
+    border-radius: 0 10px 10px 0;
+}
+
+
+.error {
+    font-size: smaller;
+    display: none;
+}
+
+.green {
+  border: 3px solid green;
+  }
+  .red {
+  border: 3px solid red;
+  }
+
+input[type="text"]{
+    border: 3px solid green;
+}
+
+.red {
+    border: 3px solid red;
+}
+
+input[type="text"] {
+    color: black;
+    display: flex;
+    margin: 10px;
+    padding: 10px 35px;
+    height: auto;
+    max-width: 70%;
+}
+
+input[type="checkbox"] {
+    position: absolute;
+}
+
+label {
+    left: 30px;
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+a {
+    width: 100%;
+    display: block;
+    padding: 10px;
+}
+
+.elements{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.elements input[type="text"]{
+  display: flex;
+  margin: 10px;
+  padding: 10px 35px;
+  height: 25px;
+
+}
+
+.sending{
+  display: flex;
+  flex-wrap: wrap;
+    justify-content: center;
+}
+
+.elements {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.elements input[type="text"] {
+    display: flex;
+    margin: 10px;
+    padding: 10px 35px;
+    height: 25px;
+}
+
+.sending {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
