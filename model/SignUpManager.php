@@ -31,18 +31,22 @@ class SignUpManager extends Manager {
    
             $uid = $this->uidCreate(); // creating unique id for user
 
-            $req = $db->prepare("SELECT u.username, u.uid, u.email FROM users u WHERE u.username = :inUser OR u.uid = :inUid OR u.email = :inEmail"); //email also should include
+            $req = $db->prepare("SELECT username, uid, email FROM users WHERE username = :inUser OR uid = :inUid OR email = :inEmail"); //email also should include
             $req ->execute(array(
                 'inUser' => $username,
                 'inUid' => $uid,
                 'inEmail' => $email
             ));
-            $res = $req->fetchAll(PDO::FETCH_ASSOC);
-
+            $res = $req->fetch(PDO::FETCH_ASSOC);
 
             if(count($res)!== 0){
-                $uid = $this->uidCreate(); // creating unique id for user
-                echo "<script>alert('This username is taken. You should use a unique name!');</script>"; 
+                
+                if($res['username'] == $username) 
+                    echo "<script>alert('This username is taken. You should use a unique name!'); window.history.go(-1);</script>";
+                if($res['email'] == $email)
+                    echo "<script>alert('This email is taken. You should use a unique email adress!');window.history.go(-1);</script>";
+                if ($res['uid'] == $uid)
+                    $uid = $this->uidCreate(); // creating unique id for user
             }else{
                 
                 // $_SESSION['login'] = $username; 
@@ -80,7 +84,7 @@ class SignUpManager extends Manager {
                     if ($key != 'true')
                         $error .= $key . ' ';
                 }
-                echo "<script>alert('$error');</script>";
+                echo "<script>alert('$error');window.history.go(-1);</script>";
                 }
             }
 

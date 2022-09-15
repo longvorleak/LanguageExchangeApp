@@ -55,7 +55,7 @@
                 </span>
 
                 <a href="./view/loginSignUpView.php" id="login">Log in</a>
-                <a href="loginSignUpView.php" id="signup">Sign up</a>
+                <a href="./view/loginSignUpView.php" id="signup">Sign up</a>
 
             </span>
         </div>
