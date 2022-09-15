@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="../public/css/style.css">
         <link rel="stylesheet" href="../public/css/aboutUs.css">
         <link rel="stylesheet" href="../public/css/splash.css">
+
         <link rel="stylesheet" href=<?= $css; ?>>
         <script src="../public/js/script.js" defer></script>
         <script src=<?= $script; ?> defer></script>
@@ -16,7 +17,9 @@
     </head>
     <body>
         <?php include("headerView.php"); ?>
+        
         <?= $content; ?>
+
         <?php include("footerView.php"); ?>
     </body>
 </html>
