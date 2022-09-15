@@ -8,7 +8,7 @@ function startSplash() {
 
 function signUp($response){
     $signup_manager = new SignUpManager();
-    $user_login = $signup_manager->signUp($response);
+    // $user_login = $signup_manager->signUp($response);
     require('./view/userDashboardView.php');
 }
 
