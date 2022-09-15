@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/css/home.css"/>
-    <script src="https://kit.fontawesome.com/1ae923e323.js" crossorigin="anonymous"></script>
-    <title>home</title>
-</head>
-<body>
+<?php $css = "../public/css/home.css"; ?>
+<?php $script = "./public/js/script.js"; ?>
+<?php $title = "Dashboard" ?>
+
+<?php ob_start();?>
     <section class="dashboard">
         <h2>Menu</h2>
         <ul>
@@ -64,5 +58,7 @@
                 friends list
             </div>
     </section>
-</body>
-</html>
+    
+<?php $content = ob_get_clean(); ?>
+
+<?php require("template.php") ?>
