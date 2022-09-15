@@ -3,8 +3,7 @@
 require_once("Manager.php");
 
 class SignUpManager extends Manager {
-
-    
+ 
     public function signUp($response){
 
         $firstname = $response['firstname'];
@@ -97,7 +96,5 @@ class SignUpManager extends Manager {
 
         }
     }
-
-
-    
+}
 }

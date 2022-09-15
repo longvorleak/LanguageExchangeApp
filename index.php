@@ -6,19 +6,23 @@ try {
     $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : null;
 
     switch ($action) {
-        case "googleLogin":
-            googleLogin($_REQUEST);
-            break;
         case "signUp":
             signUp($_REQUEST);
             break;
-        case "emailLogin":
-            // do something
+        case "regularLogin":
+            regularLogin($_REQUEST);
+            break;
+        case "googleLogin":
+            googleLogin($_REQUEST);
             break;
         case "kakaoLogin":
-            // do something
+            kakaoLogin($_REQUEST);
+            break;
+        case "signUpFailed":
+            signUpFailed();
             break;
         default:
+            startSplash();
             break;
     }
 } catch (Exception $e) { // if we catch an exception

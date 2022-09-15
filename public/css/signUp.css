@@ -1,15 +1,11 @@
-body{
-    margin: 0 !important;  /* belli bir ozelligin hepsinden once aktif olmasini istiyorsan kullanilir. her zaman kullanilmasi onerilmez */
-    padding: 0;
-    width: 100%;
-}
-.main{
+.main {
     display: flex;
     justify-content: center;
     margin: 5%;
     padding: 10px;
 }
-.container{
+
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,16 +23,17 @@ body{
     padding: 5%;
 
 }
-.signUp{
+
+.signUp {
     color: white;
     background-color: tomato;
     border-radius: 0 10px 10px 0;
 }
 
-.error{
-  font-size: smaller;
-  display: none;
 
+.error {
+    font-size: smaller;
+    display: none;
 }
 
 .green {
@@ -46,9 +43,15 @@ body{
   border: 3px solid red;
   }
 
-
-
 input[type="text"]{
+    border: 3px solid green;
+}
+
+.red {
+    border: 3px solid red;
+}
+
+input[type="text"] {
     color: black;
     display: flex;
     margin: 10px;
@@ -57,21 +60,22 @@ input[type="text"]{
     max-width: 70%;
 }
 
-input[type="checkbox"]{
-    /* position: absolute; */
+input[type="checkbox"] {
+    position: absolute;
 }
+
 label {
     left: 30px;
     position: relative;
     display: block;
     width: 100%;
 }
-a{
+
+a {
     width: 100%;
     display: block;
     padding: 10px;
 }
-
 
 .elements{
   display: flex;
@@ -91,5 +95,26 @@ a{
 .sending{
   display: flex;
   flex-wrap: wrap;
+    justify-content: center;
+}
+
+.elements {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.elements input[type="text"] {
+    display: flex;
+    margin: 10px;
+    padding: 10px 35px;
+    height: 25px;
+}
+
+.sending {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
