@@ -6,12 +6,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../public/css/style.css">
         <link rel="stylesheet" href="../public/css/aboutUs.css">
+        <link rel="stylesheet" href="../public/css/splash.css">
         <script src="../public/js/script.js" defer></script>
         <script src="https://accounts.google.com/gsi/client" async defer></script>
         <script src="https://kit.fontawesome.com/ed779ab57c.js" crossorigin="anonymous"></script>
         <title><?= $title; ?></title>
     </head>
     <body>
+
+        <?php include("headerView.php"); ?>
+        
         <?= $content; ?>
+
+        <?php include("footerView.php"); ?>
     </body>
 </html>
