@@ -1,0 +1,125 @@
+@import url("style.css");
+
+h1::after {
+    display: block;
+    content: '';
+    width: 90px;
+    height: 10px;
+    display: block;
+    background-color: var(--main-primary);
+    margin: 10px 0;
+}
+
+.splash-img {
+    height: 50vh;
+    width: auto;
+}
+
+/* //////////////////////////////////////////// */
+/* /////////////////SECTIONS/////////////////// */
+/* //////////////////////////////////////////// */
+
+.section {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    /* padding: 30px; */
+}
+
+.uneven {
+    background-color: var(--white-text);
+    width: 100%;
+    height: 100vh;
+}
+
+#section2, .even {
+    background-color: var(--divider);
+    width: 100%;
+    height: 100vh;
+}
+
+.section-text {
+    width: 50%;
+    margin: 0 10vh 0 10vh;
+}
+
+.section-img {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+/* SECTION 1 */
+.section1-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 100px;
+    width: 50vw;
+}
+
+/* SECTION 2 */
+#section2 {
+    height: 100vh;
+    padding: 30px;
+}
+
+.section2-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.section2-header p{
+    margin-bottom: 70px;
+    color: var(--primary-text);
+}
+
+.section2-div{
+    display: flex;
+    text-align: center;
+    margin: 10px 50px 10px 50px;
+}
+
+.section2-div div {
+    display: flex;
+    flex-direction: column;
+    margin: 0 50px;
+}
+
+.section2-header p{
+    font-size: 1.3em;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+@media screen and (max-width: 940px){
+    .header-right{
+        gap: 3px;
+    }
+
+    .section {
+        margin-top: 100px;
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
+
+    .splash-img {
+        height: 40vh;
+    }
+
+    #section2, .section {
+        height: fit-content;
+    }
+
+    .section2-div {
+        flex-direction: column; 
+    }
+
+    .section2-div div{
+        margin: auto;
+        width: 50%;
+    }
+
+}
