@@ -4,7 +4,7 @@
 
 <?php ob_start(); ?>
 
-<?php include(ROOT . "../view/headerView.php"); ?>
+<?php include(ROOT . "/view/headerView.php"); ?>
 
 <!-- SECTION 1 -->
 <section class="section odd">
@@ -131,7 +131,7 @@
     </div>
 </section>
 
-<?php include(ROOT . "../view/footerView.php"); ?>
+<?php include(ROOT . "/view/footerView.php"); ?>
 
 <?php $content = ob_get_clean(); ?>
 

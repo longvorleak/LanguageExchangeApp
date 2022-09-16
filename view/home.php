@@ -35,7 +35,7 @@
                 <a href="#">
                     <li>Upgrade</li>
                 </a>
-                <a href="#">
+                <a href=<?= BASE . "./index.php?action=signOut" ?>>
                     <li>Sign out</li>
                 </a>
             </ul>

@@ -49,3 +49,9 @@ function premium() {
 function login() {
     require('./view/loginSignUpView.php');
 }
+
+function userSignOut() {
+    // session_destroy();
+    // session_unset();
+    require('./view/landingPageView.php');
+}

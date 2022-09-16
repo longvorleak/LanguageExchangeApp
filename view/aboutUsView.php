@@ -67,7 +67,7 @@
     </div>
 </div>
 
-<?php include(ROOT . "../view/footerView.php"); ?>
+<?php include(ROOT . "/view/footerView.php"); ?>
 
 <?php $content = ob_get_clean(); ?>
 
