@@ -53,6 +53,7 @@ class LoginManager extends Manager
                 header('Location: ./index.php?action=loginFailed');
             }
         } else {
+            // TODO: change from * to selected columns
             $req = $db->prepare('SELECT * FROM users WHERE email = ? OR uid = ?');
             $req->execute(array(htmlspecialchars($user_fetch['email']), $uid));
         }
@@ -68,12 +69,15 @@ class LoginManager extends Manager
         $db = $this->dbConnect();
 
         if (isset($user_fetch['username']) and isset($user_fetch['password'])) {
+            // TODO: change from * to selected columns
             $req = $db->prepare('SELECT * FROM users WHERE email = ? OR uid = ? OR username = ?');
             $req->execute(array(htmlspecialchars($user_fetch['email'], $uid, htmlspecialchars($user_fetch['username']))));
         } else if (isset($user_fetch['usernameEmail'])) {
+            // TODO: change from * to selected columns
             $req = $db->prepare('SELECT * FROM users WHERE email = ? OR uid = ? OR username = ?');
             $req->execute(array(htmlspecialchars($user_fetch['usernameEmail']), $uid, htmlspecialchars($user_fetch['usernameEmail'])));
         } else {
+            // TODO: change from * to selected columns
             $req = $db->prepare('SELECT * FROM users WHERE email = ? OR uid = ?');
             $req->execute(array(htmlspecialchars($user_fetch['email']), $uid));
         }
@@ -116,6 +120,7 @@ class LoginManager extends Manager
                 'inEmail' => $user_fetch['email']
             ));
 
+            // TODO: change from * to selected columns
             $req = $db->prepare('SELECT * FROM users WHERE email = ?');
             $req->execute(array($user_fetch['email']));
             $response = $req->fetch(PDO::FETCH_ASSOC);
