@@ -40,6 +40,7 @@ body{
 /* LEFT SECTION */
 .dashboard{
     width: 15vw;
+    min-width: 160px;
 }
 
 .dashboard h2{
@@ -54,6 +55,10 @@ body{
     margin-top: 30px;
 }
 
+.dashboard ul a{
+    align-self: flex-start;
+}
+
 li img{
     height: 20px;
     width: 20px;
@@ -62,6 +67,7 @@ li img{
 
 i{
     margin-right: 10px;
+    min-width: 30px;
 }
 
 .dashboard ul li{
@@ -70,11 +76,12 @@ i{
     border-radius: 6px;
     color: black;
     height: 30px;
-    width: 140px;
-    align-self: center;
+    /* width: 140px; */
     list-style: none;
     padding-top: 10px;
+    margin-left: 20px;
 }
+
 
 li:hover{
     background-color: rgba(255, 255, 255, 0.2);
@@ -102,6 +109,7 @@ li:hover{
     padding-bottom: 10px;
     gap: 10px;
 }
+
 
 
 /* MIDDLE SECTION */
