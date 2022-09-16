@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="../public/css/signUp.css">
-<?php $script = "../public/js/script.js"; ?>
+<?php $script = "./public/js/script.js"; ?>
 
 <?php $title = "Login"; ?>
 

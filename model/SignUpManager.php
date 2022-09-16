@@ -37,14 +37,28 @@ class SignUpManager extends Manager {
                 'inUid' => $uid,
                 'inEmail' => $email
             ));
-            $res = $req->fetchAll(PDO::FETCH_ASSOC);
+            $res = $req->fetch(PDO::FETCH_ASSOC);
+
+            echo "<pre>";
+            print_r($res);
+            // echo "<br>{$res['email']}";
 
 
-            if(count($res)!== 0){
-                $uid = $this->uidCreate(); // creating unique id for user
-                echo "<script>alert('This username is taken. You should use a unique name!');</script>"; 
-            }else{
-                
+            if(count($res) !== 0){
+                // $uid = $this->uidCreate(); // creating unique id for user
+                if ($res['username'] == $username && $res['email'] == $email) {
+                    echo "<script>alert('This username and email is taken. You should use a unique name!'); window.history.go(-1);</script>";
+
+                } else if ($res['email'] == $email) {
+                    echo "<script>alert('This email is taken. You should use a unique email adress!'); window.history.go(-1);</script>";
+
+                } else if ($res['username'] == $username) {
+                    echo "<script>alert('This username is taken. You should use a unique name!'); window.history.go(-1);</script>";
+                } else {
+                    if ($res['uid'] == $uid)
+                    $uid = $this->uidCreate(); 
+                }
+            } else {
                 // $_SESSION['login'] = $username; 
 
                 
@@ -80,7 +94,7 @@ class SignUpManager extends Manager {
                     if ($key != 'true')
                         $error .= $key . ' ';
                 }
-                echo "<script>alert('$error');</script>";
+                echo "<script>alert('$error');window.history.go(-1);</script>";
                 }
             }
 

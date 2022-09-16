@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../public/css/aboutUs.css">
+<link rel="stylesheet" href="./public/css/aboutUs.css">
 <!-- <?php $css = "./public/css/aboutUs.css"; ?> -->
 
 <?php $title = "About Us"; ?>

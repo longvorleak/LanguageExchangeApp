@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../public/css/header.css">
+<link rel="stylesheet" href="./public/css/header.css">
 
 <header>
     <div id="hamburger">
@@ -8,16 +8,16 @@
         <span class="hamburger-line"></span>
 
         <ul id="hamburger-menu">
-            <a href="./loginSignUpView.php">
+            <a href="./view//loginSignUpView.php">
                 <li>Log In</li>
             </a>
-            <a href="./loginSignUpView.php">
+            <a href="./view/loginSignUpView.php">
                 <li>Sign Up</li>
             </a>
-            <a href="./splashView.php">
+            <a href="./view/splashView.php">
                 <li>Home</li>
             </a>
-            <a href="./aboutUsView.php">
+            <a href="./view/aboutUsView.php">
                 <li>About Us</li>
             </a>
             <a href="#">
@@ -56,8 +56,8 @@
                     </ul>
                 </span>
 
-                <a href="./loginSignUpView.php" id="login">Log in</a>
-                <a href="./loginSignUpView.php" id="signup">Sign up</a>
+                <a href="./view/loginSignUpView.php" id="login">Log in</a>
+                <a href="./view/loginSignUpView.php" id="signup">Sign up</a>
 
             </span>
         </div>
