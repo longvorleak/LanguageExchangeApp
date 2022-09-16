@@ -10,7 +10,7 @@
     <h1>Premium Shit</h1>
 </div>
 
-<?php include(ROOT . "../view/footerView.php"); ?>
+<?php include(ROOT . "/view/footerView.php"); ?>
 
 <?php $content = ob_get_clean(); ?>
 
