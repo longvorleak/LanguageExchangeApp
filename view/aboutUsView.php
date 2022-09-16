@@ -1,8 +1,10 @@
-<?php $title = "About Us"; ?>
+<link rel="stylesheet" href=<?= BASE . "/public/css/aboutUs.css" ?>>
+
+<?php $title = "SpeakEasy - About Us"; ?>
 
 <?php ob_start(); ?>
 
-<?php include("headerView.php"); ?>
+<?php include(ROOT . "/view/headerView.php"); ?>
 
 <div class="dark">
     <div class="section-header">
@@ -65,7 +67,7 @@
     </div>
 </div>
 
-<?php include("footerView.php"); ?>
+<?php include(ROOT . "/view/footerView.php"); ?>
 
 <?php $content = ob_get_clean(); ?>
 

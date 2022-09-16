@@ -1,6 +1,11 @@
 <?php
 define ('ROOT', dirname(__FILE__));
 
+define('ROOT', dirname(__FILE__));
+
+$httpProtocol = !isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != 'on' ? 'http' : 'https';
+define('BASE', $httpProtocol . '://' . $_SERVER['HTTP_HOST'] . '/sites/LanguageExchangeApp');
+
 require("./controller/controller.php");
 
 try {
@@ -24,7 +29,19 @@ try {
             break;
         // case "loginFailed":
         //     loginFailed();
-        //     break;
+            break;
+        case "aboutUs":
+            aboutUs();
+            break;
+        case "premium":
+            premium();
+            break;
+        case "login":
+            login();
+            break;
+        case "signOut":
+            userSignOut();
+            break;
         default:
             startSplash();
             break;

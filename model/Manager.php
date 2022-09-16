@@ -38,3 +38,13 @@ class Manager
         return $token;
     }
 }
+
+// if (!isset($user_login)) {
+//     throw new Exception("401 - Not authorized");
+// }
+// if (!isset($_SESSION['uid'])) {
+//     throw new Exception("401 - Not authorized");
+// }
+// if (!isset($user_login)) {
+//     throw new Exception("401 - Not authorized");
+// }

@@ -4,7 +4,7 @@ require_once("./model/LoginManager.php");
 require_once("./model/SignUpManager.php");
 
 function startSplash() {
-    require('./view/splashView.php');
+    require('./view/landingPageView.php');
 }
 
 function signUp($response){
@@ -38,3 +38,20 @@ function kakaoLogin() {
     // do something
 }
 
+function aboutUs() {
+    require('./view/aboutUsView.php');
+}
+
+function premium() {
+    require('./view/premiumView.php');
+}
+
+function login() {
+    require('./view/loginSignUpView.php');
+}
+
+function userSignOut() {
+    // session_destroy();
+    // session_unset();
+    require('./view/landingPageView.php');
+}

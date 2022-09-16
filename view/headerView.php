@@ -6,19 +6,19 @@
         <span class="hamburger-line"></span>
 
         <ul id="hamburger-menu">
-            <a href="./loginSignUpView.php">
+            <a href=<?= BASE . "/index.php?action=loginSignUp" ?>>
                 <li>Log In</li>
             </a>
-            <a href="./loginSignUpView.php">
+            <a href=<?= BASE . "/index.php?action=loginSignUp" ?>>
                 <li>Sign Up</li>
             </a>
-            <a href="./splashView.php">
+            <a href=<?= BASE . "/index.php?action=landing" ?>>
                 <li>Home</li>
             </a>
-            <a href="./aboutUsView.php">
+            <a href=<?= BASE . "/index.php?action=aboutUs" ?>>
                 <li>About Us</li>
             </a>
-            <a href="#">
+            <a href=<?= BASE . "/index.php?action=premium" ?>>
                 <li>Premium</li>
             </a>
 
@@ -42,8 +42,8 @@
         </a>
         <div>
             <span class="header-right">
-                <span class="header-animation"><a href="./view/aboutUsView.php" class="menu">About us</a></span>
-                <span class="header-animation"><a href="#" class="menu">Premium</a></span>
+                <span class="header-animation"><a href=<?= BASE . "/index.php?action=aboutUs" ?> class="menu">About us</a></span>
+                <span class="header-animation"><a href=<?= BASE . "/index.php?action=premium" ?> class="menu">Premium</a></span>
                 <span class="header-animation">
                     <a href="#" id="language" class="menu">Language</a>
                     <ul class="language-popup">
@@ -54,8 +54,8 @@
                     </ul>
                 </span>
 
-                <a href="./loginSignUpView.php" id="login">Log in</a>
-                <a href="./loginSignUpView.php" id="signup">Sign up</a>
+                <a href=<?= BASE . "/index.php?action=login" ?> id="login">Log in</a>
+                <a href=<?= BASE . "/index.php?action=login" ?> id="signup">Sign up</a>
 
             </span>
         </div>
