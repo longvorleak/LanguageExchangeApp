@@ -1,7 +1,10 @@
-<?php $css = "./public/css/aboutUs.css"; ?>
-<?php $title = "About Us"; ?>
+<link rel="stylesheet" href=<?= BASE . "/public/css/aboutUs.css" ?>>
+
+<?php $title = "SpeakEasy - About Us"; ?>
 
 <?php ob_start(); ?>
+
+<?php include(ROOT . "/view/headerView.php"); ?>
 
 <div class="dark">
     <div class="section-header">
@@ -45,25 +48,27 @@
     <div class="contact">
         <div>
             <h4>General Inquiries</h4>
-            <i class="fa-solid fa-comment-dots"></i>
+            <i class="fa-solid fa-comment-dots accent-icon"></i>
             <p class="contact-text">You can reach us by email for press, partnerships, and any other general inquiries. We'd love to hear from you!</p>
             <a href="mailto:" class="about-button">Contact us</a>
         </div>
         <div>
             <h4>Customer Support</h4>
-            <i class="fa-solid fa-envelope"></i>
+            <i class="fa-solid fa-envelope accent-icon"></i>
             <p class="contact-text">Please send us your feedback, feature suggestion or let us know is something is not working as expected.</p>
             <a href="mailto:" class="about-button">Email us</a>
         </div>
         <div>
             <h4>Careers</h4>
-            <i class="fa-solid fa-briefcase"></i>
+            <i class="fa-solid fa-briefcase accent-icon"></i>
             <p class="contact-text">You don't want just another job. Well, we're not just another company.</p>
             <a href="#" class="about-button">Join us</a>
         </div>
     </div>
 </div>
 
+<?php include(ROOT . "../view/footerView.php"); ?>
+
 <?php $content = ob_get_clean(); ?>
 
-<?php require("template.php") ?>
+<?php require("template.php"); ?>

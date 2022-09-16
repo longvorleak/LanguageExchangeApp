@@ -1,0 +1,39 @@
+@import url("style.css");
+
+footer {
+    background-color: var(--dark-primary);
+    color: var(--white-text);
+    padding: 20px;
+}
+
+.fa-brands {
+    color: var(--white-text);
+}
+
+.footer, .footer div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+footer a, footer p {
+    color: var(--white-text);
+    text-align: center;
+}
+
+footer p {
+    font-size: 0.8em;
+    padding: 10px;
+}
+
+/* //////////////////////////////////////////// */
+/* /////////////// MEDIA QUERIES ////////////// */
+/* //////////////////////////////////////////// */
+
+@media screen and (max-width: 700px){
+
+    .footer{
+        flex-direction: column;
+    }
+}

@@ -27,16 +27,21 @@ body, html {
     color: var(--secondary-text);
 }
 
-/* hides the hamburger menu */
-#hamburger {
-    display: none;
-}
-
 h1 {
     font-size: 2.2em;
     color: var(--primary-text);
     text-transform: capitalize;
     margin-bottom: 35px;
+}
+
+h1::after {
+    display: block;
+    content: '';
+    width: 90px;
+    height: 10px;
+    display: block;
+    background-color: var(--main-primary);
+    margin: 10px 0;
 }
 
 h4 {
@@ -68,160 +73,11 @@ button:hover {
 
 /* font awesome icon */
 
-.fa-solid {
+.accent-icon {
     font-size: 3em;
     color: var(--accent-color);
 }
 
-/* //////////////////////////////////////////// */
-/* //////////// HEADER AND FOOTER ///////////// */
-/* //////////////////////////////////////////// */
-
-/* HEADER */
-
-#logo-img{
-    width: 180px;
-    margin-left: 30px;
-}
-
-li {
-    padding-bottom: 20px;
-}
-
-#no-hamburger{
-    display: flex;
-    justify-content: space-between;
-    position: fixed;
-    width: 99vw;
-    background-color: var(--dark-primary);
-    align-items: center;
-    box-shadow:  0px 2px 1px rgba(204, 204, 205, 0.5);
-}
-
-.header-right{
-    display: flex;
-    gap: 20px;
-    font-size: 1em;
-}
-
-.header-animation a{
-    transition-duration: 2s ease-in-out;
-    border: none;
-    border-radius: var(--button-radius);
-    padding: 8px;
-    color: var(--white-text);
-}
-
-.header-animation a:hover{
-    background-color: rgba(255, 255, 255, 0.2);
-    transition: 0.1s ease-in-out;
-    z-index: 3;
-}
-
-/* LOGIN SIGNUP */
-#login, #signup {
-    font-size: 1em;
-    font-weight:400;
-    border-radius: 25px;
-    padding: 5px;
-    width: 80px;
-    border: 2px solid var(--divider);
-    text-align: center;
-    text-transform: capitalize;
-}
-
-#login {
-    margin-left: 30px;
-    color: var(--divider);
-    background-color: var(--dark-primary);
-}
-
-#signup {
-    border: none;
-    background-color: var(--divider);
-    margin-right: 30px;
-    color: var(--dark-primary);
-}
-
-#login:hover{
-    transform: scale(1.1);
-    background-color: var(--dark-primary);
-    transition: 0.1s ease-in-out;
-}
-
-#signup:hover{
-    transform: scale(1.1);
-    background-color: var(--divider);
-    transition: 0.1s ease-in-out;
-}
-
-/* FOOTER */
-
-footer {
-    background-color: var(--dark-primary);
-    color: var(--white-text);
-    padding: 20px;
-}
-
-.fa-brands {
-    color: var(--white-text);
-}
-
-.footer, .footer div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-}
-
-footer a, footer p {
-    color: var(--white-text);
-    text-align: center;
-}
-
-footer p {
-    font-size: 0.8em;
-    padding: 10px;
-}
-
-/* LANGUAGE POPUP */
-.language-popup {
-    position: absolute;
-    visibility: hidden;  
-    opacity: 0;
-    top:20;
-    transform: translateY(0);
-    list-style: none;
-    z-index: 1;
-    width: 102px;
-    height: auto;
-    text-align: center;
-    transition: all 0.3s ease 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s; 
-}
-
-.language:hover ~ .language-popup,
-.language:focus-within ~ .language-popup,
-.language:focus ~ .language-popup{
-    visibility: visible;
-    opacity: 1;
-    z-index: 2;
-    width: 102px;
-    transform: translateY(20px);
-    transition-delay: 0s, 0s, 0.3s;
-    background-color: var(--dark-primary);
-    border-radius: 0px 0px 25px 25px;
-}
-
-.language{
-    border-radius: 25px 25px 0px 0px;
-    text-decoration: none;
-}
-
-.language:hover,
-.language:focus-within,
-.language:focus{
-    background-color: rgba(204, 204, 205, 0.2);
-}
 
 /* //////////////////////////////////////////// */
 /* /////////////// MEDIA QUERIES ////////////// */
@@ -230,152 +86,5 @@ footer p {
 @media screen and (max-width: 1015px){
     .header-right{
         gap: 5px;
-    }
-}
-
-@media screen and (max-width: 780px){
-
-    /* Hamburger menu */
-    #no-hamburger{
-        display: none;
-    }
-    
-    #hamburger {
-    display: block;
-    position: relative;
-    top: 50px;
-    left: 50px;
-    z-index: 1;
-    -webkit-user-select: none;
-    user-select: none;
-    }
-
-    #hamburger a {
-    text-decoration: none;
-    transition: color 0.3s ease;
-    }
-
-    #hamburger a:hover {
-    color: var(--main-primary)
-    }
-
-    #hamburger input {
-    display: block;
-    width: 40px;
-    height: 32px;
-    position: absolute;
-    top: -7px;
-    left: -5px;
-    
-    cursor: pointer;
-    
-    opacity: 0; /* hide this */
-    z-index: 2; /* and place it over the hamburger */
-    
-    -webkit-touch-callout: none;
-    }
-
-    /*
-    * Just a quick hamburger
-    */
-    #hamburger span {
-    display: block;
-    width: 33px;
-    height: 4px;
-    margin-bottom: 5px;
-    position: relative;
-    
-    background: var(--primary-text);
-    border-radius: 3px;
-    
-    z-index: 1;
-    
-    transform-origin: 4px 0px;
-    
-    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-                background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-                opacity 0.55s ease;
-    }
-
-    #hamburger span:first-child {
-    transform-origin: 0% 0%;
-    }
-
-    #hamburger span:nth-last-child(2) {
-    transform-origin: 0% 100%;
-    }
-
-    /* 
-    * Transform all the slices of hamburger
-    * into a crossmark.
-    */
-    #hamburger input:checked ~ .hamburger-line {
-    opacity: 1;
-    transform: rotate(45deg) translate(-2px, -1px);
-    background: var(--primary-text);
-    }
-
-    /*
-    * But let's hide the middle one.
-    */
-    #hamburger input:checked ~ span:nth-last-child(3) {
-    opacity: 0;
-    transform: rotate(0deg) scale(0.2, 0.2);
-    }
-
-    /*
-    * the last one should go the other direction
-    */
-    #hamburger input:checked ~ span:nth-last-child(2) {
-    transform: rotate(-45deg) translate(0, -1px);
-    }
-
-    /*
-    * Make this absolute positioned
-    * at the top left of the screen
-    */
-    #hamburger-menu {
-    position: absolute;
-    width: 100vw;
-    height: fit-content;
-    margin: -100px 0 0 -50px;
-    padding: 50px;
-    padding-top: 125px;
-    
-    background: var(--light-primary);
-    list-style-type: none;
-    -webkit-font-smoothing: antialiased;
-    /* to stop flickering of text in safari */
-    
-    transform-origin: 0% 0%;
-    transform: translate(-100%, 0);
-    
-    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
-    }
-
-    #hamburger-menu li {
-    padding: 10px 0;
-    font-size: 22px;
-    }
-
-    /*
-    * Slide it in from the left
-    */
-    #hamburger input:checked ~ ul {
-    transform: none;
-    }
-
-    .language:hover ~ .language-popup,
-    .language:focus-within ~ .language-popup,
-    .language:focus ~ .language-popup {
-        background-color: var(--light-primary);
-}
-
-}
-
-@media screen and (max-width: 700px){
-
-    .footer{
-        flex-direction: column;
     }
 }
