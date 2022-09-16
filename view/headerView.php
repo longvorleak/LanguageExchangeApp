@@ -56,8 +56,8 @@
                     </ul>
                 </span>
 
-                <a href="./loginSignUpView.php" id="login">Log in</a>
-                <a href="./loginSignUpView.php" id="signup">Sign up</a>
+                <a href=<?= BASE . "/index.php?action=login" ?> id="login">Log in</a>
+                <a href=<?= BASE . "/index.php?action=login" ?> id="signup">Sign up</a>
 
             </span>
         </div>
