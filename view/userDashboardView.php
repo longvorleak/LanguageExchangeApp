@@ -1,4 +1,3 @@
-<?php $css = "./public/css/style.css"; ?>
 <?php $title = "Welcome $user_login!" ?>
 
 <?php ob_start(); ?>

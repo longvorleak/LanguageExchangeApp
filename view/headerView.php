@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="../public/css/header.css">
-
 <header>
     <div id="hamburger">
         <input type="checkbox" />
@@ -37,14 +35,14 @@
     </div>
 
     <div id="no-hamburger">
-        <a href="./splashView.php">
+        <a href="./index.php">
             <div class="logo">
                 <img src="https://4m4you.com/wp-content/uploads/2020/06/logo-placeholder-300x120.png" id="logo-img">
             </div>
         </a>
         <div>
             <span class="header-right">
-                <span class="header-animation"><a href="./aboutUsView.php" class="menu">About us</a></span>
+                <span class="header-animation"><a href="./view/aboutUsView.php" class="menu">About us</a></span>
                 <span class="header-animation"><a href="#" class="menu">Premium</a></span>
                 <span class="header-animation">
                     <a href="#" id="language" class="menu">Language</a>

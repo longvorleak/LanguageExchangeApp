@@ -1,6 +1,3 @@
-<link rel="stylesheet" href="../public/css/aboutUs.css">
-<!-- <?php $css = "./public/css/aboutUs.css"; ?> -->
-
 <?php $title = "About Us"; ?>
 
 <?php ob_start(); ?>
@@ -72,4 +69,4 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require("template.php") ?>
+<?php require("template.php"); ?>

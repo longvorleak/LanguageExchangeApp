@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="../public/css/splash.css">
-
 <?php $script = "./public/js/script.js"; ?>
 
 <?php $title = "splash" ?>
@@ -11,7 +9,7 @@
 <!-- SECTION 1 -->
     <section class="section odd">
         <div class="section-img">
-            <img src="../public/images/undraw_Community_re_cyrm.png" alt="splash" title="splash" class="splash-img" />
+            <img src="./public/images/undraw_Community_re_cyrm.png" alt="splash" title="splash" class="splash-img" />
         </div>
         <div class="section-text">
             <h1>Learn a new language</h1>
@@ -56,13 +54,13 @@
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit eum explicabo nobis ex distinctio itaque possimus eligendi! Ullam vero similique, ab illum dignissimos ut laudantium iste quaerat quo quis accusamus?</p>
         </div>
         <div class="section-img">
-            <img src="../public/images/langEx4.png" alt="splash" title="splash" class="splash-img" />
+            <img src="./public/images/langEx4.png" alt="splash" title="splash" class="splash-img" />
         </div>
     </section>
 <!-- SECTION 4 -->
     <section class="section even">
         <div class="section-img">
-            <img src="../public/images/langEx2.png"
+            <img src="./public/images/langEx2.png"
             alt="splash" title="splash" class="splash-img" />
         </div>
         <div class="section-text">
@@ -77,14 +75,14 @@
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit eum explicabo nobis ex distinctio itaque possimus eligendi! Ullam vero similique, ab illum dignissimos ut laudantium iste quaerat quo quis accusamus?</p>
         </div>
         <div class="section-img">
-            <img src="../public/images/undraw_Chatting_re_j55r.png"
+            <img src="./public/images/undraw_Chatting_re_j55r.png"
             alt="splash" title="splash" class="splash-img" />
         </div>
     </section>
 <!-- SECTION 6 -->
     <section class="section even">
         <div class="section-img">
-            <img src="../public/images/langEx3.png"
+            <img src="./public/images/langEx3.png"
             alt="splash" title="splash" class="splash-img" />
         </div>
         <div class="section-text">
@@ -140,4 +138,4 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require("template.php") ?>
+<?php require("template.php"); ?>

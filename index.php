@@ -1,4 +1,5 @@
 <?php
+define ('ROOT', dirname(__FILE__));
 
 require("./controller/controller.php");
 

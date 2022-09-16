@@ -1,6 +1,3 @@
-<link rel="stylesheet" href="../public/css/signUp.css">
-<?php $script = "../public/js/script.js"; ?>
-
 <?php $title = "Login"; ?>
 
 <?php ob_start(); ?>
@@ -59,4 +56,4 @@
 
         <?php $content = ob_get_clean(); ?>
 
-        <?php require("template.php");
+        <?php require("template.php"); ?>

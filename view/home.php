@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="./public/css/home.css">
-
 <?php $title = "Dashboard" ?>
 
 <?php ob_start();?>
@@ -75,4 +73,4 @@
     
 <?php $content = ob_get_clean(); ?>
 
-<?php require("template.php") ?>
+<?php require("template.php"); ?>
