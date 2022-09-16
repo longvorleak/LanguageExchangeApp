@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="./public/css/footer.css">
 <footer>
     <div class="footer">
         <div>
@@ -9,8 +8,8 @@
             <a href="#"><i class="fa-brands fa-facebook"></i></a>
         </div>
         <div>
-            <p><a href="./aboutUsView.php">About us</a></p>
-            <p><a href="#">Premium</a></p>
+            <p><a href=<?= BASE . "./index.php?action=aboutus" ?>>About us</a></p>
+            <p><a href=<?= BASE . "./index.php?action=premium" ?>>Premium</a></p>
             <p><a href="#">Blog</a></p>
             <p><a href="#">Terms of Service</a></p>
         </div>

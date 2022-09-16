@@ -25,6 +25,7 @@ class SignUpManager extends Manager {
 
         */
         if(empty($username) && empty($email) && empty($password) && empty($passwordConfirm)){
+            // TODO: move to controlller
             echo "<script>alert('You should write your username, email, password and confirmation properly!');
             // window.history.go(-1);</script>";
         }else{
@@ -39,28 +40,34 @@ class SignUpManager extends Manager {
             ));
             $res = $req->fetch(PDO::FETCH_ASSOC);
 
-            echo "<pre>";
-            print_r($res);
+            // echo "<pre>";
+            // print_r($res);
             // echo "<br>{$res['email']}";
+            $isUnique = true;
 
 
-            if(count($res) !== 0){
-                // $uid = $this->uidCreate(); // creating unique id for user
-                if ($res['username'] == $username && $res['email'] == $email) {
+            if($res AND count($res) !== 0){
+                $isUnique = false;
+                $uid = $this->uidCreate(); // creating unique id for user
+                if ($res['username'] == $username AND $res['email'] == $email) {
+                    // TODO: move to controlller
                     echo "<script>alert('This username and email is taken. You should use a unique name!'); window.history.go(-1);</script>";
-
                 } else if ($res['email'] == $email) {
+                    // TODO: move to controlller
                     echo "<script>alert('This email is taken. You should use a unique email adress!'); window.history.go(-1);</script>";
 
                 } else if ($res['username'] == $username) {
-                    echo "<script>alert('This username is taken. You should use a unique name!'); window.history.go(-1);</script>";
+                    // TODO: move to controlller
+                    echo " <script>alert('This username is taken. You should use a unique name!'); window.history.go(-1);</script>";
                 } else {
+                    // TODO: do while loop if uid is not unique
                     if ($res['uid'] == $uid)
                     $uid = $this->uidCreate(); 
                 }
-            } else {
+            }
+            
+            if ($isUnique) {
                 // $_SESSION['login'] = $username; 
-
                 
                 $control[] = '';
                 if(preg_match("#^[a-zA-Z0-9._-]{2,}$#", $username)){
@@ -87,6 +94,7 @@ class SignUpManager extends Manager {
                         'inEmail' => $email,
                         'inPassword' => $password                
                     ));
+                    // TODO: move to controlller
                     echo "<script>alert('You are succefully signed up!');</script>";
                 } else {
                     $error = '';
@@ -94,6 +102,7 @@ class SignUpManager extends Manager {
                     if ($key != 'true')
                         $error .= $key . ' ';
                 }
+                // TODO: move to controller
                 echo "<script>alert('$error');window.history.go(-1);</script>";
                 }
             }

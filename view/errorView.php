@@ -1,4 +1,4 @@
-<?php $title = "Error!"; ?>
+<?php $title = "SpeakEasy - Error!"; ?>
 
 <?php ob_start(); ?>
 
