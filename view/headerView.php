@@ -6,19 +6,19 @@
         <span class="hamburger-line"></span>
 
         <ul id="hamburger-menu">
-            <a href=<?= BASE . "./index.php?action=loginSignUp" ?>>
+            <a href=<?= BASE . "/index.php?action=loginSignUp" ?>>
                 <li>Log In</li>
             </a>
-            <a href=<?= BASE . "./index.php?action=loginSignUp" ?>>
+            <a href=<?= BASE . "/index.php?action=loginSignUp" ?>>
                 <li>Sign Up</li>
             </a>
-            <a href=<?= BASE . "./index.php?action=landing" ?>>
+            <a href=<?= BASE . "/index.php?action=landing" ?>>
                 <li>Home</li>
             </a>
-            <a href=<?= BASE . "./index.php?action=aboutUs" ?>>
+            <a href=<?= BASE . "/index.php?action=aboutUs" ?>>
                 <li>About Us</li>
             </a>
-            <a href=<?= BASE . "./index.php?action=premium" ?>>
+            <a href=<?= BASE . "/index.php?action=premium" ?>>
                 <li>Premium</li>
             </a>
 
@@ -42,8 +42,8 @@
         </a>
         <div>
             <span class="header-right">
-                <span class="header-animation"><a href=<?= BASE . "./index.php?action=aboutus" ?> class="menu">About us</a></span>
-                <span class="header-animation"><a href=<?= BASE . "./index.php?action=premium" ?> class="menu">Premium</a></span>
+                <span class="header-animation"><a href=<?= BASE . "/index.php?action=aboutus" ?> class="menu">About us</a></span>
+                <span class="header-animation"><a href=<?= BASE . "/index.php?action=premium" ?> class="menu">Premium</a></span>
                 <span class="header-animation">
                     <a href="#" id="language" class="menu">Language</a>
                     <ul class="language-popup">

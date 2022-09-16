@@ -30,7 +30,7 @@ try {
         //     loginFailed();
             break;
         case "aboutus":
-            aboutus();
+            aboutUs();
             break;
         case "premium":
             premium();

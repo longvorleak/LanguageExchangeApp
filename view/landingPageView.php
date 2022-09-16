@@ -4,6 +4,11 @@
 
 <?php ob_start(); ?>
 
+<?php include(ROOT . "/view/headerView.php"); ?>
+
+<!-- SECTION 1 -->
+<section class="section odd">
+    <div class="section-img">
         <img src="./public/images/undraw_Community_re_cyrm.png" alt="splash" title="splash" class="splash-img" />
     </div>
     <div class="section-text">
