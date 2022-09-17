@@ -39,20 +39,6 @@ class SignUpManager extends Manager {
                 'inEmail' => $email
             ));
             $res = $req->fetch(PDO::FETCH_ASSOC);
-<<<<<<< HEAD
-
-            if(count($res)!== 0){
-                
-                if($res['username'] == $username) 
-                    echo "<script>alert('This username is taken. You should use a unique name!'); window.history.go(-1);</script>";
-                if($res['email'] == $email)
-                    echo "<script>alert('This email is taken. You should use a unique email adress!');window.history.go(-1);</script>";
-                if ($res['uid'] == $uid)
-                    $uid = $this->uidCreate(); // creating unique id for user
-            }else{
-                
-                // $_SESSION['login'] = $username; 
-=======
 
             // echo "<pre>";
             // print_r($res);
@@ -69,7 +55,6 @@ class SignUpManager extends Manager {
                 } else if ($res['email'] == $email) {
                     // TODO: move to controlller
                     echo "<script>alert('This email is taken. You should use a unique email adress!'); window.history.go(-1);</script>";
->>>>>>> main
 
                 } else if ($res['username'] == $username) {
                     // TODO: move to controlller
@@ -117,10 +102,7 @@ class SignUpManager extends Manager {
                     if ($key != 'true')
                         $error .= $key . ' ';
                 }
-<<<<<<< HEAD
-=======
                 // TODO: move to controller
->>>>>>> main
                 echo "<script>alert('$error');window.history.go(-1);</script>";
                 }
             }

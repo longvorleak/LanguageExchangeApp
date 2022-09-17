@@ -6,19 +6,19 @@
         <span class="hamburger-line"></span>
 
         <ul id="hamburger-menu">
-            <a href=<?= BASE . "./index.php?action=loginSignUp" ?>>
+            <a href=<?= BASE . "/index.php?action=loginSignUp" ?>>
                 <li>Log In</li>
             </a>
-            <a href=<?= BASE . "./index.php?action=loginSignUp" ?>>
+            <a href=<?= BASE . "/index.php?action=loginSignUp" ?>>
                 <li>Sign Up</li>
             </a>
-            <a href=<?= BASE . "./index.php?action=landing" ?>>
+            <a href=<?= BASE . "/index.php?action=landing" ?>>
                 <li>Home</li>
             </a>
-            <a href=<?= BASE . "./index.php?action=aboutUs" ?>>
+            <a href=<?= BASE . "/index.php?action=aboutUs" ?>>
                 <li>About Us</li>
             </a>
-            <a href=<?= BASE . "./index.php?action=premium" ?>>
+            <a href=<?= BASE . "/index.php?action=premium" ?>>
                 <li>Premium</li>
             </a>
 
@@ -54,13 +54,8 @@
                     </ul>
                 </span>
 
-<<<<<<< HEAD
-                <a href="./view/loginSignUpView.php" id="login">Log in</a>
-                <a href="./view/loginSignUpView.php" id="signup">Sign up</a>
-=======
-                <a href=<?= BASE . "./index.php?action=login" ?> id="login">Log in</a>
-                <a href=<?= BASE . "./index.php?action=login" ?> id="signup">Sign up</a>
->>>>>>> main
+                <a href=<?= BASE . "/index.php?action=login" ?> id="login">Log in</a>
+                <a href=<?= BASE . "/index.php?action=login" ?> id="signup">Sign up</a>
 
             </span>
         </div>

@@ -47,5 +47,5 @@ function premium() {
 }
 
 function login() {
-    require('./view/loginSignUpView.php');
+    require('./view/loginSignUpView.php');//we shoul add initial values before calling the page
 }
