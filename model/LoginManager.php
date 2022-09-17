@@ -50,6 +50,7 @@ class LoginManager extends Manager
             if (password_verify($user_fetch['passwordIn'], $response['password'])) {
                 return $response;
             } else {
+                //TODO: move all redirects to controller
                 header('Location: ./index.php?action=loginFailed');
             }
         } else {
