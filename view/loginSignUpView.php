@@ -25,7 +25,7 @@
                     <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left">
                     </div>
                 </div>
-                <form method="POST" action=<?= BASE . "/index.php?action=signUp" ?>>
+                <form method="POST" action=<?= BASE . "/index.php?action=regularLogin" ?>>
                     <input type="text" name="usernameEmail" id="usernameEmail" placeholder="Email/Username" />
                     <input type="text" name="passwordIn" id="passwordIn" placeholder="Password" />
                     <input type="checkbox" name="rememberCheck" id="rememberCheck" />
@@ -37,6 +37,12 @@
         </div>
         <div class="signUp">
             <h1 class="animate-charcter">Sign Up</h1>
+            <div>
+                <div id="g_id_onload" data-client_id="<?= $_SERVER['CLIENT_ID']; ?>" data-login_uri="https://localhost/sites/LanguageExchangeApp/index.php?action=googleLogin" data-auto_prompt="false">
+                </div>
+                <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left">
+                </div>
+            </div>
             <div class="form" id="signUp">
                 <form method="POST" action=<?= BASE . "/index.php?action=signUp" ?>>
                     <input type="text" name="firstname" id="firstname" placeholder="Firstname" required maxlength="50" />
