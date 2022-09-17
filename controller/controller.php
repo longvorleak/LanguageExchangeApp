@@ -53,3 +53,9 @@ function premium() {
 function login() {
     require('./view/loginSignUpView.php');//we shoul add initial values before calling the page
 }
+
+function userSignOut() {
+    // session_destroy();
+    // session_unset();
+    require('./view/landingPageView.php');
+}

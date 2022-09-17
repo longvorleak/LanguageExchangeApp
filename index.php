@@ -29,14 +29,17 @@ try {
         case "loginFailed":
         //     loginFailed();
             break;
-        case "aboutus":
-            aboutus();
+        case "aboutUs":
+            aboutUs();
             break;
         case "premium":
             premium();
             break;
         case "login":
             login();
+            break;
+        case "signOut":
+            userSignOut();
             break;
         default:
             startSplash();

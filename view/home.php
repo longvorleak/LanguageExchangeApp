@@ -1,4 +1,5 @@
 <link rel="stylesheet" href=<?= BASE . "/public/css/home.css" ?>>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 
 <?php $title = "SpeakEasy - Welcome $user_login!" ?>
 
@@ -35,7 +36,7 @@
                 <a href="#">
                     <li>Upgrade</li>
                 </a>
-                <a href="#">
+                <a href=<?= BASE . "./index.php?action=signOut" ?> class="g_id_signout">
                     <li>Sign out</li>
                 </a>
             </ul>

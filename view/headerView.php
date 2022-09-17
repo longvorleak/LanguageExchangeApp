@@ -42,8 +42,8 @@
         </a>
         <div>
             <span class="header-right">
-                <span class="header-animation"><a href=<?= BASE . "./index.php?action=aboutus" ?> class="menu">About us</a></span>
-                <span class="header-animation"><a href=<?= BASE . "./index.php?action=premium" ?> class="menu">Premium</a></span>
+                <span class="header-animation"><a href=<?= BASE . "/index.php?action=aboutUs" ?> class="menu">About us</a></span>
+                <span class="header-animation"><a href=<?= BASE . "/index.php?action=premium" ?> class="menu">Premium</a></span>
                 <span class="header-animation">
                     <a href="#" id="language" class="menu">Language</a>
                     <ul class="language-popup">
