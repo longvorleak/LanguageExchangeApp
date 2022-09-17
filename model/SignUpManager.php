@@ -51,14 +51,14 @@ class SignUpManager extends Manager {
                 $uid = $this->uidCreate(); // creating unique id for user
                 if ($res['username'] == $username AND $res['email'] == $email) {
                     // TODO: move to controlller
-                    echo "<script>alert('This username and email is taken. You should use a unique name!'); window.history.go(-1);</script>";
+                    echo "<script>alert('This username and email is taken. You should use a unique name!');</script>";
                 } else if ($res['email'] == $email) {
                     // TODO: move to controlller
-                    echo "<script>alert('This email is taken. You should use a unique email adress!'); window.history.go(-1);</script>";
+                    echo "<script>alert('This email is taken. You should use a unique email adress!');</script>";
 
                 } else if ($res['username'] == $username) {
                     // TODO: move to controlller
-                    echo " <script>alert('This username is taken. You should use a unique name!'); window.history.go(-1);</script>";
+                    echo " <script>alert('This username is taken. You should use a unique name!');</script>";
                 } else {
                     // TODO: do while loop if uid is not unique
                     if ($res['uid'] == $uid)

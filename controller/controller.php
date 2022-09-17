@@ -10,7 +10,11 @@ function startSplash() {
 function signUp($response){
     $signup_manager = new SignUpManager();
     $user_login = $signup_manager->signUp($response);
+    if($user_login){
     require('./view/home.php');
+    }else {
+        header('Location: ./view/loginSignUpView.php?action=loginFailed');
+    }
 }
 
 function signUpFailed($response) {
