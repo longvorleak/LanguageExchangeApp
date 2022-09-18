@@ -12,11 +12,14 @@
             <h1 class="animate-charcter">Sign In</h1>
             <?php
             if (isset($_REQUEST['action']) and $_REQUEST['action'] = 'loginFailed') {
+                echo "login page if";
             ?>
                 <p>Login Failed. Try again.</p>
             <?php
 
             }
+            
+            
             ?>
             <div class="form">
                 <div>
@@ -48,6 +51,7 @@
                     <input type="text" name="firstname" id="firstname" placeholder="Firstname" required maxlength="50" />
                     <input type="text" name="lastname" id="lastname" placeholder="Lastname" required maxlength="50" />
                     <input type="text" name="username" id="username" placeholder="Username*" required maxlength="50" />
+                    <input type="date" name="dob"  required />
                     <input type="text" name="email" id="email" placeholder="Email*" required maxlength="255" />
                     <input type="text" name="password" id="password" placeholder="Password*" required maxlength="255" />
                     <span class="error">The password cannot be less then 8 characters</span>
