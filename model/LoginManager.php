@@ -107,7 +107,8 @@ class LoginManager extends Manager
         $response = $this->userCheck($user_fetch);
 
         if (!empty($response)) {
-            return $response['firstname'];
+            // return $response['firstname'];
+            return $response;
         } else {
             $uid = $this->uidCreate(); // creating unique id for user
             $db = $this->dbConnect();
