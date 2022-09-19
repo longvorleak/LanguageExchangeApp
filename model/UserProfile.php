@@ -3,8 +3,7 @@
     require_once("Manager.php");
 
     class UserProfile extends Manager {
-    
-
+        
         public function getUser($id){
             $db = $this->dbConnect();
             $req = "SELECT firstname, lastname, username, dob, email, password FROM users WHERE id = ?";
