@@ -1,6 +1,3 @@
-/* //////////////////////////////////////////// */
-/* ///////////////// DEFAULT ////////////////// */
-/* //////////////////////////////////////////// */
 :root {
     --dark-primary: #017081;
     --main-primary: #12adc1;
@@ -60,6 +57,11 @@ h4 {
 
 a {
     text-decoration: none;
+}
+
+::selection {
+    color: var(--divider);
+    background-color: var(--light-primary);
 }
 
 button {

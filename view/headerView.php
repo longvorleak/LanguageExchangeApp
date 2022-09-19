@@ -7,29 +7,29 @@
 
         <ul id="hamburger-menu">
             <a href=<?= BASE . "/index.php?action=loginSignUp" ?>>
-                <li>Log In</li>
+                <li class="li-menu">Log In</li>
             </a>
             <a href=<?= BASE . "/index.php?action=loginSignUp" ?>>
-                <li>Sign Up</li>
+                <li class="li-menu">Sign Up</li>
             </a>
             <a href=<?= BASE . "/index.php?action=landing" ?>>
-                <li>Home</li>
+                <li class="li-menu">Home</li>
             </a>
             <a href=<?= BASE . "/index.php?action=aboutUs" ?>>
-                <li>About Us</li>
+                <li class="li-menu">About Us</li>
             </a>
             <a href=<?= BASE . "/index.php?action=premium" ?>>
-                <li>Premium</li>
+                <li class="li-menu">Premium</li>
             </a>
 
             <a href="#" class="language" class="menu">
                 <li>Language</li>
             </a>
             <ul class="language-popup">
-                <li><a href="#">English</a></li>
-                <li><a href="#">Korean</a></li>
-                <li><a href="#">Spanish</a></li>
-                <li><a href="#">Dutch</a></li>
+                <li class="li-menu"><a href="#">English</a></li>
+                <li class="li-menu"><a href="#">Korean</a></li>
+                <li class="li-menu"><a href="#">Spanish</a></li>
+                <li class="li-menu"><a href="#">Dutch</a></li>
             </ul>
         </ul>
     </div>
@@ -47,10 +47,10 @@
                 <span class="header-animation">
                     <a href="#" id="language" class="menu">Language</a>
                     <ul class="language-popup">
-                        <li><a href="#">English</a></li>
-                        <li><a href="#">Korean</a></li>
-                        <li><a href="#">Spanish</a></li>
-                        <li><a href="#">Dutch</a></li>
+                        <li class="li-menu"><a href="#">English</a></li>
+                        <li class="li-menu"><a href="#">Korean</a></li>
+                        <li class="li-menu"><a href="#">Spanish</a></li>
+                        <li class="li-menu"><a href="#">Dutch</a></li>
                     </ul>
                 </span>
 
