@@ -4,3 +4,8 @@ vendor
 composer.json
 composer.lock
 pure-spring-362202-d9794abf4552.json
+kakao_login_callback.php
+kakao_login.php
+kakao_validation.php
+kakaoJS.html
+translate.php
