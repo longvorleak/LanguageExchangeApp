@@ -47,3 +47,12 @@ myForm.addEventListener('submit', function(e){
             e.preventDefault();
         }
 });
+
+// let logout = document.getElementById('sign-out');
+// console.log(logout);
+
+// logout.addEventListener("click", () => {
+//     google.accounts.id.revoke('user@google.com', done => {
+//         console.log('consent revoked');
+//       });
+// })

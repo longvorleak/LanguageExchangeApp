@@ -55,6 +55,8 @@ function login() {
 }
 
 function userSignOut() {
+    // setcookie('g_csrf_token', null, time() - 10000000);
+    // setcookie('g_state', null, time() - 10000000);
     // session_destroy();
     // session_unset();
     require('./view/landingPageView.php');
