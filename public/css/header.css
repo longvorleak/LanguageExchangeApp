@@ -27,7 +27,7 @@ li {
 .header-right{
     display: flex;
     gap: 20px;
-    font-size: 1.16em;
+    font-size: 1.16rem;
 }
 
 .header-animation a{
@@ -120,6 +120,12 @@ li {
 /* //////////////////////////////////////////// */
 /* /////////////// MEDIA QUERIES ////////////// */
 /* //////////////////////////////////////////// */
+
+@media screen and (max-width: 1015px){
+    .header-right{
+        gap: 5px;
+    }
+}
 
 @media screen and (max-width: 780px){
 
