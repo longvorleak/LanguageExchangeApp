@@ -22,19 +22,13 @@ function signUpFailed() {
 }
 
 function regularLogin($response) {
-    echo "<pre>";
-    print_r($response);
     $login_manager = new LoginManager();
     $user_login = $login_manager->userLogin($response);
-    if (empty($user_login)) {
-        echo "empty";
+    if ($user_login) {
+        require('./view/home.php');
+    } else {
+        header("Location: ./index.php?action=loginFailed");
     }
-    // if ($user_login == "signed in") {
-    //     echo "in";
-    //     require('./view/home.php');
-    // } else {
-    //     header("Location: ./index.php?action=loginFailed");
-    // }
 }
 
 function loginFailed() {
