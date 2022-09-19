@@ -50,6 +50,7 @@ class LoginManager extends Manager
             if (password_verify($user_fetch['passwordIn'], $response['password'])) {
                 return $response;
             } else {
+                //TODO: move all redirects to controller
                 header('Location: ./index.php?action=loginFailed');
             }
         } else {
@@ -106,7 +107,8 @@ class LoginManager extends Manager
         $response = $this->userCheck($user_fetch);
 
         if (!empty($response)) {
-            return $response['firstname'];
+            // return $response['firstname'];
+            return $response;
         } else {
             $uid = $this->uidCreate(); // creating unique id for user
             $db = $this->dbConnect();

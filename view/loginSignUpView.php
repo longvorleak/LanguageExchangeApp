@@ -8,9 +8,25 @@
 <!-- 
 <div id="form-container">
     <div class="container">
+<<<<<<< HEAD
         <div class="sign-in">
             <h2>Sign In</h2>
             
+=======
+        <div class="signIn">
+            <h1 class="animate-charcter">Sign In</h1>
+            <?php
+            if (isset($_REQUEST['action']) and $_REQUEST['action'] = 'loginFailed') {
+                echo "login page if";
+            ?>
+                <p>Login Failed. Try again.</p>
+            <?php
+
+            }
+            
+            
+            ?>
+>>>>>>> main
             <div class="form">
                 <form method="POST" action=<?= BASE . "/index.php?action=signUp" ?>>
                     <input type="text" name="usernameEmail"
@@ -26,9 +42,11 @@
                 <div class="google-sign-in">
                     <div id="g_id_onload" data-client_id="<?= $_SERVER['CLIENT_ID']; ?>" data-login_uri="https://localhost/sites/LanguageExchangeApp/index.php?action=googleLogin" data-auto_prompt="false">
                     </div>
-                    <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left">
+                    <!-- <div class="g_id_signin" data-type="icon" data-size="large" data-theme="outline" data-text="continue_with" data-shape="circle" data-logo_alignment="left"> -->
+                    <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="continue_with" data-shape="pill" data-logo_alignment="left">
                     </div>
                 </div>
+<<<<<<< HEAD
             </div>
         </div>
         <div class="sign-up">
@@ -40,6 +58,34 @@
                     <input type="text" name="username" placeholder="Username*" required maxlength="50" />
                     <input type="text" name="email" placeholder="Email*" required maxlength="255" />
                     <input type="password" name="password" placeholder="Password*" required maxlength="255" />
+=======
+                <form method="POST" action=<?= BASE . "/index.php?action=regularLogin" ?>>
+                    <input type="text" name="usernameEmail" id="usernameEmail" placeholder="Email/Username" />
+                    <input type="text" name="passwordIn" id="passwordIn" placeholder="Password" />
+                    <input type="checkbox" name="rememberCheck" id="rememberCheck" />
+                    <label for="rememberCheck">Remember me?</label>
+                    <a href="#">Forgot your password?</a>
+                    <input type="submit" class="button-17 zoom" value="Sign In" />
+                </form>
+            </div>
+        </div>
+        <div class="signUp">
+            <h1 class="animate-charcter">Sign Up</h1>
+            <div>
+                <div id="g_id_onload" data-client_id="<?= $_SERVER['CLIENT_ID']; ?>" data-login_uri="https://localhost/sites/LanguageExchangeApp/index.php?action=googleLogin" data-auto_prompt="false">
+                </div>
+                <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="signup_with" data-shape="rectangular" data-logo_alignment="left">
+                </div>
+            </div>
+            <div class="form" id="signUp">
+                <form method="POST" action=<?= BASE . "/index.php?action=signUp" ?>>
+                    <input type="text" name="firstname" id="firstname" placeholder="Firstname" required maxlength="50" />
+                    <input type="text" name="lastname" id="lastname" placeholder="Lastname" required maxlength="50" />
+                    <input type="text" name="username" id="username" placeholder="Username*" required maxlength="50" />
+                    <input type="date" name="dob"  required />
+                    <input type="text" name="email" id="email" placeholder="Email*" required maxlength="255" />
+                    <input type="text" name="password" id="password" placeholder="Password*" required maxlength="255" />
+>>>>>>> main
                     <span class="error">The password cannot be less then 8 characters</span>
                     <input type="password" name="passwordConfirm" placeholder="Confirm Password*" required />
                     <span class="error">Passwords have to match</span>

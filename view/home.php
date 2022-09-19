@@ -1,6 +1,8 @@
 <link rel="stylesheet" href=<?= BASE . "/public/css/home.css" ?>>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<!-- <script src="./public/js/test.js" defer></script> -->
 
-<?php $title = "SpeakEasy - Welcome $user_login!" ?>
+<?php $title = "SpeakEasy - Welcome {$user_login['firstname']}!" ?>
 
 <?php ob_start(); ?>
 <section class="dashboard">
@@ -35,7 +37,7 @@
                 <a href="#">
                     <li>Upgrade</li>
                 </a>
-                <a href=<?= BASE . "./index.php?action=signOut" ?>>
+                <a href=<?= BASE . "./index.php?action=signOut" ?> id="sign-out">
                     <li>Sign out</li>
                 </a>
             </ul>
@@ -46,7 +48,7 @@
 
     <div class="middle1">
         <h2>Home</h2>
-        <h3>Hello <?= $user_login ?>!</h3>
+        <h3>Hello <?= $user_login['firstname'] ?>!</h3>
         <span>
             <a href="#" class="language">language selector</a>
             <ul class="language-popup">
