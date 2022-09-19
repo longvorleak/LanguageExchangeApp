@@ -1,4 +1,4 @@
-/* @import url("style.css");
+@import url("style.css");
 /* background: linear-gradient(145deg, rgba(1,112,129,1) 0%, rgba(18,173,193,1) 50%, rgba(178,223,219,1) 100%); */
 
 body {
@@ -11,19 +11,14 @@ body {
   margin: -20px 0 50px;
 }
 
-span {
-  font-size: 12px;
-}
-
 a {
   color: var(--accent-color);
   font-size: 14px;
-  text-decoration: none;
   margin: 15px 0;
 }
 
 .sign-button {
-  border-radius: 25px;
+  border-radius: var(--button-radius);
   border: 1px solid var(--main-primary);
   background-color: var(--main-primary);
   color: var(--divider);
@@ -41,6 +36,7 @@ a {
   border: 1px solid var(--accent-color);
 }
 
+/* form */
 form {
   background-color: var(--divider);
   display: flex;
@@ -50,9 +46,10 @@ form {
   padding: 0 50px;
   height: 100%;
   text-align: center;
+  border-radius: var(--border-radius);
 }
 
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=date] {
   background-color: var(--light-primary);
   border: none;
   padding: 12px 15px;
@@ -60,15 +57,32 @@ input[type=text], input[type=password] {
   width: 100%;
 }
 
+label{
+  position: absolute;
+  left: 8px;
+  top: 12px;
+  color: #999;
+  font-size: 16px;
+  display: inline-block;
+  padding: 4px 10px;
+  font-weight: 400;
+}
+
+
+/* Remove input hightlight in Chrome */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+}
+
 .container {
   background-color: var(--divider);
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
   width: 768px;
   max-width: 100%;
-  min-height: 480px;
+  min-height: 550px;
 }
 
 .form-container {
@@ -94,6 +108,8 @@ input[type=text], input[type=password] {
   opacity: 0;
   z-index: 1;
 }
+
+/* animation */
 
 .container.right-panel-active .sign-up-container {
   transform: translateX(100%);
@@ -122,9 +138,10 @@ input[type=text], input[type=password] {
   left: 50%;
   width: 50%;
   height: 100%;
+  border-radius: var(--border-radius);
   overflow: hidden;
   transition: transform 0.6s ease-in-out;
-  z-index: 100;
+  z-index: 50;
 }
 
 .container.right-panel-active .overlay-container {
@@ -196,6 +213,47 @@ input[type=text], input[type=password] {
   width: 40px;
 }
 
-#remember {
-  width: 100%;
+/* Tooltip */
+#tooltip {
+  visibility: hidden;
+  position: absolute;
+  right: -90px;
+  top: 310px;
+  height: fit-content;
+  width: 120px;
+  background-color: var(--dark-primary);
+  font-size: 0.7em;
+  z-index: 99;
+  color: white;
+}
+
+input[type="password"]:focus + #tooltip {
+  visibility: visible;
+}
+
+.tooltiptext {
+  text-align: left;
+  margin: 10px;
+  color: var(--divider);
+}
+
+.arrow-left {
+  position: absolute;
+  left: -5px;
+  top: 10px;
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-right: 6px solid var(--dark-primary);
+}
+
+/* Input validation */
+
+.valid {
+  border: 2px solid var(--dark-primary);
+}
+
+.invalid {
+  border: 2px solid var(--accent-color);
 }
