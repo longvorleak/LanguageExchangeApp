@@ -1,8 +1,10 @@
 <link rel="stylesheet" href=<?= BASE . "/public/css/home.css" ?>>
+<!-- <link rel="stylesheet" href=<?="../public/css/home.css" ?>> -->
+
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 <!-- <script src="./public/js/test.js" defer></script> -->
 
-<?php $title = "SpeakEasy - Welcome {$user_login['firstname']}!" ?>
+<?php $title = "SpeakEasy - Welcome $user_login!" ?>
 
 <?php ob_start(); ?>
 <section class="dashboard">
@@ -48,7 +50,7 @@
 
     <div class="middle1">
         <h2>Home</h2>
-        <h3>Hello <?= $user_login['firstname'] ?>!</h3>
+        <h3>Hello <?= $user_login ?>!</h3>
         <span>
             <a href="#" class="language">language selector</a>
             <ul class="language-popup">

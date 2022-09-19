@@ -24,10 +24,10 @@ try {
             kakaoLogin($_REQUEST);
             break;
         case "signUpFailed":
-            // signUpFailed();
+            signUpFailed();
             break;
         case "loginFailed":
-        //     loginFailed();
+            loginFailed();
             break;
         case "aboutUs":
             aboutUs();

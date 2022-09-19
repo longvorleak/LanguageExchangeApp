@@ -5,25 +5,40 @@
 
 <?php ob_start(); ?>
 
-<?php
-    if (isset($_REQUEST['action']) and $_REQUEST['action'] = 'loginFailed') {
-    ?>
-        <!-- <p>Login Failed. Try again.</p> -->
-<?php
-    }
-?>
-
     <div class="container" id="container">
         <div class="form-container sign-up-container">
+            <h2>Create Account</h2>
+            <?php if (isset($_GET['action']) AND $_GET['action'] == 'signUpFailed') {
+                if (isset($_GET['reason'])) {
+                    $message = $_GET['reason'];
+                    $reason = $_GET['reason'];
+                    switch ($reason) {
+                        case "emptyFields":
+                            $message = "Please fill out all required fields.";
+                            break;
+                        case "usernameEmail":
+                            $message = "Please choose a different username and email.";
+                            break;
+                        case "email":
+                            $message = "Please choose a different email.";
+                            break;
+                        case "username":
+                            $message = "Please choose a different username.";
+                            break;
+                        default:
+                            break;
+                    } ?>
+                    <p><?= $message ?></p>
+            <?php
+                }
+            } ?>
             <form action=<?= BASE . "/index.php?action=signUp" ?> method="POST">
-                <h2>Create Account</h2>
                 <div class="google-sign-up">
                     <div id="g_id_onload" data-client_id="<?= $_SERVER['CLIENT_ID']; ?>" data-login_uri="https://localhost/sites/LanguageExchangeApp/index.php?action=googleLogin" data-auto_prompt="false">
                     </div>
                     <div class="g_id_signup" data-type="standard" data-size="large" data-theme="outline" data-text="sign_up_with" data-shape="pill" data-logo_alignment="left">
                     </div>
                 </div>
-                <input type="hidden" name="signup" value="signup">
                 <input type="text" name="username" placeholder="Username*" required maxlength="50" id="username-signup"/>
                 <input type="text" name="email" placeholder="Email*" required maxlength="255" />
                 <input type="text" name="dob" placeholder="Date of birth*" onfocus="(this.type='date')" required />
@@ -42,14 +57,17 @@
         </div>
 
         <div class="form-container sign-in-container">  
-            <form action=<?= BASE . "/index.php?action=signUp" ?> method="POST">
+            <h2>Sign In</h2>
                 <?php if(isset($_GET['account'])){
                     echo "<div>Account created please log in </div>";
                 }
+                if (isset($_GET['action']) and $_GET['action'] == 'loginFailed') {
                 ?>
-                <h2>Sign In</h2>
-                <input type="hidden" name="signin" value="signin">
-                <input type="text" name="username" placeholder="Username/Email" />
+                <p>Login Failed. Please try again.</p>
+            <?php
+            } ?>
+            <form action=<?= BASE . "/index.php?action=signUp" ?> method="POST">
+                <input type="text" name="emailUsername" placeholder="Username/Email" />
                 <input type="password" name="password" placeholder="Password" />
                 <div id="remember">
                     <input type="checkbox" name="auto" id="auto" name="rememberCheck">
@@ -83,11 +101,10 @@
         </div>
     </div>
 
-<!-- <form method="POST" action="../index.php?action=newsignUp"></form> -->
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require("template.php");?>
+<?php require("template.php"); ?>
 
 <script>
 
@@ -95,11 +112,11 @@
     const signUpButton = document.getElementById('sign-up');
     const signInButton = document.getElementById('sign-in');
     const container = document.getElementById('container');
-    if(signInButton && signInButton && container){
+    if (signInButton && signInButton && container) {
         signUpButton.addEventListener('click', () => {
             container.classList.add("right-panel-active");
         });
-        
+
         signInButton.addEventListener('click', () => {
             container.classList.remove("right-panel-active");
         });
@@ -107,13 +124,13 @@
 
     function refreshMessages(nbMsg = 10, showMore=false) {
         let xhr = new XMLHttpRequest();
-        let url = "loadMsg.php?nbMsg="+nbMsg;
+        let url = "loadMsg.php?nbMsg=" + nbMsg;
         if (showMore) {
             url = "loadMsg.php?showMore=true";
         }
         xhr.open("GET", url);
-        xhr.onload = function () {
-            if(xhr.status == 200) {
+        xhr.onload = function() {
+            if (xhr.status == 200) {
                 let div = document.querySelector("#messageBox");
                 div.innerHTML = xhr.responseText;
             }

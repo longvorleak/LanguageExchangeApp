@@ -10,25 +10,35 @@ function startSplash() {
 function signUp($response){
     $signup_manager = new SignUpManager();
     $user_login = $signup_manager->signUp($response);
-    if($user_login){
+    if($user_login == $response['username']){
     require('./view/home.php');
-    }else {
-        header('Location: ./view/loginSignUpView.php?action=loginFailed');
+    } else {
+        header("Location: ./index.php?action=signUpFailed&reason=$user_login");
     }
 }
 
-function signUpFailed($response) {
+function signUpFailed() {
     require('./view/loginSignUpView.php');
 }
 
 function regularLogin($response) {
+    echo "<pre>";
+    print_r($response);
     $login_manager = new LoginManager();
     $user_login = $login_manager->userLogin($response);
-    if ($user_login) {
-        require('./view/home.php');
-    } else {
-        header('Location: ./view/loginSignUpView.php?action=loginFailed');
+    if (empty($user_login)) {
+        echo "empty";
     }
+    // if ($user_login == "signed in") {
+    //     echo "in";
+    //     require('./view/home.php');
+    // } else {
+    //     header("Location: ./index.php?action=loginFailed");
+    // }
+}
+
+function loginFailed() {
+    require('./view/loginSignUpView.php');
 }
 
 function googleLogin($response) {
@@ -51,7 +61,7 @@ function premium() {
 }
 
 function login() {
-    require('./view/loginSignUpView.php');//we shoul add initial values before calling the page
+    require('./view/loginSignUpView.php');//we should add initial values before calling the page
 }
 
 function userSignOut() {
@@ -59,5 +69,7 @@ function userSignOut() {
     // setcookie('g_state', null, time() - 10000000);
     // session_destroy();
     // session_unset();
+    setcookie(session_name("g_csrf_token"), '', time() - 3600, '/');
+    setcookie(session_name("g_state"), '', time() - 3600, '/');
     require('./view/landingPageView.php');
 }

@@ -5,6 +5,9 @@ require_once("Manager.php");
 class SignUpManager extends Manager {
  
     public function signUp($response){
+        echo "<pre>";
+        print_r($response);
+        echo "</pre>";
 
         $firstname = $response['firstname'];
         $lastname = $response['lastname'];
@@ -25,11 +28,9 @@ class SignUpManager extends Manager {
         3 = password confirm
 
         */
-        if(empty($username) && empty($email) && empty($password) && empty($passwordConfirm)){
-            // DONE: move to controlller
-            echo "<script>alert('You should write your username, email, password and confirmation properly!');</script>";
-            header('Location: ./index.php?action=signUpFailed');
-        }else{
+        if (empty($username) AND empty($email) AND empty($password) AND empty($passwordConfirm)){
+            header('Location: ./index.php?action=signUpFailed&reason=emptyFields');
+        } else {
    
             $uid = $this->uidCreate(); // creating unique id for user
 
@@ -41,9 +42,6 @@ class SignUpManager extends Manager {
             ));
             $res = $req->fetch(PDO::FETCH_ASSOC);
 
-            // echo "<pre>";
-            // print_r($res);
-            // echo "<br>{$res['email']}";
             $isUnique = true;
 
 
@@ -51,17 +49,11 @@ class SignUpManager extends Manager {
                 $isUnique = false;
                 $uid = $this->uidCreate(); // creating unique id for user
                 if ($res['username'] == $username AND $res['email'] == $email) {
-                    // DONE: move to controlller
-                    echo "<script>alert('This username and email is taken. You should use a unique name!');</script>";
-                    header('Location: ./index.php?action=signUpFailed');
+                    return "usernameEmail";
                 } else if ($res['email'] == $email) {
-                    // DONE: move to controlller
-                    echo "<script>alert('This email is taken. You should use a unique email adress!');</script>";
-                    header('Location: ./index.php?action=signUpFailed');
+                    return "email";
                 } else if ($res['username'] == $username) {
-                    // DONE: move to controlller
-                    echo " <script>alert('This username is taken. You should use a unique name!');</script>";
-                    header('Location: ./index.php?action=signUpFailed');
+                    return "username";
                 } else {
                     // TODO: do while loop if uid is not unique
                     if ($res['uid'] == $uid)
@@ -72,18 +64,18 @@ class SignUpManager extends Manager {
             if ($isUnique) {
                 // $_SESSION['login'] = $username; 
                 
-                $control[] = '';
+                $control = [];
                 if(preg_match("#^[a-zA-Z0-9._-]{2,}$#", $username)){
                     array_push($control, 'true');
-                }else array_push($control, "Your username must include at least 2 character! ");
+                } else array_push($control, "Your username must include at least 2 characters! ");
 
                 if(preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $email)){
                     array_push($control, 'true');
-                }else array_push($control, " You should write a proper e-mail adress!");
+                }else array_push($control, " You should write a proper e-mail address!");
 
                 if($password === $passwordConfirm && $password !== '' && $passwordConfirm !== ''){
                     array_push($control, 'true');
-                }else array_push($control," Your passwords are mismatched!");
+                }else array_push($control," Your passwords did not match or were empty!");
 
                 if(array_count_values(array_values($control))['true'] == 3){
                     $password = password_hash($password, PASSWORD_DEFAULT);
@@ -98,21 +90,17 @@ class SignUpManager extends Manager {
                         'inEmail' => $email,
                         'inPassword' => $password                
                     ));
-                    // DONE: move to controlller
+
                     echo "<script>alert('You are succefully signed up!');</script>";
-                    header('Location: ./index.php?action=regularLogin');  
-                } else {
+
+                } else { // TODO: What is this for?
                     $error = '';
-                foreach(array_values($control) as $key){
-                    if ($key != 'true')
-                        $error .= $key . ' ';
-                }
-                // DONE: move to controller
-                echo "<script>alert('$error');</script>";
-                header('Location: ./index.php?action=signUpFailed');
+                    foreach(array_values($control) as $key){
+                        if ($key != 'true') $error .= $key . '<br>';
+                    }
+                    return $error;
                 }
             }
-
         }
         return $username;
     }
