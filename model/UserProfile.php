@@ -74,5 +74,4 @@ class UserProfile extends Manager {
             return 0;
     }
 }
-
 ?>
