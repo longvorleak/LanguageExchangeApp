@@ -6,46 +6,9 @@
 
 <?php $title = "SpeakEasy - Welcome $user_login!" ?>
 
-<?php ob_start(); ?>
-<section class="dashboard">
-    <h2>Menu</h2>
-    <nav role='navigation'>
-        <div id="menuToggle">
+<?php ob_start();?>
+<?php include("side_menuView.php") ?>
 
-            <input id="hamburger-checkbox" type="checkbox" />
-
-            <span></span>
-            <span></span>
-            <span></span>
-            <ul id="menu">
-                <a href="#">
-                    <li><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" />My Account</li>
-                </a>
-                <a href="#">
-                    <li><i class="fa-solid fa-house home-icon"></i>Home</li>
-                </a>
-                <a href="#">
-                    <li><i class="fa-solid fa-user-group home-icon"></i>Browse</li>
-                </a>
-                <a href="#">
-                    <li><i class="fa-solid fa-graduation-cap home-icon"></i>Learn</li>
-                </a>
-                <a href="#">
-                    <li><i class="fa-solid fa-calendar home-icon"></i>Events</li>
-                </a>
-                <a href="#">
-                    <li><i class="fa-solid fa-gear home-icon"></i>Settings</li>
-                </a>
-                <a href="#">
-                    <li>Upgrade</li>
-                </a>
-                <a href=<?= BASE . "./index.php?action=signOut" ?> id="sign-out">
-                    <li>Sign out</li>
-                </a>
-            </ul>
-        </div>
-    </nav>
-</section>
 <section class="middle-section">
 
     <div class="middle1">
@@ -79,19 +42,7 @@
     </div>
 
 </section>
-<section class="right-section">
-    <div class="right1">
-        <h2>schedule</h2>
-        <div>
-            schedule
-        </div>
-    </div>
-    <div class="right2">
-        <p>friends</p>
-        <div>
-            friends list
-        </div>
-</section>
+<?php include("dashboard_right.php")?>
 
 <?php $content = ob_get_clean(); ?>
 
