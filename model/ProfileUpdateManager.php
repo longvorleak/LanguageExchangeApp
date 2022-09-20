@@ -26,8 +26,9 @@ tarProficieny*/
 
 
 require_once("Manager.php");
+require_once("UserProfile.php");
 
-class SignUpManager extends Manager { //we should decide about using user id or username. which one is safest option?
+class ProfileUpdateManager extends Manager{ //we should decide about using user id or username. which one is safest option?
  
     // THIS 'getCityId(CITY)' FUNCTIONS RETURNS US CITY ID'S ACCORDING TO THE CITY NAMES THAT COMES FROM FORM INPUT VALUES
     protected function getCityId($str){
@@ -61,6 +62,8 @@ class SignUpManager extends Manager { //we should decide about using user id or 
         $city = $this->getCityId($response['city']);
         $interest = implode(",", $response['interest']);
         $hometown = $this->getCityId($response['hometown']);
+        $nativeLanguage = $this->getLanguageId($response['nativeLanguage']);
+        $tarLanguage = $this->getLanguageId($response['targetLanguage']);
 
         $db = $this->dbConnect();
         // TODO: INPUTS SHOULD BE CHECKED AND ONLY FIELD INPUTS SHOULD BE UPDATED
@@ -74,7 +77,7 @@ class SignUpManager extends Manager { //we should decide about using user id or 
                                                 ,interests= :inInterest
                                                 ,hometown= inHometown
                                                 ,profilepic= :inProfilepic
-                                                ,introduction= :inIntroduction WHERE id = :inId");
+                                                ,introduction= :inIntroduction WHERE uid = :inId");
         $reqUser ->execute(array(
                 'inFirstname' => $response['firstname'],
                 'inLastname' => $response['lastname'],
@@ -90,19 +93,43 @@ class SignUpManager extends Manager { //we should decide about using user id or 
                 'inId' => $id
             )); //
         //TODO: native and target language fields should be checked and if thy never exist in the db INSERT query should process otherwise update statemets
-            // $q = $db->prepare("");
-            // $reqNat = $db->prepare("UPDATE known_language SET language_id = :inLanguage WHERE user_id = :inId");
-            // $numOfnative = $reqNat->execute(array(
-            //                 'inLanguage' => $this->getLanguageId($inputs[11]),
-            //                 'inId' => $id
-            //     ));
+        $control = new UserProfile();
+        $known_language = $control->getUserLanguage($id, 'known_language');
+        if(empty($control)){
+            $reqNat = $db->prepare(" INSERT INTO known_language(user_id, language_id, proficiency) 
+                                    VALUES (:inId, :inLanguage ,:inProficiency)");
+            $reqNat->execute(array(
+                'inId' => $id,
+                'inLanguage' => $nativeLanguage,
+                'inProficiency' => $response['natProficieny']
+            ));
+        }else{
+            $reqNat = $db->prepare("UPDATE known_language SET language_id = :inLanguage, proficiency = :inProficiency WHERE user_id = :inId");
+            $reqNat->execute(array(
+                'inLanguage' => $nativeLanguage,
+                'inProficiency' => $response['natProficieny'],
+                'inId' => $id
+            ));
+        }
+       
         //TODO: proficiency field should be check in the case of empty
-                // $reqTar = $db->prepare("UPDATE target_language SET language_id = :inLanguage, proficiency = :intarProficieny WHERE user_id = :inId");
-                // $numOfnative = $reqNat->execute(array(
-                //                 'inLanguage' => $this->getLanguageId($inputs[12]),
-                //                 'intarProficieny' => $inputs[13],
-                //                 'inId' => $id
-                //     ));
+        $target_language = $control->getUserLanguage($id, 'target_language');
+        if(empty($control)){
+            $reqNat = $db->prepare(" INSERT INTO target_language(user_id, language_id, proficiency) 
+                                    VALUES (:inId, :inLanguage ,:inProficiency)");
+            $reqNat->execute(array(
+                'inId' => $id,
+                'inLanguage' => $tarLanguage,
+                'inProficiency' => $response['targetLanguage']
+            ));
+        }else{
+            $reqNat = $db->prepare("UPDATE target_language SET language_id = :inLanguage, proficiency = :inProficiency WHERE user_id = :inId");
+            $reqNat->execute(array(
+                'inLanguage' => $tarLanguage,
+                'inProficiency' => $response['targetLanguage'],
+                'inId' => $id
+            ));
+        }
 
 
 
