@@ -2,7 +2,7 @@
 
 <?php ob_start(); ?>
 
-<div>
+<div id="error">
     <h2>Error:</h2>
     <h3><?= $error_message ?></h3>
 </div>

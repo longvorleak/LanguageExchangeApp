@@ -48,7 +48,7 @@ try {
     ]);
 
     $result = $translate->translate('Hi, how are you?', [
-        'target' => 'ko' // 'fr' is a ISO-639-1 code
+        'target' => 'fr' // 'fr' is a ISO-639-1 code
     ]);
     echo $result['text'];
     echo "<br><br>";
