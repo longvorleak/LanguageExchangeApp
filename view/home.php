@@ -1,4 +1,8 @@
 <link rel="stylesheet" href=<?= BASE . "/public/css/home.css" ?>>
+<!-- <link rel="stylesheet" href=<?="../public/css/home.css" ?>> -->
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<!-- <script src="./public/js/test.js" defer></script> -->
 
 <?php $title = "SpeakEasy - Welcome $user_login!" ?>
 
@@ -42,4 +46,4 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require("template.php") ?>
+<?php require("template.php"); ?>

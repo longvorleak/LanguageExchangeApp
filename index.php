@@ -24,12 +24,12 @@ try {
             kakaoLogin($_REQUEST);
             break;
         case "signUpFailed":
-            // signUpFailed();
+            signUpFailed();
             break;
         case "loginFailed":
-        //     loginFailed();
+            loginFailed();
             break;
-        case "aboutus":
+        case "aboutUs":
             aboutUs();
             break;
         case "premium":
@@ -37,6 +37,9 @@ try {
             break;
         case "login":
             login();
+            break;
+        case "signOut":
+            userSignOut();
             break;
         default:
             startSplash();

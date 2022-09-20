@@ -5,10 +5,9 @@ require_once("Manager.php");
 class SignUpManager extends Manager {
  
     public function signUp($response){
-
-        $firstname = $response['firstname'];
-        $lastname = $response['lastname'];
+        
         $username = $response['username'];
+        $dob = $response['dob'];
         $email = $response['email'];
         $password = $response['password'];
         $passwordConfirm = $response['passwordConfirm'];
@@ -24,15 +23,13 @@ class SignUpManager extends Manager {
         3 = password confirm
 
         */
-        if(empty($username) && empty($email) && empty($password) && empty($passwordConfirm)){
-            // TODO: move to controlller
-            echo "<script>alert('You should write your username, email, password and confirmation properly!');
-            // window.history.go(-1);</script>";
-        }else{
+        if (empty($username) AND empty($email) AND empty($password) AND empty($passwordConfirm)){
+            header('Location: ./index.php?action=signUpFailed&reason=emptyFields');
+        } else {
    
             $uid = $this->uidCreate(); // creating unique id for user
 
-            $req = $db->prepare("SELECT u.username, u.uid, u.email FROM users u WHERE u.username = :inUser OR u.uid = :inUid OR u.email = :inEmail"); //email also should include
+            $req = $db->prepare("SELECT username, uid, email FROM users WHERE username = :inUser OR uid = :inUid OR email = :inEmail"); //email also should include
             $req ->execute(array(
                 'inUser' => $username,
                 'inUid' => $uid,
@@ -40,9 +37,6 @@ class SignUpManager extends Manager {
             ));
             $res = $req->fetch(PDO::FETCH_ASSOC);
 
-            // echo "<pre>";
-            // print_r($res);
-            // echo "<br>{$res['email']}";
             $isUnique = true;
 
 
@@ -50,15 +44,11 @@ class SignUpManager extends Manager {
                 $isUnique = false;
                 $uid = $this->uidCreate(); // creating unique id for user
                 if ($res['username'] == $username AND $res['email'] == $email) {
-                    // TODO: move to controlller
-                    echo "<script>alert('This username and email is taken. You should use a unique name!'); window.history.go(-1);</script>";
+                    return "usernameEmail";
                 } else if ($res['email'] == $email) {
-                    // TODO: move to controlller
-                    echo "<script>alert('This email is taken. You should use a unique email adress!'); window.history.go(-1);</script>";
-
+                    return "email";
                 } else if ($res['username'] == $username) {
-                    // TODO: move to controlller
-                    echo " <script>alert('This username is taken. You should use a unique name!'); window.history.go(-1);</script>";
+                    return "username";
                 } else {
                     // TODO: do while loop if uid is not unique
                     if ($res['uid'] == $uid)
@@ -69,44 +59,43 @@ class SignUpManager extends Manager {
             if ($isUnique) {
                 // $_SESSION['login'] = $username; 
                 
-                $control[] = '';
+                //TODO: Convert to JS
+                $control = [];
                 if(preg_match("#^[a-zA-Z0-9._-]{2,}$#", $username)){
                     array_push($control, 'true');
-                }else array_push($control, "Your username must include at least 2 character! ");
+                } else array_push($control, "Your username must include at least 2 characters! ");
 
                 if(preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $email)){
                     array_push($control, 'true');
-                }else array_push($control, " You should write a proper e-mail adress!");
+                }else array_push($control, " You should write a proper e-mail address!");
 
                 if($password === $passwordConfirm && $password !== '' && $passwordConfirm !== ''){
                     array_push($control, 'true');
-                }else array_push($control," Your passwords are mismatched!");
+                }else array_push($control," Your passwords did not match or were empty!");
 
+                // Will trigger if BE validation succeeds
                 if(array_count_values(array_values($control))['true'] == 3){
                     $password = password_hash($password, PASSWORD_DEFAULT);
-                    $req = $db->prepare("INSERT INTO users (uid, firstname, lastname, username, email, password) 
-                                        VALUES(:inUid, :inFirstname, :inLastname, :inUser, :inEmail, :inPassword)");
+                    $req = $db->prepare("INSERT INTO users (uid, username, dob, email, password) 
+                                        VALUES(:inUid, :inUser, :inDob, :inEmail, :inPassword)");
                     $req ->execute(array(
                         'inUid' => $uid,
-                        'inFirstname' => $firstname,
-                        'inLastname' => $lastname,
                         'inUser' => $username,
+                        'inDob' => $dob,
                         'inEmail' => $email,
                         'inPassword' => $password                
                     ));
-                    // TODO: move to controlller
+
                     echo "<script>alert('You are succefully signed up!');</script>";
-                } else {
+
+                } else { // TODO: What is this for?
                     $error = '';
-                foreach(array_values($control) as $key){
-                    if ($key != 'true')
-                        $error .= $key . ' ';
-                }
-                // TODO: move to controller
-                echo "<script>alert('$error');window.history.go(-1);</script>";
+                    foreach(array_values($control) as $key){
+                        if ($key != 'true') $error .= $key . '<br>';
+                    }
+                    return $error;
                 }
             }
-
         }
         return $username;
     }

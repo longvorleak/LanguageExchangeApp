@@ -37,66 +37,40 @@ class LoginManager extends Manager
     }
     
     public function userCheck($user_fetch) {
+
         $uid = $this->uidCreate(); // creating unique id for user
         $db = $this->dbConnect();
 
         if (isset($user_fetch['username'])) {
             $req = $db->prepare('SELECT uid, username, email FROM users WHERE uid = ? OR username = ? email = ?');
-            $req->execute(array($uid, htmlspecialchars($user_fetch['username']), htmlspecialchars($user_fetch['email'])));
-        } else if (isset($user_fetch['usernameEmail']) AND isset($user_fetch['passwordIn'])) {
+            $req->execute(array($uid, $user_fetch['username'], $user_fetch['email']));
+        }
+        
+        if (isset($user_fetch['emailUsername'])) {
             $req = $db->prepare('SELECT username, email, password FROM users WHERE username = ? OR email = ?');
-            $req->execute(array(htmlspecialchars($user_fetch['usernameEmail']), htmlspecialchars($user_fetch['usernameEmail'])));
+            $req->execute(array($user_fetch['emailUsername'], $user_fetch['emailUsername']));
             $response = $req->fetch(PDO::FETCH_ASSOC);
-            if (password_verify($user_fetch['passwordIn'], $response['password'])) {
-                return $response;
-            } else {
-                header('Location: ./index.php?action=loginFailed');
+            if (!empty($response) AND password_verify($user_fetch['password'], $response['password'])) {
+                return $response['username'];
             }
-        } else {
-            // TODO: change from * to selected columns
-            $req = $db->prepare('SELECT * FROM users WHERE email = ? OR uid = ?');
-            $req->execute(array(htmlspecialchars($user_fetch['email']), $uid));
+        }
+
+        if (isset($user_fetch['iss'])) {
+            $req = $db->prepare('SELECT uid, username, email FROM users WHERE username = ? OR email = ?');
+            $req->execute(array($user_fetch['email'], $user_fetch['email']));
         }
 
         $response = $req->fetch(PDO::FETCH_ASSOC);
         $req->closeCursor();
 
         return $response;
-    }
-
-    public function newUserCheck($user_fetch) {
-        $uid = $this->uidCreate(); // creating unique id for user
-        $db = $this->dbConnect();
-
-        if (isset($user_fetch['username']) and isset($user_fetch['password'])) {
-            // TODO: change from * to selected columns
-            $req = $db->prepare('SELECT * FROM users WHERE email = ? OR uid = ? OR username = ?');
-            $req->execute(array(htmlspecialchars($user_fetch['email'], $uid, htmlspecialchars($user_fetch['username']))));
-        } else if (isset($user_fetch['usernameEmail'])) {
-            // TODO: change from * to selected columns
-            $req = $db->prepare('SELECT * FROM users WHERE email = ? OR uid = ? OR username = ?');
-            $req->execute(array(htmlspecialchars($user_fetch['usernameEmail']), $uid, htmlspecialchars($user_fetch['usernameEmail'])));
-        } else {
-            // TODO: change from * to selected columns
-            $req = $db->prepare('SELECT * FROM users WHERE email = ? OR uid = ?');
-            $req->execute(array(htmlspecialchars($user_fetch['email']), $uid));
-        }
-
-        $response = $req->fetch(PDO::FETCH_ASSOC);
-        $req->closeCursor();
-
-        return $response;
-    }
-
-    public function userSignUp() {
-
     }
 
     public function userLogin($user_fetch) {
         $response = $this->userCheck($user_fetch);
-        
+
         if (!empty($response)) {
-            return $response['username'];
+            return $response;
         } else {
             return null;
         }
@@ -106,7 +80,7 @@ class LoginManager extends Manager
         $response = $this->userCheck($user_fetch);
 
         if (!empty($response)) {
-            return $response['firstname'];
+            return $response['username'];
         } else {
             $uid = $this->uidCreate(); // creating unique id for user
             $db = $this->dbConnect();
@@ -120,8 +94,7 @@ class LoginManager extends Manager
                 'inEmail' => $user_fetch['email']
             ));
 
-            // TODO: change from * to selected columns
-            $req = $db->prepare('SELECT * FROM users WHERE email = ?');
+            $req = $db->prepare('SELECT firstname FROM users WHERE email = ?');
             $req->execute(array($user_fetch['email']));
             $response = $req->fetch(PDO::FETCH_ASSOC);
             $req->closeCursor();
