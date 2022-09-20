@@ -1,0 +1,89 @@
+.dashboard{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    text-align: center;
+    background-color: white;
+}
+
+#hamburger-checkbox{
+    visibility: hidden;
+}
+
+/* LEFT SECTION */
+.hamburger-span{
+    visibility: hidden;
+}
+
+.dashboard{
+    width: 15vw;
+    min-width: 160px;
+}
+
+.dashboard h2{
+    margin-top: 20px;
+}
+
+.dashboard ul{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 100%;
+    margin-top: 30px;
+}
+
+.dashboard ul a{
+    align-self: flex-start;
+
+}
+
+li img{
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+}
+
+i{
+    margin-right: 10px;
+    min-width: 30px;
+}
+
+.dashboard ul li{
+    transition-duration: 2s ease-in-out;
+    border: none;
+    border-radius: 6px;
+    color: black;
+    height: 30px;
+    list-style: none;
+    padding-top: 10px;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+
+li:hover{
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: 0.1s ease-in-out;
+    z-index: 3;
+    color: white;
+    background-color: orange;
+}
+
+.dashboard div{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content:flex-end; 
+    margin-bottom: 20px;
+}
+
+.dashboard-bottom div{
+    height: 60px;
+    width: 140px;
+    background-color:aqua;
+    align-self: center;
+    border-radius: 10px;
+    padding-bottom: 10px;
+    gap: 10px;
+}
+

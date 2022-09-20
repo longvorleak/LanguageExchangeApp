@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="../public/css/side_menu.css"/>
 <section class="dashboard">
         <h2>Menu</h2>
         <nav role='navigation'>
@@ -5,9 +6,9 @@
 
                 <input id="hamburger-checkbox" type="checkbox" />
                 
-                <span></span>
-                <span></span>
-                <span></span>
+                <span class="hamburger-span"></span>
+                <span class="hamburger-span"></span>
+                <span class="hamburger-span"></span>
                 <ul id="menu">
                     <a href="#"><li><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"/>My Account</li></a>
                     <a href="#"><li><i class="fa-solid fa-house home-icon"></i>Dashboard</li></a>

@@ -25,7 +25,7 @@
                     <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left">
                     </div>
                 </div>
-                <form method="POST" action=<?= BASE . "/index.php?action=signUp" ?>>
+                <form method="POST" action=<?= BASE . "/index.php?action=regularLogin" ?>>
                     <input type="text" name="usernameEmail" id="usernameEmail" placeholder="Email/Username" />
                     <input type="text" name="passwordIn" id="passwordIn" placeholder="Password" />
                     <input type="checkbox" name="rememberCheck" id="rememberCheck" />

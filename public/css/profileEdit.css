@@ -1,0 +1,136 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+}
+
+#profile-edit{
+    width: 100%;
+    padding: 30px 90px 30px 90px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+form{
+    padding-top: 20px;
+    border-top: 1px solid rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+form input{
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,0.5);
+}
+
+textarea{
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,0.5);
+    height: 150px;
+    width: 550px;
+    resize: none;
+}
+
+.photo-container{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.photo-container div img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    align-self: center;
+}
+
+.photo-container div{
+    display: flex;
+    gap: 20px;
+    height: 80px;
+}
+
+.photo-container div input{
+    height: 35px;
+    padding: 10px;
+    border: none;
+    background-color: white;
+    font-size: 1em;
+    border-radius: 10px;
+    align-self: center;
+
+}
+
+.label-input-container{
+    display: flex;
+    gap: 80px;
+}
+
+.label-input-container div{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.about-me-edit{
+    display: flex;
+    flex-direction: column;
+}
+
+.language-edit{
+    display: flex;
+    gap: 100px;
+}
+
+.native-language, .learning-language{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+}
+
+#native-language, #learning-language{
+    height: 30px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,0.5);
+}
+
+.add-more-languages{
+    margin-top: 10px;
+}
+
+.addLangBtn {
+    border: 1px solid black;
+    padding: 10px 15px;
+    background-color: aqua;
+}
+
+.overlay{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(6px);
+    background-color:rgba(0,0,0,0.3);
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.modal{
+    height: 85vh;
+    width: 90vw;
+    background-color: white;
+    margin-top: 50px;
+    margin-left: 70px;
+}
+
+.display-none{
+    display: none;
+}

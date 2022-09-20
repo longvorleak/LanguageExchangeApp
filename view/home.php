@@ -38,19 +38,7 @@
     </div>
 
 </section>
-<section class="right-section">
-    <div class="right1">
-        <h2>schedule</h2>
-        <div>
-            schedule
-        </div>
-    </div>
-    <div class="right2">
-        <p>friends</p>
-        <div>
-            friends list
-        </div>
-</section>
+<?php include("dashboard_right.php")?>
 
 <?php $content = ob_get_clean(); ?>
 
