@@ -112,7 +112,7 @@ textarea{
 }
 
 .overlay{
-    position: absolute;
+    position: fixed;
     height: 100%;
     width: 100%;
     backdrop-filter: blur(6px);
@@ -124,11 +124,69 @@ textarea{
 }
 
 .modal{
-    height: 85vh;
+    position: fixed;
+    height: auto;
     width: 90vw;
     background-color: white;
     margin-top: 50px;
     margin-left: 70px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 40px;
+}
+
+.modal-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-header h1{
+    margin-left: 35%;
+    padding: 30px 0 30px 0;
+}
+
+.modal-header i{
+    font-size: 1.5em;
+    align-self: flex-end;
+}
+
+.language-selector{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.language-selector i {
+    font-size: 1.5em;
+}
+
+.added-languages{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.added-languages table{
+    border-spacing: 4em 0;
+    font-size: 1.3em;
+    background-color: gray;
+}
+
+.added-languages table tr{
+    border: 1px solid black;
+}
+
+.save-lang{
+    display: flex;
+    justify-content: center;
+}
+
+.save-lang p{
+    font-size: 1.4em;
+    background-color: aquamarine;
+    border-radius: 7px;
+    padding: 4px;
+    margin-top: 30px;
 }
 
 .display-none{
