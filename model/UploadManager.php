@@ -32,12 +32,11 @@ class UploadManager extends Manager {
                                     $img_hash = substr($img_hash, 4);
                                 }
                                 $img_full_path = "$img_path/$img_hash.$img_type";
-
                                 if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], "$img_directory$img_full_path")) {
                                     $db = $this->dbConnect();
-                                    $req = $db->prepare("UPDATE users SET profile_img_path = ? WHERE username = ?");
+                                    $req = $db->prepare("UPDATE users SET profile_img_path = ? WHERE firstname = ?");
                                     $req->bindParam(1, $img_full_path);
-                                    $req->bindParam(2, $_SESSION['username']);
+                                    $req->bindParam(2, $_SESSION['firstname']);
                                     $res = $req->execute();
                                     $_SESSION['photo'] = "$img_full_path";
                                     return $res;

@@ -52,6 +52,27 @@ try {
         case "imageUploaded":
             imageUploaded();
             break;
+        case "forgotPassword":
+            forgotPassword();
+            break;
+        case "usernameEmailCheck":
+            usernameEmailCheck($_REQUEST);
+            break;
+        case "existingUserCheckPassed":
+            changePasswordView($_REQUEST);
+            break;
+        case "existingUserCheckFailed":
+            usernameEmailCheckFailed();
+            break;
+        case "changePasswordStatus":
+            changePasswordStatus($_REQUEST);
+            break;
+        case "changePasswordSuccess":
+            changePasswordSuccess();
+            break;
+        case "changePasswordFailed":
+            changePasswordFailed();
+            break;
         default:
             startSplash();
             break;
