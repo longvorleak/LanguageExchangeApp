@@ -53,17 +53,36 @@ class ProfileUpdateManager extends Manager{ //we should decide about using user 
             return $langid;
         }else return 0;
     }
+
+    //INFO: in this part $language[][] array is created 
+        //you can reach LANGUAGE info as $language[X][0] // 0 fixed for lang.
+        //you can reach PROFICIENCY info as $language[X][1] // 1 fixed for prof.
+        // [0] => Array
+        // (
+        //     [0] => English
+        //     [1] => 5
+        // )
+    //INFO: $array: language and proficiny list
+    protected function languageParse($array){
+        if(!empty($array)){
+            $language = [];
+            $array = explode("," ,$array);
+            foreach($array as $key){
+                array_push($language, explode("&",$key));
+                return $language;
+            }
+        }else
+            return 0;
+    }
  
    public function update($response){
 
     if(isset($response)){
-        $id = $response['id'];
+        $id = $response['uid'];
         $password = password_hash($response['password'], PASSWORD_DEFAULT);
         $city = $this->getCityId($response['city']);
         $interest = implode(",", $response['interest']);
         $hometown = $this->getCityId($response['hometown']);
-        $nativeLanguage = $this->getLanguageId($response['nativeLanguage']);
-        $tarLanguage = $this->getLanguageId($response['targetLanguage']);
 
         $db = $this->dbConnect();
         // TODO: INPUTS SHOULD BE CHECKED AND ONLY FIELD INPUTS SHOULD BE UPDATED
@@ -92,54 +111,60 @@ class ProfileUpdateManager extends Manager{ //we should decide about using user 
                 'inIntroduction' =>$response['introduction'],
                 'inId' => $id
             )); //
-        //TODO: native and target language fields should be checked and if thy never exist in the db INSERT query should process otherwise update statemets
+
+        
+        $nativeLanguage = $this->languageParse($response['nativeLanguage']); //coming from update page inputs
+        $tarLanguage = $this->languageParse($response['targetLanguage']); //coming from update page inputs
         $control = new UserProfile();
-        $known_language = $control->getUserLanguage($id, 'known_language');
-        if(empty($control)){
-            $reqNat = $db->prepare(" INSERT INTO known_language(user_id, language_id, proficiency) 
-                                    VALUES (:inId, :inLanguage ,:inProficiency)");
-            $reqNat->execute(array(
-                'inId' => $id,
-                'inLanguage' => $nativeLanguage,
-                'inProficiency' => $response['natProficieny']
-            ));
-        }else{
-            $reqNat = $db->prepare("UPDATE known_language SET language_id = :inLanguage, proficiency = :inProficiency WHERE user_id = :inId");
-            $reqNat->execute(array(
-                'inLanguage' => $nativeLanguage,
-                'inProficiency' => $response['natProficieny'],
-                'inId' => $id
-            ));
+
+        for($i=0; $i<count($nativeLanguage); $i++){
+            $known_language = $control->getUserLanguage($id, 'known_language'); //coming form db
+            if(empty($known_language)){
+                $reqNat = $db->prepare(" INSERT INTO known_language(user_id, language_id, proficiency) 
+                                        VALUES (:inId, :inLanguage ,:inProficiency)");
+                $reqNat->execute(array(
+                    'inId' => $id,
+                    'inLanguage' =>  $this->getLanguageId($nativeLanguage[$i][0]),
+                    'inProficiency' => $nativeLanguage[$i][1]
+                ));
+            }else{
+                $reqNat = $db->prepare("UPDATE known_language SET language_id = :inLanguage, proficiency = :inProficiency WHERE user_id = :inId");
+                $reqNat->execute(array(
+                    'inLanguage' => $this->getLanguageId($nativeLanguage[$i][0]),
+                    'inProficiency' => $nativeLanguage[$i][1],
+                    'inId' => $id
+                ));
+            }
         }
-       
-        //TODO: proficiency field should be check in the case of empty
-        $target_language = $control->getUserLanguage($id, 'target_language');
-        if(empty($control)){
-            $reqNat = $db->prepare(" INSERT INTO target_language(user_id, language_id, proficiency) 
-                                    VALUES (:inId, :inLanguage ,:inProficiency)");
-            $reqNat->execute(array(
-                'inId' => $id,
-                'inLanguage' => $tarLanguage,
-                'inProficiency' => $response['targetLanguage']
-            ));
-        }else{
-            $reqNat = $db->prepare("UPDATE target_language SET language_id = :inLanguage, proficiency = :inProficiency WHERE user_id = :inId");
-            $reqNat->execute(array(
-                'inLanguage' => $tarLanguage,
-                'inProficiency' => $response['targetLanguage'],
-                'inId' => $id
-            ));
-        }
+        for($i=0; $i<count($tarLanguage); $i++){
+            $target_language = $control->getUserLanguage($id, 'target_language'); //coming from db
+            if(empty($target_language)){
+                $reqNat = $db->prepare(" INSERT INTO target_language(user_id, language_id, proficiency) 
+                                        VALUES (:inId, :inLanguage ,:inProficiency)");
+                $reqNat->execute(array(
+                    'inId' => $id,
+                    'inLanguage' => $this->getLanguageId($tarLanguage[$i][0]),
+                    'inProficiency' => $tarLanguage[$i][1]
+                ));
+            }else{
+                $reqNat = $db->prepare("UPDATE target_language SET language_id = :inLanguage, proficiency = :inProficiency WHERE user_id = :inId");
+                $reqNat->execute(array(
+                    'inLanguage' => $this->getLanguageId($tarLanguage[$i][0]),
+                    'inProficiency' => $tarLanguage[$i][1],
+                    'inId' => $id
+                ));
+            }
+        }     
 
 
 
         if($reqUser->rowCount() == 1) echo "<script>alert('Your account has been updated successfully');</script>";
-        header('Location: ./index.php?action=startSplash');
+        header('Location: ./index.php?action=profileEditView');
         return $id;
     }else{
         echo "<script>alert('Missing information. Profile update process is aborting...')</script>"; 
-        header('Location: ./index.php?action=startSplash');
-        return $response['id'];
+        header('Location: ./index.php?action=profileEditView');
+        return $response['uid'];
     }
 
     }

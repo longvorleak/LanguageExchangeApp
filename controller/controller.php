@@ -2,6 +2,7 @@
 
 require_once("./model/LoginManager.php");
 require_once("./model/SignUpManager.php");
+require_once("./model/ProfileUpdateManager.php");
 
 function startSplash() {
     require('./view/landingPageView.php');
@@ -35,6 +36,10 @@ function loginFailed() {
     require('./view/loginSignUpView.php');
 }
 
+function updateFailed(){
+    require('./view/profileEditView.php');
+}
+
 function googleLogin($response) {
     $response = json_decode(base64_decode(str_replace('', '/', str_replace('-', '+', explode('.', $response['credential'])[1]))),true);
     $login_manager = new LoginManager();
@@ -44,6 +49,16 @@ function googleLogin($response) {
 
 function kakaoLogin() {
     // do something
+}
+
+function profileUpdate($response){
+    $profileupdate_manager = new ProfileUpdateManager();
+    $user_login = $profileupdate_manager->update($response);
+    if ($user_login) {
+        require('./view/profileEditView.php');
+    } else {
+        header("Location: ./index.php?action=updateFailed");
+    }
 }
 
 function aboutUs() {

@@ -29,6 +29,9 @@ try {
         case "loginFailed":
             loginFailed();
             break;
+        case "profileUpdate":
+            profileUpdate($_REQUEST);
+            break;
         case "aboutUs":
             aboutUs();
             break;
