@@ -45,28 +45,19 @@
 }
 
 /* LOGIN SIGNUP */
-#login, #signup {
-    font-size: 1em;
-    font-weight:400;
-    border-radius: 25px;
-    padding: 5px;
-    width: 80px;
-    border: 2px solid var(--divider);
+#signInUp {
+    font-size: 0.8rem;
+    font-weight: 400;
+    width: 130px;
     text-align: center;
-    text-transform: capitalize;
-}
-
-#login {
-    margin-left: 30px;
+    border: 1px solid var(--divider);
+    background-color: var(--main-primary);
+    border-radius: var(--button-radius);
     color: var(--divider);
-    background-color: var(--dark-primary);
-}
-
-#signup {
-    border: none;
-    background-color: var(--divider);
-    margin-right: 30px;
-    color: var(--dark-primary);
+    padding: 12px;
+    margin: 0 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 #login:hover{
