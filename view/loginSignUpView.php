@@ -382,7 +382,6 @@ function checkPwd2() {
     }
 };
 
-
 // === Event listeners on Key up ===
 user.addEventListener('keyup', checkUser);
 mail.addEventListener('keyup', checkMail);
@@ -409,5 +408,3 @@ su_form.addEventListener("submit", function(e){
   });
 
 </script>
-
-

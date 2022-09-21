@@ -1,0 +1,129 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: RGB(240, 240, 240);
+    display: flex;
+    gap: 15px;
+    height: 100%;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 100vh;
+    
+}
+
+section:first-child{
+    display:flex;
+    margin-bottom: 10px;
+    padding: 50px 20px 0 30px;
+    background-color: white;
+    border-radius: 15px;
+    justify-content: space-between;
+    height: 170px;
+}
+
+.socials i{
+    margin-top: 10px;
+    font-size: 1.7em;
+}
+
+span{
+    background-color: rgba(0,0,0,0.1);
+    font-weight: 900;
+    color: black;
+    padding: 2px;
+    border-radius: 5px;
+    font-size: 0.7em;
+
+}
+
+.basic-info{
+    display: flex;
+    justify-content: space-between;
+}
+
+.fa-mars{
+    font-size: .6em;
+    color: RGB(78, 100, 244);
+}
+
+.edit-profile{
+    background-color:RGB(78, 100, 244);
+    color: white;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    font-size: 0.8em;
+}
+
+.edit-profile i{
+    margin-right: -15px;
+}
+
+.text-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+
+.text-info h1{
+    font-size: 2.1em;
+}
+
+.text-info p{
+    color: rgba(0,0,0,0.5);
+    font-size: 1.1em;
+}
+
+section:nth-child(2){
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    height: auto;
+    border-radius: 15px;
+    padding: 30px;
+}
+
+section:nth-child(2) h3{
+    margin-bottom: 15px;
+}
+
+/* IMAGES */
+
+#cover-img{
+    height: 250px;
+    width: 100%;
+    border-radius:15px;
+    margin-bottom: -40px;
+}
+
+#profile-img{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    padding: 5px;
+    background-color: white;
+    margin: -100px 15px 0 0;
+}
+
+#country-img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    padding: 2px;
+    margin-right: -60px;
+    margin-top: 25px;
+    z-index: 2;
+    background-color: white;
+}
+
+/* #profile-images{
+    margin-left: 20px;
+} */

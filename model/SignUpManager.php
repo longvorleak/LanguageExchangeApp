@@ -5,12 +5,7 @@ require_once("Manager.php");
 class SignUpManager extends Manager {
  
     public function signUp($response){
-        echo "<pre>";
-        print_r($response);
-        echo "</pre>";
-
-        $firstname = $response['firstname'];
-        $lastname = $response['lastname'];
+        
         $username = $response['username'];
         $dob = $response['dob'];
         $email = $response['email'];
@@ -64,6 +59,7 @@ class SignUpManager extends Manager {
             if ($isUnique) {
                 // $_SESSION['login'] = $username; 
                 
+                //TODO: Convert to JS
                 $control = [];
                 if(preg_match("#^[a-zA-Z0-9._-]{2,}$#", $username)){
                     array_push($control, 'true');
@@ -77,14 +73,13 @@ class SignUpManager extends Manager {
                     array_push($control, 'true');
                 }else array_push($control," Your passwords did not match or were empty!");
 
+                // Will trigger if BE validation succeeds
                 if(array_count_values(array_values($control))['true'] == 3){
                     $password = password_hash($password, PASSWORD_DEFAULT);
-                    $req = $db->prepare("INSERT INTO users (uid, firstname, lastname, username, dob, email, password) 
-                                        VALUES(:inUid, :inFirstname, :inLastname, :inUser, :inDob, :inEmail, :inPassword)");
+                    $req = $db->prepare("INSERT INTO users (uid, username, dob, email, password) 
+                                        VALUES(:inUid, :inUser, :inDob, :inEmail, :inPassword)");
                     $req ->execute(array(
                         'inUid' => $uid,
-                        'inFirstname' => $firstname,
-                        'inLastname' => $lastname,
                         'inUser' => $username,
                         'inDob' => $dob,
                         'inEmail' => $email,
@@ -102,6 +97,13 @@ class SignUpManager extends Manager {
                 }
             }
         }
-        return $username;
+        $req = $db->prepare('SELECT firstname, profile_img_path FROM users WHERE email = ?');
+        $req->execute(array($response['email']));
+        $response = $req->fetch(PDO::FETCH_ASSOC);
+        $req->closeCursor();
+
+        // return $response['firstname'];
+        return $response;
+        // return $username;
     }
 }
