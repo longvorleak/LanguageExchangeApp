@@ -2,11 +2,8 @@
 
 require_once("./model/LoginManager.php");
 require_once("./model/SignUpManager.php");
-<<<<<<< HEAD
 require_once("./model/ProfileUpdateManager.php");
-=======
 require_once("./model/UploadManager.php");
->>>>>>> main
 
 function startSplash() {
     require('./view/landingPageView.php');

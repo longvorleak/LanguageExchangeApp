@@ -48,12 +48,12 @@ class UserProfile extends Manager {
                 case "known_language":
                     $req ="SELECT u.id, l.language, k.proficiency 
                     FROM known_language k, users u, language l 
-                    WHERE u.uid = :inId AND u.id= k.user_id AND k.language_id = l.id;";
+                    WHERE u.id = :inId AND u.id= k.user_id AND k.language_id = l.id;";
                     break;
                 case "target_language":
                     $req ="SELECT u.id, l.language, t.proficiency 
                         FROM target_language t, users u, language l 
-                        WHERE u.uid = :inId AND u.id= t.user_id AND t.language_id = l.id;"; //ask about semicomma
+                        WHERE u.id = :inId AND u.id= t.user_id AND t.language_id = l.id;"; //ask about semicomma
                     break;
                 default:
                     break;                                                                                            
@@ -65,7 +65,7 @@ class UserProfile extends Manager {
                 ));
             
             if($res->rowCount() >= 1){
-                $user = $res->fetch();
+                $user = $res->fetchAll(PDO::FETCH_ASSOC);
                 return $user;
             }else {
                 return 0;
