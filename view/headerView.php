@@ -7,10 +7,7 @@
 
         <ul id="hamburger-menu">
             <a href=<?= BASE . "/index.php?action=loginSignUp" ?>>
-                <li class="li-menu">Log In</li>
-            </a>
-            <a href=<?= BASE . "/index.php?action=loginSignUp" ?>>
-                <li class="li-menu">Sign Up</li>
+                <li class="li-menu">Log In/Up</li>
             </a>
             <a href=<?= BASE . "/index.php?action=landing" ?>>
                 <li class="li-menu">Home</li>
@@ -57,9 +54,7 @@
                     </ul>
                 </span>
 
-                <a href=<?= BASE . "/index.php?action=login" ?> id="login">Log in</a>
-                <a href=<?= BASE . "/index.php?action=login" ?> id="signup">Sign up</a>
-
+                <a href=<?= BASE . "/index.php?action=login" ?> id="signInUp">Sign In/Up</a>
             </span>
         </div>
     </div>
