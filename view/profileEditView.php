@@ -27,7 +27,7 @@
                     <option value="4">Turkish</option>
                 </select>
                 <select class="select-level">
-                    <option value="0" selected disabled hidden id="level0">Select a level:</option>
+                    <option value="0" selected disabled hidden>Select a level:</option>
                     <option value="1">1 Beginner</option>
                     <option value="2">2 Novice</option>
                     <option value="3">3 Intermediate</option>
@@ -39,9 +39,6 @@
             <div class="added-langs-container">
             </div>
 
-        <!-- <div class="save-lang">
-            <p onclick="saveLang()">SAVE</p>
-        </div> -->
         <button disabled class="save-lang" onclick="saveLang();">Save</button>
     </div>
     <?php include("settingsView.php") ?>
@@ -74,18 +71,18 @@
             </div>
 
             <div class="language-edit">
-                <div class="native-language">
+                <div class="known-languages">
 
-                    <label for="native-language">Native Language</label>
-                    <p id="knownLangsP">No languages yet...</p>
+                    <label for="known-languages">Known Languages</label>
                     <div class="addLangBtn" onclick="openLangModal('known_lang')">Add more</div>
                     <input id="knownLangsList" name="known_langs" type="text" style="display:none;" />
+                    <p id="knownLangsP">No languages yet...</p>
                 </div>
-                <div class="learning-language">
-                    <label for="learning-language">Learning Language</label>
-                    <p id="learningLangsP">No languages yet...</p>
+                <div class="learning-languages">
+                    <label for="learning-languages">Learning Languages</label>
                     <div class="addLangBtn" onclick="openLangModal('learning_lang')">Add more</div>
                     <input id="learningLangsList" name="learning_langs" type="text" style="display:none;" />
+                    <p id="learningLangsP">No languages yet...</p>
                 </div>
             </div>
             <div>
