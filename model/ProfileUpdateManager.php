@@ -16,21 +16,14 @@ hometown **
 profilepic
 introduction**
 nativeLanguage
-natProficieny
 targetLanguage
-tarProficieny*/
-
-
-
-
-
+*/
 
 require_once("Manager.php");
 require_once("UserProfile.php");
 
 class ProfileUpdateManager extends Manager{ //we should decide about using user id or username. which one is safest option?
- 
-    // THIS 'getCityId(CITY)' FUNCTIONS RETURNS US CITY ID'S ACCORDING TO THE CITY NAMES THAT COMES FROM FORM INPUT VALUES
+     // THIS 'getCityId(CITY)' FUNCTIONS RETURNS US CITY ID'S ACCORDING TO THE CITY NAMES THAT COMES FROM FORM INPUT VALUES
     protected function getCityId($str){
         $city = $str;
         $db = $this->dbConnect();                  
@@ -54,15 +47,22 @@ class ProfileUpdateManager extends Manager{ //we should decide about using user 
         }else return 0;
     }
 
-    //INFO: in this part $language[][] array is created 
-        //you can reach LANGUAGE info as $language[X][0] // 0 fixed for lang.
-        //you can reach PROFICIENCY info as $language[X][1] // 1 fixed for prof.
-        // [0] => Array
-        // (
-        //     [0] => English
-        //     [1] => 5
-        // )
-    //INFO: $array: language and proficiny list
+    
+    /** */    
+    /**
+     * languageParse
+     * INFO: in this part $language[][] array is created 
+     * you can reach LANGUAGE info as $language[X][0] // 0 fixed for lang.
+     * you can reach PROFICIENCY info as $language[X][1] // 1 fixed for prof.
+     * [0] => Array
+     *      (
+     *           [0] => English
+     *           [1] => 5
+     * )
+     * INFO: $array: language and proficiny list
+     *
+     * 
+     */
     protected function languageParse($array){
         if(!empty($array)){
             $language = [];
@@ -74,9 +74,9 @@ class ProfileUpdateManager extends Manager{ //we should decide about using user 
         }else
             return 0;
     }
+    
  
    public function update($response){
-
     if(isset($response)){
         $id = $response['uid'];
         $password = password_hash($response['password'], PASSWORD_DEFAULT);
