@@ -2,7 +2,11 @@
 
 require_once("./model/LoginManager.php");
 require_once("./model/SignUpManager.php");
+<<<<<<< HEAD
 require_once("./model/ProfileUpdateManager.php");
+=======
+require_once("./model/UploadManager.php");
+>>>>>>> main
 
 function startSplash() {
     require('./view/landingPageView.php');
@@ -11,11 +15,20 @@ function startSplash() {
 function signUp($response){
     $signup_manager = new SignUpManager();
     $user_login = $signup_manager->signUp($response);
+    // print_r($user_login);
     if($user_login == $response['username']){
-    require('./view/home.php');
+        // setcookie('username', $user_login);
+        // session_start();
+        $_SESSION['firstname'] = $user_login['firstname'];
+        $_SESSION['photo'] = $user_login['profile_img_path'];
+        require('./view/home.php');
     } else {
         header("Location: ./index.php?action=signUpFailed&reason=$user_login");
     }
+}
+
+function login() {
+    require('./view/loginSignUpView.php');
 }
 
 function signUpFailed() {
@@ -25,7 +38,12 @@ function signUpFailed() {
 function regularLogin($response) {
     $login_manager = new LoginManager();
     $user_login = $login_manager->userLogin($response);
+    // print_r($user_login);
     if ($user_login) {
+        // setcookie('username', $user_login);
+        // session_start();
+        $_SESSION['firstname'] = $user_login['firstname'];
+        $_SESSION['photo'] = $user_login['profile_img_path'];
         require('./view/home.php');
     } else {
         header("Location: ./index.php?action=loginFailed");
@@ -42,8 +60,16 @@ function updateFailed(){
 
 function googleLogin($response) {
     $response = json_decode(base64_decode(str_replace('', '/', str_replace('-', '+', explode('.', $response['credential'])[1]))),true);
+    // echo "<pre>";
+    // print_r($response);
+    // echo "</pre>";
     $login_manager = new LoginManager();
     $user_login = $login_manager->googleCheck($response);
+    // print_r($user_login);
+    // setcookie('username', $user_login);
+    // session_start();
+    $_SESSION['firstname'] = $user_login['firstname'];
+    $_SESSION['photo'] = $user_login['profile_img_path'];
     require('./view/home.php');
 }
 
@@ -69,16 +95,29 @@ function premium() {
     require('./view/premiumView.php');
 }
 
-function login() {
-    require('./view/loginSignUpView.php');//we should add initial values before calling the page
-}
-
 function userSignOut() {
     // setcookie('g_csrf_token', null, time() - 10000000);
     // setcookie('g_state', null, time() - 10000000);
-    // session_destroy();
     // session_unset();
-    setcookie(session_name("g_csrf_token"), '', time() - 3600, '/');
-    setcookie(session_name("g_state"), '', time() - 3600, '/');
+    // session_destroy();
+    // setcookie(session_name("g_csrf_token"), '', time() - 3600, '/');
+    // setcookie(session_name("g_state"), '', time() - 3600, '/');
     require('./view/landingPageView.php');
+}
+
+// PROFILE PHOTO UPLOAD--------------------------------------------
+function profileEditPage() {
+    // header("Location: ./view/profileImageFormView.php?action=test");
+    require('./view/profileImageFormView.php');
+}
+
+function imageUpload($response) {
+    $upload_manager = new UploadManager();
+    $photo_upload = $upload_manager->profilePhotoUpload($response);
+    // echo $photo_upload;
+    header("Location: ./index.php?action=imageUploaded");
+}
+
+function imageUploaded() {
+    require('./view/home.php');
 }
