@@ -21,6 +21,9 @@
             <a href=<?= BASE . "/index.php?action=premium" ?>>
                 <li class="li-menu">Premium</li>
             </a>
+            <a href=<?= BASE . "/index.php?action=profileEdit" ?>>
+                <li class="li-menu">Profile Edit</li>
+            </a>
 
             <a href="#" class="language" class="menu">
                 <li>Language</li>

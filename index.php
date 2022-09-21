@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 define('ROOT', dirname(__FILE__));
 
 $httpProtocol = !isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != 'on' ? 'http' : 'https';
@@ -35,11 +35,22 @@ try {
         case "premium":
             premium();
             break;
+        case "signOut":
+            // session_destroy();
+            // session_unset();
+            userSignOut();
+            break;
         case "login":
             login();
             break;
-        case "signOut":
-            userSignOut();
+        case "profileEdit":
+            profileEditPage();
+            break;
+        case "profilePhotoUpload":
+            imageUpload($_FILES['fileToUpload']);
+            break;
+        case "imageUploaded":
+            imageUploaded();
             break;
         default:
             startSplash();

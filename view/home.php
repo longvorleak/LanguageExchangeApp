@@ -1,16 +1,24 @@
 <link rel="stylesheet" href=<?= BASE . "/public/css/home.css" ?>>
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 
-<?php $title = "SpeakEasy - Welcome $user_login!" ?>
+<!-- <?php session_start(); ?> -->
+<?php $title = "SpeakEasy - Welcome {$_SESSION['firstname']}!" ?>
 
-<?php ob_start();?>
+<?php ob_start(); ?>
 <?php include("side_menuView.php") ?>
 
 <section class="middle-section">
 
     <div class="middle1">
         <h2>Home</h2>
-        <h3>Hello <?= $user_login ?>!</h3>
+        <h3>Hello <?= $_SESSION['firstname'] ?>!</h3>
+        <?php
+        if (isset($_GET['action']) and $_GET['action'] == 'imageUploaded') {
+        ?>
+            <h3>Image Uploaded</h3>
+        <?php
+        }
+        ?>
         <span>
             <a href="#" class="language">language selector</a>
             <ul class="language-popup">
@@ -39,7 +47,7 @@
     </div>
 
 </section>
-<?php include("dashboard_right.php")?>
+<?php include("dashboard_right.php") ?>
 
 <?php $content = ob_get_clean(); ?>
 

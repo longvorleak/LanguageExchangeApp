@@ -58,10 +58,14 @@
 
     <div class="form-container sign-in-container">
         <?php if (isset($_GET['account'])) {
-            echo "<div>Account created please log in </div>";
-        }
-        if (isset($_GET['action']) and $_GET['action'] == 'loginFailed') {
         ?>
+            <div>
+                <p>Account created please log in</p>
+            </div>
+            <?php
+            }
+            if (isset($_GET['action']) and $_GET['action'] == 'loginFailed') {
+            ?>
             <p>Login Failed. Please try again.</p>
         <?php
         } ?>
