@@ -1,3 +1,16 @@
+:root {
+    --dark-primary: #017081;
+    --main-primary: #12adc1;
+    --light-primary: #b2dfdb;
+    --divider: #f9f6f6;
+    --accent-color: #f7a701;
+    --primary-text:#212121;
+    --secondary-text: #757575;
+    --white-text: #FFF;
+    --button-radius: 25px;
+    --border-radius: 15px;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -88,27 +101,24 @@ textarea{
     gap: 100px;
 }
 
-.native-language, .learning-language{
+.known-languages, .learning-languages{
     display: flex;
     flex-direction: column;
     margin-bottom: 0;
+    gap: 20px;
 }
 
-#native-language, #learning-language{
-    height: 30px;
-    width: 200px;
-    border-radius: 5px;
-    border: 1px solid rgba(0,0,0,0.5);
-}
 
 .add-more-languages{
     margin-top: 10px;
 }
 
 .addLangBtn {
-    border: 1px solid black;
+    border: none;
+    border-radius: 8px;
     padding: 10px 15px;
-    background-color: aqua;
+    background-color: rgba(0,0,0,0.3);
+    text-align: center;
 }
 
 .overlay{
@@ -117,20 +127,18 @@ textarea{
     width: 100%;
     backdrop-filter: blur(6px);
     background-color:rgba(0,0,0,0.3);
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
 }
 
 .modal{
     position: fixed;
     height: auto;
-    width: 90vw;
+    width: 80vw;
+    gap: 50px;
     background-color: white;
-    margin-top: 50px;
-    margin-left: 70px;
+    margin-left: 10vw;
+    align-self: center;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     padding-bottom: 40px;
 }
@@ -177,8 +185,12 @@ textarea{
 }
 
 .save-lang{
-    display: flex;
-    justify-content: center;
+    width: 100px;
+    height: 40px;
+    border: none;
+    background-color: rgba(0,0,0,0.3);
+    align-self: center;
+    color: black;
 }
 
 .save-lang p{
