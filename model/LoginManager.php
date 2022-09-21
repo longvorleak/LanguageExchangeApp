@@ -9,7 +9,7 @@ class LoginManager extends Manager
         $uid = $this->uidCreate(); // creating unique id for user
         $db = $this->dbConnect();
 
-        if (isset($user_fetch['username'])) {
+        if (isset($user_fetch['username']) AND isset($user_fetch['email'])) {
             $req = $db->prepare('SELECT uid, firstname, username, email, profile_img_path FROM users WHERE uid = ? OR username = ? email = ?');
             $req->execute(array($uid, $user_fetch['username'], $user_fetch['email']));
         }
@@ -27,6 +27,17 @@ class LoginManager extends Manager
             $req = $db->prepare('SELECT uid, firstname, username, email, profile_img_path FROM users WHERE username = ? OR email = ?');
             $req->execute(array($user_fetch['email'], $user_fetch['email']));
         }
+
+        if (isset($user_fetch['usernameCheck']) AND isset($user_fetch['emailCheck'])) {
+            $req = $db->prepare('SELECT username, email FROM users WHERE username = ? AND email = ?');
+            $req->execute(array($user_fetch['usernameCheck'], $user_fetch['emailCheck']));
+        }
+
+        if (isset($user_fetch['existingUsername']) AND isset($user_fetch['existingEmail']) AND isset($user_fetch['newPassword']) AND isset($user_fetch['newPasswordConfirm']) AND $user_fetch['newPassword'] == $user_fetch['newPasswordConfirm']) {
+            $req = $db->prepare('SELECT username, email FROM users WHERE username = ? AND email = ?');
+            $req->execute(array($user_fetch['existingUsername'], $user_fetch['existingEmail']));
+        }
+
 
         $response = $req->fetch(PDO::FETCH_ASSOC);
         $req->closeCursor();
@@ -48,7 +59,6 @@ class LoginManager extends Manager
         $response = $this->userCheck($user_fetch);
 
         if (!empty($response)) {
-            // return $response['firstname'];
             return $response;
         } else {
             $uid = $this->uidCreate(); // creating unique id for user
@@ -69,12 +79,39 @@ class LoginManager extends Manager
             $response = $req->fetch(PDO::FETCH_ASSOC);
             $req->closeCursor();
 
-            // return $response['firstname'];
             return $response;
         }
     }
 
     public function kakaoCheck($user_fetch) {
     
+    }
+
+    public function existingUserCheck($user_fetch) {
+        $response = $this->userCheck($user_fetch);
+
+        if (!empty($response)) {
+            return $response;
+        } else {
+            return null;
+        }
+    }
+
+    public function changePasswordCheck($user_fetch) {
+        $response = $this->userCheck($user_fetch);
+
+        if (!empty($response)) {
+            $db = $this->dbConnect();
+            $password = password_hash($user_fetch['newPassword'], PASSWORD_DEFAULT);
+            $req = $db->prepare('UPDATE users SET password = ? WHERE username = ? AND email = ?');
+            $req->bindParam(1, $password);
+            $req->bindParam(2, $response['username']);
+            $req->bindParam(3, $response['email']);
+            $res = $req->execute();
+
+            return $res;
+        } else {
+            return null;
+        }
     }
 }
