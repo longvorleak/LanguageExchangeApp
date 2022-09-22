@@ -45,6 +45,7 @@ function signUp($response){
     $user_login = $signup_manager->signUp($response);
     if($user_login){
         $_SESSION['username'] = $user_login['username'];
+        $_SESSION['photo'] = $user_login['profile_img_path'];
         require('./view/home.php');
         // header("Location: ./index.php?action=signUpSuccess");
     } else {

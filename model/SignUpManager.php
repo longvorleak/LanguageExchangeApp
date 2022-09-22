@@ -102,13 +102,13 @@ class SignUpManager extends Manager {
                 }
             }
 
-            // $req = $db->prepare('SELECT firstname, profile_img_path FROM users WHERE email = ?');
-            // $req->execute(array($response['email']));
-            // $response = $req->fetch(PDO::FETCH_ASSOC);
-            // $req->closeCursor();
+            $req = $db->prepare('SELECT username, profile_img_path FROM users WHERE email = ?');
+            $req->execute(array($email));
+            $response = $req->fetch(PDO::FETCH_ASSOC);
+            $req->closeCursor();
     
             // return $response['firstname'];
-            return true;
+            return $response;
             // return $username;
         }
 
