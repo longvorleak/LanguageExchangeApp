@@ -6,7 +6,7 @@
         <span class="hamburger-line"></span>
 
         <ul id="hamburger-menu">
-            <a href=<?= BASE . "/index.php?action=loginSignUp" ?>>
+            <a href=<?= BASE . "/index.php?action=login" ?>>
                 <li class="li-menu">Log In/Up</li>
             </a>
             <a href=<?= BASE . "/index.php?action=landing" ?>>

@@ -1,4 +1,5 @@
-<link rel="stylesheet" href="../public/css/dashboard_right.css"/>
+<!-- <link rel="stylesheet" href="../public/css/dashboard_right.css" /> -->
+<link rel="stylesheet" href=<?= BASE . "/public/css/dashboard_right.css" ?>>
 <section class="right-section">
     <div class="right1">
         <h2>schedule</h2>

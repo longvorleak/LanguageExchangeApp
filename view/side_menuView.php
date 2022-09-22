@@ -1,4 +1,6 @@
-<link rel="stylesheet" href="../public/css/side_menu.css" />
+<!-- <link rel="stylesheet" href="../public/css/side_menu.css" /> -->
+<link rel="stylesheet" href=<?= BASE . "/public/css/side_menu.css" ?>>
+
 <section class="dashboard">
     <h2>Menu</h2>
     <nav role='navigation'>
@@ -14,25 +16,23 @@
                     <li><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" />My Account</li>
                 </a>
                 <a href=<?= BASE . "/index.php?action=profileEdit" ?>>
-                <?php if(!$_SESSION['photo']) {
+                    <?php if (!$_SESSION['photo']) {
                     ?>
-                    <li><i class="fa-solid fa-user"></i>Profile Photo</li>
+                        <li><i class="fa-solid fa-user"></i>Profile Photo</li>
                     <?php
-                } else {
+                    } else {
                     ?>
-                    <li id="menu-photo">
-                        <img src=<?php 
-                        if (str_contains($_SESSION['photo'], "https")) {
-                            echo $_SESSION['photo'];
-                        } else {
-                            echo  "./public/uploadedImages/{$_SESSION['photo']}"?> class="profile-photo";
-                        }
-                        ?>
-                        Profile Photo
-                    </li>
-                    <?php
-                }
-            }
+                        <li id="menu-photo">
+                            <img src=<?php
+                                        if (str_contains($_SESSION['photo'], "https")) {
+                                            echo $_SESSION['photo'];
+                                        } else {
+                                            echo  "./public/uploadedImages/{$_SESSION['photo']}" ?> class="profile-photo" ; } ?>
+                            Profile Photo
+                        </li>
+                <?php
+                                        }
+                                    }
                 ?>
                 </a>
                 <a href="#">

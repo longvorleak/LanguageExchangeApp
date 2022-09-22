@@ -96,7 +96,9 @@ function userSignOut() {
     // session_destroy();
     // setcookie(session_name("g_csrf_token"), '', time() - 3600, '/');
     // setcookie(session_name("g_state"), '', time() - 3600, '/');
-    require('./view/landingPageView.php');
+    // require('./view/landingPageView.php');
+    session_destroy();
+    header("Location: ./index.php");
 }
 
 // --------------------------------------------------------------------
