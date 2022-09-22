@@ -9,31 +9,44 @@
     <div class="form-container sign-up-container" id="sign-up-container">
         <form action=<?= BASE . "/index.php?action=signUp" ?> method="POST" id="sign-up-form">
             <h2>Create Account</h2>
-
-            <?php if (isset($_GET['action']) and $_GET['action'] == 'signUpFailed') {
-                if (isset($_GET['reason'])) {
-                    $message = $_GET['reason'];
-                    $reason = $_GET['reason'];
-                    switch ($reason) {
-                        case "emptyFields":
-                            $message = "Please fill out all required fields.";
-                            break;
-                        case "usernameEmail":
-                            $message = "Please choose a different username and email.";
-                            break;
-                        case "email":
-                            $message = "Please choose a different email.";
-                            break;
-                        case "username":
-                            $message = "Please choose a different username.";
-                            break;
-                        default:
-                            break;
-                    } ?>
-                    <p><?= $message ?></p>
+            <div id="g_id_onload" data-client_id=<?= $_SERVER['CLIENT_ID']; ?> data-ux_mode="popup" data-login_uri="http://localhost/sites/LanguageExchangeApp/index.php?action=googleLogin" data-auto_prompt="false">
+            </div>
+            <div class="g_id_signin" data-type="icon" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="pill" data-logo_alignment="left" data-locale="en_US">
+            </div>
+            <?php 
+            // if (isset($_GET['action']) and $_GET['action'] == 'signUpFailed') {
+            //     if (isset($_GET['reason'])) {
+            //         $message = $_GET['reason'];
+            //         $reason = $_GET['reason'];
+            //         switch ($reason) {
+            //             case "emptyFields":
+            //                 $message = "Please fill out all required fields.";
+            //                 break;
+            //             case "usernameEmail":
+            //                 $message = "Please choose a different username and email.";
+            //                 break;
+            //             case "email":
+            //                 $message = "Please choose a different email.";
+            //                 break;
+            //             case "username":
+            //                 $message = "Please choose a different username.";
+            //                 break;
+            //             default:
+            //                 break;
+            //         } 
+                    ?>
+                    <!-- <p><?= $message ?></p> -->
             <?php
-                }
-            } ?>
+            //     }
+            // } 
+            ?>
+            <?php
+            if (isset($_GET['action']) and $_GET['action'] == 'signUpFailed') {
+            ?>
+                <p>Signup failed. Please try again.</p>
+            <?php
+            }
+            ?>
 
             <div id="g_id_onload" data-client_id=<?= $_SERVER['CLIENT_ID']; ?> data-ux_mode="popup" data-login_uri="http://localhost/sites/LanguageExchangeApp/index.php?action=googleLogin" data-auto_prompt="false">
             </div>
@@ -126,7 +139,7 @@
             }
             if (isset($_GET['action']) and $_GET['action'] == 'loginFailed') {
             ?>
-                <p>Login Failed. Please try again.</p>
+                <p>Login failed. Please try again.</p>
             <?php
             }
             if (isset($_GET['action']) and $_GET['action'] == 'changePasswordSuccess') {

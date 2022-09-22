@@ -13,13 +13,15 @@
         <div class="avatar-upload">
             <div class="avatar-edit">
                 <input type='file' id="image-upload" name="fileToUpload" accept=".png, .jpg, .jpeg" />
+                <!-- <input type='file' id="image-upload" name="fileToUpload" accept=".png, .jpg, .jpeg" multiple/> -->
                 <label for="image-upload"></label>
             </div>
             <div class="avatar-preview">
                 <div id="image-preview"></div>
             </div>
         </div>
-        <button type="submit" name="uploadfile">Save Photo</button>
+        <input type="text" name="name" placeholder="test" />
+        <button type="submit">Save Photo</button>
     </form>
 </div>
 
