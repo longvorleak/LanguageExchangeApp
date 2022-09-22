@@ -37,6 +37,47 @@ class Manager
 
         return $token;
     }
+
+    protected function userCheck($user_fetch)
+    {
+
+        $uid = $this->uidCreate(); // creating unique id for user
+        $db = $this->dbConnect();
+
+        if (isset($user_fetch['username']) AND isset($user_fetch['email'])) {
+            $req = $db->prepare('SELECT uid, username, email FROM users WHERE uid = ? OR username = ? OR email = ?');
+            $req->execute(array($uid, $user_fetch['username'], $user_fetch['email']));
+        }
+
+        if (isset($user_fetch['emailUsername'])) {
+            $req = $db->prepare('SELECT uid, firstname, username, email, profile_img_path, password FROM users WHERE username = ? OR email = ?');
+            $req->execute(array($user_fetch['emailUsername'], $user_fetch['emailUsername']));
+            $response = $req->fetch(PDO::FETCH_ASSOC);
+            if (!empty($response) and password_verify($user_fetch['password'], $response['password'])) {
+                return $response;
+            }
+        }
+
+        if (isset($user_fetch['iss'])) {
+            $req = $db->prepare('SELECT uid, firstname, username, email, profile_img_path FROM users WHERE username = ? OR email = ?');
+            $req->execute(array($user_fetch['email'], $user_fetch['email']));
+        }
+
+        if (isset($user_fetch['usernameCheck']) and isset($user_fetch['emailCheck'])) {
+            $req = $db->prepare('SELECT username, email FROM users WHERE username = ? AND email = ?');
+            $req->execute(array($user_fetch['usernameCheck'], $user_fetch['emailCheck']));
+        }
+
+        if (isset($user_fetch['existingUsername']) and isset($user_fetch['existingEmail']) and isset($user_fetch['newPassword']) and isset($user_fetch['newPasswordConfirm']) and $user_fetch['newPassword'] == $user_fetch['newPasswordConfirm']) {
+            $req = $db->prepare('SELECT username, email FROM users WHERE username = ? AND email = ?');
+            $req->execute(array($user_fetch['existingUsername'], $user_fetch['existingEmail']));
+        }
+
+        $response = $req->fetch(PDO::FETCH_ASSOC);
+        $req->closeCursor();
+
+        return $response;
+    }
 }
 
 // if (!isset($user_login)) {
