@@ -12,13 +12,6 @@
     <div class="middle1">
         <h2>Home</h2>
         <h3>Hello <?= $_SESSION['firstname'] ?>!</h3>
-        <?php
-        if (isset($_GET['action']) and $_GET['action'] == 'imageUploaded') {
-        ?>
-            <h3>Image Uploaded</h3>
-        <?php
-        }
-        ?>
         <span>
             <a href="#" class="language">language selector</a>
             <ul class="language-popup">

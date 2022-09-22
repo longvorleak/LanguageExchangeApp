@@ -117,11 +117,9 @@
                 <p>Password changed. Please login.</p>
             <?php
             } ?>
-            <div class="google-sign-in">
-                <div id="g_id_onload" data-client_id="<?= $_SERVER['CLIENT_ID']; ?>" data-login_uri="https://localhost/sites/LanguageExchangeApp/index.php?action=googleLogin" data-auto_prompt="false">
-                </div>
-                <div class="g_id_signin" data-type="icon" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="pill" data-logo_alignment="left">
-                </div>
+            <div id="g_id_onload" data-client_id=<?= $_SERVER['CLIENT_ID']; ?> data-ux_mode="popup" data-login_uri="http://localhost/sites/LanguageExchangeApp/index.php?action=googleLogin" data-auto_prompt="false">
+            </div>
+            <div class="g_id_signin" data-type="icon" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="pill" data-logo_alignment="left" data-locale="en_US">
             </div>
             <div class="input-field">
                 <div class="svg-container start">
