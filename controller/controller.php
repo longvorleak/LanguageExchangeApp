@@ -32,6 +32,10 @@ function profileEditView() {
     require('./view/profileEditView.php');
 }
 
+function profileView() {
+    require('./view/profileView.php');
+}
+
 // --------------------------------------------------------------------
 // -----------------------USER SIGN UP---------------------------------
 // --------------------------------------------------------------------
@@ -40,7 +44,7 @@ function signUp($response){
     $signup_manager = new SignUpManager();
     $user_login = $signup_manager->signUp($response);
     if($user_login){
-        // $_SESSION['firstname'] = $user_login['firstname'];
+        $_SESSION['username'] = $user_login['username'];
         require('./view/home.php');
         // header("Location: ./index.php?action=signUpSuccess");
     } else {
@@ -63,7 +67,7 @@ function regularLogin($response) {
     if ($user_login) {
         // setcookie('username', $user_login);
         // session_start();
-        $_SESSION['firstname'] = $user_login['firstname'];
+        $_SESSION['username'] = $user_login['username'];
         $_SESSION['photo'] = $user_login['profile_img_path'];
         require('./view/home.php');
     } else {
@@ -81,7 +85,7 @@ function googleLogin($response) {
     // print_r($user_login);
     // setcookie('username', $user_login);
     // session_start();
-    $_SESSION['firstname'] = $user_login['firstname'];
+    $_SESSION['username'] = $user_login['username'];
     $_SESSION['photo'] = $user_login['profile_img_path'];
     require('./view/home.php');
 }
@@ -118,9 +122,9 @@ function profileEditPage() {
 function imageUpload($response) {
     $upload_manager = new UploadManager();
     $photo_upload = $upload_manager->profilePhotoUpload($response);
-    echo $photo_upload;
-    return $photo_upload;
-    // header("Location: ./index.php?action=imageUploaded");
+    // echo $photo_upload;
+    // return $photo_upload;
+    header("Location: ./index.php?action=imageUploaded");
 }
 
 function imageUploaded() {

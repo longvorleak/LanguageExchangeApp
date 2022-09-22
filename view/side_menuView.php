@@ -11,7 +11,7 @@
             <span class="hamburger-span"></span>
             <span class="hamburger-span"></span>
             <ul id="menu">
-                <a href="#">
+                <a href=<?= BASE . "/index.php?action=profileView" ?>>
                     <li><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" />My Account</li>
                 </a>
                 <a href=<?= BASE . "/index.php?action=profileEdit" ?>>
@@ -54,7 +54,7 @@
                     <li>Upgrade</li>
                 </a>
                 <br>
-                <a href=<?= BASE . "/index.php?action=signOut" ?> class="g_id_signout">
+                <a href=<?= BASE . "/index.php?action=signOut" ?>>
                     <li>Sign out</li>
                 </a>
             </ul>

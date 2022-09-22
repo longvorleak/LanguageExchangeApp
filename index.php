@@ -56,6 +56,9 @@ try {
             // echo "</pre>";
             imageUpload($_FILES['fileToUpload']);
             break;
+        case "profileView":
+            profileView();
+            break;
         case "profileEditView":
             profileEditView();
         case "imageUploaded":

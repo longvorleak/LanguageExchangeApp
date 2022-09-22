@@ -48,11 +48,6 @@
             }
             ?>
 
-            <div id="g_id_onload" data-client_id=<?= $_SERVER['CLIENT_ID']; ?> data-ux_mode="popup" data-login_uri="http://localhost/sites/LanguageExchangeApp/index.php?action=googleLogin" data-auto_prompt="false">
-            </div>
-            <div class="g_id_signin" data-type="icon" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="pill" data-logo_alignment="left" data-locale="en_US">
-            </div>
-
             <div class="error-msg" id="error-user"></div>
             <div class="error-msg" id="error-mail"></div>
             <div class="error-msg" id="error-dob"></div>
