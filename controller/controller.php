@@ -1,35 +1,35 @@
 <?php
 
 require_once("./model/LoginManager.php");
-require_once("./model/SignUpManager.php");
+// require_once("./model/SignUpManager.php");
 require_once("./model/UploadManager.php");
 
 function startSplash() {
     require('./view/landingPageView.php');
 }
 
-function signUp($response){
-    $signup_manager = new SignUpManager();
-    $user_login = $signup_manager->signUp($response);
-    // print_r($user_login);
-    if($user_login == $response['username']){
-        // setcookie('username', $user_login);
-        // session_start();
-        $_SESSION['firstname'] = $user_login['firstname'];
-        $_SESSION['photo'] = $user_login['profile_img_path'];
-        require('./view/home.php');
-    } else {
-        header("Location: ./index.php?action=signUpFailed&reason=$user_login");
-    }
-}
+// function signUp($response){
+//     $signup_manager = new SignUpManager();
+//     $user_login = $signup_manager->signUp($response);
+//     // print_r($user_login);
+//     if($user_login == $response['username']){
+//         // setcookie('username', $user_login);
+//         // session_start();
+//         $_SESSION['firstname'] = $user_login['firstname'];
+//         $_SESSION['photo'] = $user_login['profile_img_path'];
+//         require('./view/home.php');
+//     } else {
+//         header("Location: ./index.php?action=signUpFailed&reason=$user_login");
+//     }
+// }
 
 function login() {
     require('./view/loginSignUpView.php');
 }
 
-function signUpFailed() {
-    require('./view/loginSignUpView.php');
-}
+// function signUpFailed() {
+//     require('./view/loginSignUpView.php');
+// }
 
 function regularLogin($response) {
     $login_manager = new LoginManager();

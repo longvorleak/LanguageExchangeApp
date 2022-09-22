@@ -8,11 +8,12 @@
   <div class="container" id="container">
     <div class="form-container sign-up-container" id="sign-up-container">
     <form 
-    action=<?= BASE . "/index.php?action=signUp" ?> method="POST" 
+    action= <?= BASE . "/index.php?action=signUp" ?> 
+    method="POST" 
     id="sign-up-form">
         <h2>Create Account</h2>
 
-        <?php if (isset($_GET['action']) AND $_GET['action'] == 'signUpFailed') {
+        <!-- <?php if (isset($_GET['action']) AND $_GET['action'] == 'signUpFailed') {
                 if (isset($_GET['reason'])) {
                     $message = $_GET['reason'];
                     $reason = $_GET['reason'];
@@ -32,10 +33,10 @@
                         default:
                             break;
                     } ?>
-                    <!-- <p><?= $message ?></p> -->
+                    <p><?= $message ?></p>
             <?php
                 }
-            } ?>
+            } ?> -->
             
             <div class="error-msg-su" id="error-user"></div>
             <div class="error-msg-su" id="error-mail"></div>
@@ -118,14 +119,13 @@
             </div>
             <div class="error-msg-su" id="error-pwd2">Password must match</div>
 
-    
             <input type="submit" class="sign-button" value="Sign up" id="sign-up-btn" />
             <a id="mobile-in">Sign In <i class="fa-solid fa-arrow-right" style="color: var(--dark-primary);"></i></a>
         </form>
         </div>
         <div class="form-container sign-in-container" id="sign-in-container">
             <form 
-            action=<?= BASE . "/index.php?action=signUp" ?> method="POST"
+            action=<?= BASE . "/index.php?action=regularLogin" ?> method="POST"
             id="signin-form">
             <h2>Sign in</h2>
             <?php if(isset($_GET['account'])){
@@ -146,7 +146,7 @@
             <div class="svg-container start">
                 <i class="fa-solid fa-user"></i>
             </div>
-            <input type="email" name="emailUsername"  placeholder="Username/E-mail" />
+            <input type="text" name="emailUsername"  placeholder="Username/E-mail" />
             </div>
             <div class="input-field">
             <div class="svg-container start">
@@ -155,11 +155,7 @@
             <input 
             type="password" name="password" placeholder="Password" />
             </div>
-            <div class="error-msg-si">
-                <i class="fa-solid fa-circle-xmark"></i>
-                This is a error message.
-            </div>
-
+        
             <div id="remember">
                 <input 
                 type="checkbox" name="auto" 
@@ -364,7 +360,7 @@ function checkPwd1() {
         return true;
     } else {
         error_pwd1.innerHTML =
-      "<i class='fa fa-times-circle' style='color: var(--accent-color);'></i> Password must:<ul><li>Have at least 8 characters</li><li>Contain at least 1 number</li><li >Contain at least 1 upper character</li><li>Contain at least 1 lowercase character</li><li>Contain at least 1 special character</li></ul>";
+      "<i class='fa fa-times-circle' style='color: var(--accent-color);'></i> Password must:<ul><li>Have at least 8 characters</li><li>Contain at least 1 number</li><li >Contain at least 1 uppercase</li><li>Contain at least 1 lowercase </li><li>Contain at least 1 special character</li></ul>";
       error_pwd1.style.display = "block";
         return false;
     }
@@ -394,6 +390,13 @@ pwd2.addEventListener('keyup', checkPwd2);
 const su_form = document.getElementById('sign-up-form');
 
 su_form.addEventListener("submit", function(e){
+    console.log(e.target);
+    // e.preventDefault();
+    const params = new URLSearchParams(window.location.search)
+
+    for (const param of params) {
+        console.log(param)
+    }
     if (
         checkUser(true),
         checkMail(true),
@@ -401,7 +404,7 @@ su_form.addEventListener("submit", function(e){
         checkPwd1(true),
         checkPwd2(true)
     ) {
-        su_form.submit();
+        // su_form.submit();
     } else {
         e.preventDefault()
     }
