@@ -48,11 +48,6 @@
             }
             ?>
 
-            <div id="g_id_onload" data-client_id=<?= $_SERVER['CLIENT_ID']; ?> data-ux_mode="popup" data-login_uri="http://localhost/sites/LanguageExchangeApp/index.php?action=googleLogin" data-auto_prompt="false">
-            </div>
-            <div class="g_id_signin" data-type="icon" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="pill" data-logo_alignment="left" data-locale="en_US">
-            </div>
-
             <div class="error-msg" id="error-user"></div>
             <div class="error-msg" id="error-mail"></div>
             <div class="error-msg" id="error-dob"></div>
@@ -422,16 +417,19 @@
     const su_form = document.getElementById('sign-up-form');
 
     su_form.addEventListener("submit", function(e) {
+        let errorUser =  checkUser(true);
+        let errorMail =  checkMail(true);
+        let errorPwd1 =  checkPwd1(true);
+        let errorPwd2 =  checkPwd2(true);
         if (
-            checkUser(true),
-            checkMail(true),
-            // checkDOB(true),
-            checkPwd1(true),
-            checkPwd2(true)
+            errorUser &&
+            errorMail &&
+            errorPwd1 &&
+            errorPwd2 
         ) {
             su_form.submit();
         } else {
-            e.preventDefault()
+            e.preventDefault();
         }
     });
 </script>
