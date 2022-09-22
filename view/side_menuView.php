@@ -55,7 +55,7 @@
                     <li>Upgrade</li>
                 </a>
                 <br>
-                <a href=<?= BASE . "./index.php?action=signOut" ?> class="g_id_signout">
+                <a href=<?= BASE . "/index.php?action=signOut" ?> class="g_id_signout">
                     <li>Sign out</li>
                 </a>
             </ul>

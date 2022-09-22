@@ -113,8 +113,9 @@ function profileEditPage() {
 function imageUpload($response) {
     $upload_manager = new UploadManager();
     $photo_upload = $upload_manager->profilePhotoUpload($response);
-    // echo $photo_upload;
-    header("Location: ./index.php?action=imageUploaded");
+    echo $photo_upload;
+    return $photo_upload;
+    // header("Location: ./index.php?action=imageUploaded");
 }
 
 function imageUploaded() {

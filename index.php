@@ -47,6 +47,9 @@ try {
             profileEditPage();
             break;
         case "profilePhotoUpload":
+            echo "<pre>";
+            print_r($_FILES['fileToUpload']);
+            echo "</pre>";
             imageUpload($_FILES['fileToUpload']);
             break;
         case "imageUploaded":

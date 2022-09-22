@@ -11,6 +11,13 @@ body {
   height: 100vh;
 }
 
+/* image */
+
+#pwd-change-img {
+  width: 100%;
+  height: auto;
+}
+
 .sign-button, .ghost {
   border-radius: var(--button-radius);
   border: 1px solid var(--main-primary);
@@ -151,7 +158,7 @@ form {
   text-align: center;
 }
 
-.error-msg-su {
+.error-msg {
   width: 100%;
   color: var(--dark-primary);
   font-weight: 300;
@@ -159,7 +166,7 @@ form {
   font-size: 0.9rem;
 }
 
-.error-msg-su li {
+.error-msg li {
   color: var(--accent-color);
   font-size: 0.8rem;
   font-weight: 300;
@@ -181,6 +188,7 @@ form {
   position: absolute;
   top: 0;
   height: 100%;
+  width: 50%;
   transition: all 0.6s ease-in-out;
 }
 
@@ -216,7 +224,6 @@ form {
   left: 50%;
   width: 50%;
   height: 100%;
-  /*  border-radius: var(--border-radius); */
   overflow: hidden;
   transition: transform 0.6s ease-in-out;
   z-index: 50;
