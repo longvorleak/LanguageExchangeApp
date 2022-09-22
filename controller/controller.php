@@ -24,6 +24,14 @@ function premium() {
     require('./view/premiumView.php');
 }
 
+function settingsPageView() {
+    require('./view/settingsView.php');
+}
+
+function profileEditView() {
+    require('./view/profileEditView.php');
+}
+
 // --------------------------------------------------------------------
 // -----------------------USER SIGN UP---------------------------------
 // --------------------------------------------------------------------

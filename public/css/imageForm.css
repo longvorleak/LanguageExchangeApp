@@ -102,6 +102,10 @@ h1 small {
 	background-image: url("https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg");
 }
 
+#image-preview2 {
+	background-image: url("https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg");
+}
+
 .fade-in {
 	animation: image-fade .7s linear forwards;
 }
@@ -118,6 +122,6 @@ h1 small {
 
 .enlarge {
 	/* background-size: 1000px; */
-	width: 200%;
-	height: 200%;
+	/* width: 200%;
+	height: 200%; */
 }

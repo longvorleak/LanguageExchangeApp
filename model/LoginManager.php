@@ -46,7 +46,7 @@ class LoginManager extends Manager
     // }
 
     public function userLogin($user_fetch) {
-        $response = $this->userCheck($user_fetch);
+        $response = $this->userCheck($user_fetch, 'emailUsername');
 
         if (!empty($response)) {
             return $response;
@@ -56,7 +56,7 @@ class LoginManager extends Manager
     }
 
     public function googleCheck($user_fetch) {
-        $response = $this->userCheck($user_fetch);
+        $response = $this->userCheck($user_fetch, 'iss');
 
         if (!empty($response)) {
             return $response;
@@ -89,6 +89,7 @@ class LoginManager extends Manager
 
     public function existingUserCheck($user_fetch) {
         $response = $this->userCheck($user_fetch);
+        // $response = $this->userCheck($user_fetch, 'username', 'email');
 
         if (!empty($response)) {
             return $response;

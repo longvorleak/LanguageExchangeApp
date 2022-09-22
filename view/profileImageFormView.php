@@ -1,5 +1,5 @@
 <link rel="stylesheet" href=<?= BASE . "/public/css/imageForm.css" ?>>
-<script src="./public/js/imageUpload.js" defer></script>
+<script src=<?= BASE . "/public/js/imageUpload.js" ?> defer></script>
 
 <!-- <?php session_start(); ?> -->
 <?php $title = "SpeakEasy - Profile Image Upload"; ?>
@@ -20,7 +20,6 @@
                 <div id="image-preview"></div>
             </div>
         </div>
-        <input type="text" name="name" placeholder="test" />
         <button type="submit">Save Photo</button>
     </form>
 </div>
