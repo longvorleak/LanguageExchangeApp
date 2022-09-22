@@ -4,46 +4,46 @@ require_once("Manager.php");
 
 class LoginManager extends Manager
 {
-    public function userCheck($user_fetch) {
+    // public function userCheck($user_fetch) {
 
-        $uid = $this->uidCreate(); // creating unique id for user
-        $db = $this->dbConnect();
+    //     $uid = $this->uidCreate(); // creating unique id for user
+    //     $db = $this->dbConnect();
 
-        if (isset($user_fetch['username']) AND isset($user_fetch['email'])) {
-            $req = $db->prepare('SELECT uid, firstname, username, email, profile_img_path FROM users WHERE uid = ? OR username = ? email = ?');
-            $req->execute(array($uid, $user_fetch['username'], $user_fetch['email']));
-        }
+    //     if (isset($user_fetch['username']) AND isset($user_fetch['email'])) {
+    //         $req = $db->prepare('SELECT uid, firstname, username, email, profile_img_path FROM users WHERE uid = ? OR username = ? email = ?');
+    //         $req->execute(array($uid, $user_fetch['username'], $user_fetch['email']));
+    //     }
         
-        if (isset($user_fetch['emailUsername'])) {
-            $req = $db->prepare('SELECT uid, firstname, username, email, profile_img_path, password FROM users WHERE username = ? OR email = ?');
-            $req->execute(array($user_fetch['emailUsername'], $user_fetch['emailUsername']));
-            $response = $req->fetch(PDO::FETCH_ASSOC);
-            if (!empty($response) AND password_verify($user_fetch['password'], $response['password'])) {
-                return $response;
-            }
-        }
+    //     if (isset($user_fetch['emailUsername'])) {
+    //         $req = $db->prepare('SELECT uid, firstname, username, email, profile_img_path, password FROM users WHERE username = ? OR email = ?');
+    //         $req->execute(array($user_fetch['emailUsername'], $user_fetch['emailUsername']));
+    //         $response = $req->fetch(PDO::FETCH_ASSOC);
+    //         if (!empty($response) AND password_verify($user_fetch['password'], $response['password'])) {
+    //             return $response;
+    //         }
+    //     }
 
-        if (isset($user_fetch['iss'])) {
-            $req = $db->prepare('SELECT uid, firstname, username, email, profile_img_path FROM users WHERE username = ? OR email = ?');
-            $req->execute(array($user_fetch['email'], $user_fetch['email']));
-        }
+    //     if (isset($user_fetch['iss'])) {
+    //         $req = $db->prepare('SELECT uid, firstname, username, email, profile_img_path FROM users WHERE username = ? OR email = ?');
+    //         $req->execute(array($user_fetch['email'], $user_fetch['email']));
+    //     }
 
-        if (isset($user_fetch['usernameCheck']) AND isset($user_fetch['emailCheck'])) {
-            $req = $db->prepare('SELECT username, email FROM users WHERE username = ? AND email = ?');
-            $req->execute(array($user_fetch['usernameCheck'], $user_fetch['emailCheck']));
-        }
+    //     if (isset($user_fetch['usernameCheck']) AND isset($user_fetch['emailCheck'])) {
+    //         $req = $db->prepare('SELECT username, email FROM users WHERE username = ? AND email = ?');
+    //         $req->execute(array($user_fetch['usernameCheck'], $user_fetch['emailCheck']));
+    //     }
 
-        if (isset($user_fetch['existingUsername']) AND isset($user_fetch['existingEmail']) AND isset($user_fetch['newPassword']) AND isset($user_fetch['newPasswordConfirm']) AND $user_fetch['newPassword'] == $user_fetch['newPasswordConfirm']) {
-            $req = $db->prepare('SELECT username, email FROM users WHERE username = ? AND email = ?');
-            $req->execute(array($user_fetch['existingUsername'], $user_fetch['existingEmail']));
-        }
+    //     if (isset($user_fetch['existingUsername']) AND isset($user_fetch['existingEmail']) AND isset($user_fetch['newPassword']) AND isset($user_fetch['newPasswordConfirm']) AND $user_fetch['newPassword'] == $user_fetch['newPasswordConfirm']) {
+    //         $req = $db->prepare('SELECT username, email FROM users WHERE username = ? AND email = ?');
+    //         $req->execute(array($user_fetch['existingUsername'], $user_fetch['existingEmail']));
+    //     }
 
 
-        $response = $req->fetch(PDO::FETCH_ASSOC);
-        $req->closeCursor();
+    //     $response = $req->fetch(PDO::FETCH_ASSOC);
+    //     $req->closeCursor();
 
-        return $response;
-    }
+    //     return $response;
+    // }
 
     public function userLogin($user_fetch) {
         $response = $this->userCheck($user_fetch);

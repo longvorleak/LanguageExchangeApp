@@ -12,7 +12,10 @@ try {
 
     switch ($action) {
         case "signUp":
-            // signUp($_REQUEST);
+            // echo "<pre>";
+            // print_r($_REQUEST);
+            // echo "</pre>";
+            signUp($_REQUEST);
             break;
         case "regularLogin":
             regularLogin($_REQUEST);
@@ -24,7 +27,7 @@ try {
             kakaoLogin($_REQUEST);
             break;
         case "signUpFailed":
-            // signUpFailed();
+            signUpFailed();
             break;
         case "loginFailed":
             loginFailed();
@@ -47,6 +50,9 @@ try {
             profileEditPage();
             break;
         case "profilePhotoUpload":
+            // echo "<pre>";
+            // print_r($_FILES['fileToUpload']);
+            // echo "</pre>";
             imageUpload($_FILES['fileToUpload']);
             break;
         case "imageUploaded":
