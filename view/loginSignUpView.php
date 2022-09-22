@@ -417,16 +417,19 @@
     const su_form = document.getElementById('sign-up-form');
 
     su_form.addEventListener("submit", function(e) {
+        let errorUser =  checkUser(true);
+        let errorMail =  checkMail(true);
+        let errorPwd1 =  checkPwd1(true);
+        let errorPwd2 =  checkPwd2(true);
         if (
-            checkUser(true),
-            checkMail(true),
-            // checkDOB(true),
-            checkPwd1(true),
-            checkPwd2(true)
+            errorUser &&
+            errorMail &&
+            errorPwd1 &&
+            errorPwd2 
         ) {
             su_form.submit();
         } else {
-            e.preventDefault()
+            e.preventDefault();
         }
     });
 </script>
