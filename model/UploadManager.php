@@ -14,6 +14,8 @@ class UploadManager extends Manager {
                             OR mime_content_type($_FILES['fileToUpload']['tmp_name']) == "image/png"
                         ) {
                             if ($_FILES['fileToUpload']['size'] <= 5e+6) {
+                                mkdir("./public/gallery/", 0777, true);
+                                return "directory created";
                                 $img_directory = "./public/uploadedImages/";
                                 $img_type = explode("/", $_FILES['fileToUpload']['type'])[1];
                                 $img_hash = hash_file('md5', $_FILES['fileToUpload']['tmp_name']);

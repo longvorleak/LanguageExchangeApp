@@ -48,17 +48,27 @@
             }
             ?>
 
-            <div class="error-msg-su" id="error-user"></div>
-            <div class="error-msg-su" id="error-mail"></div>
-            <div class="error-msg-su" id="error-dob"></div>
-            <div class="error-msg-su" id="error-pwd1"></div>
-            <div class="error-msg-su" id="error-pwd2"></div>
+            <div id="g_id_onload" data-client_id=<?= $_SERVER['CLIENT_ID']; ?> data-ux_mode="popup" data-login_uri="http://localhost/sites/LanguageExchangeApp/index.php?action=googleLogin" data-auto_prompt="false">
+            </div>
+            <div class="g_id_signin" data-type="icon" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="pill" data-logo_alignment="left" data-locale="en_US">
+            </div>
+
+            <div class="error-msg" id="error-user"></div>
+            <div class="error-msg" id="error-mail"></div>
+            <div class="error-msg" id="error-dob"></div>
+            <div class="error-msg" id="error-pwd1"></div>
+            <div class="error-msg" id="error-pwd2"></div>
 
             <div class="input-field">
                 <div class="svg-container start">
                     <i class="fa-solid fa-user"></i>
                 </div>
-                <input type="text" name="username" placeholder="Username*" id="su-name" maxlength="50" />
+                <input 
+                    type="text" 
+                    name="username" 
+                    placeholder="Username*" 
+                    id="su-name" 
+                    maxlength="50" />
                 <div class="svg-container check" id="su-name-check">
                     <i class="fa-solid fa-check" style="color: var(--dark-primary);"></i>
                 </div>
@@ -68,7 +78,12 @@
                 <div class="svg-container start">
                     <i class="fa-solid fa-envelope"></i>
                 </div>
-                <input type="text" name="email" placeholder="E-mail*" id="su-mail" maxlength="255" />
+                <input 
+                    type="text" 
+                    name="email" 
+                    placeholder="E-mail*" 
+                    id="su-mail" 
+                    maxlength="255" />
                 <div class="svg-container check" id="su-mail-check">
                     <i class="fa-solid fa-check" style="color: var(--dark-primary);"></i>
                 </div>
@@ -84,16 +99,16 @@
                 </div>
             </div>
 
-            <div class="input-field" id="su-pwd-parent">
+            <div class="input-field">
                 <div class="svg-container start">
                     <i class="fa-solid fa-lock"></i>
                 </div>
-                <input type="password" name="password" placeholder="Password" id="su-pwd1" />
-                <div class="svg-container check" id="su-pwd-check">
-                    <i class="fa-solid fa-check" style="color: var(--dark-primary);"></i>
-                </div>
+                <input type="password" 
+                name="password" 
+                placeholder="Password*" 
+                id="su-pwd1" />
                 <div class="svg-container eye" id="su-pwd-show">
-                    <i class="fa-solid fa-eye" id="togglePassword"></i>
+                    <i class="fa-solid fa-eye" id="togglePwd"></i>
                 </div>
             </div>
 
@@ -101,13 +116,15 @@
                 <div class="svg-container start">
                     <i class="fa-solid fa-lock"></i>
                 </div>
-                <input type="password" name="passwordConfirm" placeholder="Confirm password*" id="su-pwd-confirm" />
-                <div class="svg-container eye" id="su-pwd-confirm-show">
-                    <i class="fa-solid fa-eye" id="togglePasswordRe"></i>
+                <input 
+                    type="password" 
+                    name="passwordConfirm" 
+                    placeholder="Confirm password*" 
+                    id="su-pwd2" />
+                <div class="svg-container eye" id="su-pwd2-show">
+                    <i class="fa-solid fa-eye" id="togglePwd2"></i>
                 </div>
             </div>
-            <div class="error-msg-su" id="error-pwd2">Password must match</div>
-
 
             <input type="submit" class="sign-button" value="Sign up" id="sign-up-btn" />
             <a id="mobile-in">Sign In <i class="fa-solid fa-arrow-right" style="color: var(--dark-primary);"></i></a>
@@ -140,11 +157,19 @@
                 </div>
                 <input type="text" name="emailUsername" placeholder="Username/E-mail" />
             </div>
+
             <div class="input-field">
                 <div class="svg-container start">
                     <i class="fa-solid fa-lock"></i>
                 </div>
-                <input type="password" name="password" placeholder="Password" />
+                <input 
+                    type="password" 
+                    name="password" 
+                    placeholder="Password" 
+                    id="si-pwd" />
+                <div class="svg-container eye" id="si-pwd-show">
+                    <i class="fa-solid fa-eye" id="togglePwdSi"></i>
+                </div>
             </div>
             <div id="remember">
                 <input type="checkbox" name="auto" id="auto" name="rememberCheck">
@@ -213,11 +238,12 @@
         signUpContainer.style.zIndex = 2;
     });
 
-    // Toggle to show password 
-    const togglePassword = document.getElementById("su-pwd-show");
-    const pwdToggle = document.querySelector(".input-field i#togglePassword");
-    const su_pwd_inp = document.getElementById("su-pwd1");
-    togglePassword.addEventListener("click", () => {
+// Toggle to show password 
+    const togglePwd = document.getElementById("su-pwd-show");
+    const pwdToggle = document.querySelector(".input-field i#togglePwd");
+    const su_pwd = document.getElementById("su-pwd1");
+
+    togglePwd.addEventListener("click", () => {
         if (pwdToggle.classList.contains("fa-eye")) {
             pwdToggle.classList.remove("fa-eye");
             pwdToggle.classList.add("fa-eye-slash");
@@ -226,16 +252,17 @@
             pwdToggle.classList.add("fa-eye");
         }
         const type =
-            su_pwd_inp.getAttribute("type") === "password" ? "text" : "password";
-        su_pwd_inp.setAttribute("type", type);
-        togglePassword.innerHTML = "";
-        togglePassword.appendChild(pwdToggle);
+        su_pwd.getAttribute("type") === "password" ? "text" : "password";
+        su_pwd.setAttribute("type", type);
+        togglePwd.innerHTML = "";
+        togglePwd.appendChild(pwdToggle);
     });
 
-    const togglePasswordRe = document.getElementById("su-pwd-confirm-show");
-    const pwd2Toggle = document.querySelector(".input-field i#togglePasswordRe");
-    const su_pwd_re_inp = document.getElementById("su-pwd-confirm");
-    togglePasswordRe.addEventListener("click", () => {
+    const togglePwd2 = document.getElementById("su-pwd2-show");
+    const pwd2Toggle = document.querySelector(".input-field i#togglePwd2");
+    const su_pwd2_inp = document.getElementById("su-pwd2");
+
+    togglePwd2.addEventListener("click", () => {
         if (pwd2Toggle.classList.contains("fa-eye")) {
             pwd2Toggle.classList.remove("fa-eye");
             pwd2Toggle.classList.add("fa-eye-slash");
@@ -243,20 +270,39 @@
             pwd2Toggle.classList.remove("fa-eye-slash");
             pwd2Toggle.classList.add("fa-eye");
         }
-        const typere =
-            su_pwd_re_inp.getAttribute("type") === "password" ? "text" : "password";
-        su_pwd_re_inp.setAttribute("type", typere);
-        togglePasswordRe.innerHTML = "";
-        togglePasswordRe.appendChild(pwd2Toggle);
+        const type2 =
+        su_pwd2_inp.getAttribute("type") === "password" ? "text" : "password";
+        su_pwd2_inp.setAttribute("type", type2);
+        togglePwd2.innerHTML = "";
+        togglePwd2.appendChild(pwd2Toggle);
     });
 
-    // ==== Regex ====
+    const togglePwdSi = document.getElementById("si-pwd-show");
+    const pwdSiToggle = document.querySelector(".input-field i#togglePwdSi");
+    const si_pwd = document.getElementById("si-pwd");
+
+    togglePwdSi.addEventListener("click", () => {
+        if (pwdSiToggle.classList.contains("fa-eye")) {
+            pwdSiToggle.classList.remove("fa-eye");
+            pwdSiToggle.classList.add("fa-eye-slash");
+        } else {
+            pwdSiToggle.classList.remove("fa-eye-slash");
+            pwdSiToggle.classList.add("fa-eye");
+        }
+        const typeSi =
+        si_pwd.getAttribute("type") === "password" ? "text" : "password";
+        si_pwd.setAttribute("type", typeSi);
+        togglePwdSi.innerHTML = "";
+        togglePwdSi.appendChild(pwdSiToggle);
+    });
+    
+// ==== Regex ====
     var regName = /^[a-zA-Z0-9]{4,}/;
     var regMail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     var regDate = /^\d{4}-\d{2}-\d{2}$/;
     var regPwd = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$/;
 
-    // === Validate Username ===
+// === Validate Username ===
 
     let user = document.getElementById('su-name');
     let check_user = document.getElementById('su-name-check');
@@ -336,7 +382,7 @@
     // === Validate Password ===
 
     let pwd1 = document.getElementById('su-pwd1');
-    let pwd2 = document.getElementById('su-pwd-confirm');
+    let pwd2 = document.getElementById('su-pwd2');
     let error_pwd1 = document.getElementById('error-pwd1');
     let error_pwd2 = document.getElementById('error-pwd2');
 
