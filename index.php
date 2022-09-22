@@ -52,9 +52,12 @@ try {
         case "profilePhotoUpload":
             // echo "<pre>";
             // print_r($_FILES['fileToUpload']);
+            // print_r($_REQUEST);
             // echo "</pre>";
             imageUpload($_FILES['fileToUpload']);
             break;
+        case "profileEditView":
+            profileEditView();
         case "imageUploaded":
             imageUploaded();
             break;
@@ -78,6 +81,9 @@ try {
             break;
         case "changePasswordFailed":
             changePasswordFailed();
+            break;
+        case "settings":
+            settingsPageView();
             break;
         default:
             startSplash();

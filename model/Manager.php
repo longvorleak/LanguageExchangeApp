@@ -39,16 +39,24 @@ class Manager
     }
 
     protected function userCheck($user_fetch)
+    // protected function userCheck($user_fetch, $str, $str2 = null)
     {
 
         $uid = $this->uidCreate(); // creating unique id for user
         $db = $this->dbConnect();
 
+        // switch ($str) {
+        //     case "username":
+        //         break;
+        // }
+
+        // FOR SIGN UP
         if (isset($user_fetch['username']) AND isset($user_fetch['email'])) {
             $req = $db->prepare('SELECT uid, username, email FROM users WHERE uid = ? OR username = ? OR email = ?');
             $req->execute(array($uid, $user_fetch['username'], $user_fetch['email']));
         }
 
+        // FOR LOGIN
         if (isset($user_fetch['emailUsername'])) {
             $req = $db->prepare('SELECT uid, firstname, username, email, profile_img_path, password FROM users WHERE username = ? OR email = ?');
             $req->execute(array($user_fetch['emailUsername'], $user_fetch['emailUsername']));
@@ -58,11 +66,13 @@ class Manager
             }
         }
 
+        // FOR GOOGLE
         if (isset($user_fetch['iss'])) {
             $req = $db->prepare('SELECT uid, firstname, username, email, profile_img_path FROM users WHERE username = ? OR email = ?');
             $req->execute(array($user_fetch['email'], $user_fetch['email']));
         }
 
+        // FOR 
         if (isset($user_fetch['usernameCheck']) and isset($user_fetch['emailCheck'])) {
             $req = $db->prepare('SELECT username, email FROM users WHERE username = ? AND email = ?');
             $req->execute(array($user_fetch['usernameCheck'], $user_fetch['emailCheck']));

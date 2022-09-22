@@ -1,4 +1,3 @@
-<!-- <link rel="stylesheet" href="../public/css/side_menu.css" /> -->
 <link rel="stylesheet" href=<?= BASE . "/public/css/side_menu.css" ?>>
 
 <section class="dashboard">
@@ -47,7 +46,7 @@
                 <a href="#">
                     <li><i class="fa-solid fa-calendar home-icon"></i>Events</li>
                 </a>
-                <a href="#">
+                <a href=<?= BASE . "/index.php?action=settings" ?>>
                     <li><i class="fa-solid fa-gear home-icon"></i>Settings</li>
                 </a>
                 <br>
