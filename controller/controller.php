@@ -1,7 +1,7 @@
 <?php
 
 require_once("./model/LoginManager.php");
-require_once("./model/SignUpManager.php");
+// require_once("./model/SignUpManager.php");
 require_once("./model/UploadManager.php");
 
 // --------------------------------------------------------------------

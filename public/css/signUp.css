@@ -1,8 +1,7 @@
 /* @import url("style.css"); */
 
 body {
-  /* color: var(--text-secondary); */
-  background-color: var(--divider);
+  background: linear-gradient(145deg, rgba(18,173,193,0.7) 0%, rgba(178,223,219,0.7) 100%);
   margin: 0;
   padding: 0;
   display: flex;
@@ -36,7 +35,6 @@ body {
 input:focus, textarea:focus, select:focus {
   outline: none;
 }
-
 
 p {
   font-size: 14px;
@@ -151,10 +149,8 @@ form {
   padding: 0 50px;
   height: 100%;
   text-align: center;
-  /* border-radius: var(--border-radius); */
 }
 
-.error-msg-si,
 .error-msg-su {
   width: 100%;
   color: var(--dark-primary);
@@ -178,7 +174,7 @@ form {
   overflow: hidden;
   width: 768px;
   max-width: 100%;
-  min-height: 550px;
+  min-height: 600px;
 }
 
 .form-container {
@@ -296,9 +292,8 @@ form {
   }
 
   .container {
-    width: 320px;
-    max-width: 80%;
-    height: 500px;
+    width: 350px;
+    margin: 10%;
     border-radius: var(--border-radius);
   }
 

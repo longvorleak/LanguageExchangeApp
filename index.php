@@ -12,7 +12,7 @@ try {
 
     switch ($action) {
         case "signUp":
-            signUp($_REQUEST);
+            // signUp($_REQUEST);
             break;
         case "regularLogin":
             regularLogin($_REQUEST);
@@ -24,7 +24,7 @@ try {
             kakaoLogin($_REQUEST);
             break;
         case "signUpFailed":
-            signUpFailed();
+            // signUpFailed();
             break;
         case "loginFailed":
             loginFailed();

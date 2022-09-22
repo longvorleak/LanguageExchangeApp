@@ -30,7 +30,7 @@
                         default:
                             break;
                     } ?>
-                    <!-- <p><?= $message ?></p> -->
+                    <p><?= $message ?></p>
             <?php
                 }
             } ?>
