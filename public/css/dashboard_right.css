@@ -1,5 +1,5 @@
 
-.right-section{
+/* .right-section{
     width: 20vw;
     display: flex;
     flex-direction: column;
@@ -9,24 +9,94 @@
     height: 100vh; 
 }
 
-.right1{
-    height: 50vh; 
-    margin-top: 20px;
-}
-
-.right1 div{
-    height: 300px;
-    background-color:aqua;
-    width: 270px;
-}
 
 .right2{
-    height: 50vh;
-    margin-top: 20px;
+    height: 100vh;
+
 }
 
 .right2 div{
     height: 300px;
     background-color:aqua;
     width: 270px;
+} */
+
+#friends{
+    border: 1px solid black;
 }
+#friends > h3{
+    background-color: rgb(0, 151, 151);
+    color: white;
+    height: 50px;
+    font-size: x-large;
+
+}
+
+#friend-list { 
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 300px;
+    height: 100%;
+    background: #EEE;
+    list-style-type: none;
+  }
+  
+  .friend {
+    width: 300px;
+    height: 60px;
+    background: #EEE;
+    border-bottom: 1px solid #DDD;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  .friend img {
+    width: 45px;
+    height: 45px;
+    border-radius: 30px;
+    border: 2px solid #AAA;
+    object-fit: cover;
+    margin-left: 5px;
+    margin-right: 10px;
+  }
+  
+  .friend .name {
+    font-size: 18px;
+  }
+  
+
+
+
+/* search button & input */
+form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid white;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+  }
+  
+  form.example button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #037081;
+    color: white;
+    font-size: 17px;
+    border: 1px solid white;
+    border-left: none;
+    cursor: pointer;
+  }
+  
+  form.example button:hover {
+    background: #037081;
+  }
+  
+  form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+  }

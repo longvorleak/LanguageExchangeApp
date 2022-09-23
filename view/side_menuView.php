@@ -35,7 +35,7 @@
                 ?>
                 </a>
                 <a href="#">
-                    <li><i class="fa-solid fa-house home-icon"></i>Dashboard</li>
+                    <li><i class="fa-solid fa-house home-icon" ></i>Dashboard</li>
                 </a>
                 <a href="#">
                     <li><i class="fa-solid fa-user-group home-icon"></i>Browse</li>

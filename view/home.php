@@ -14,7 +14,7 @@
         <!-- <h3>Hello <?= $_REQUEST['user'] ?>!</h3> -->
         <h3>Hello <?= $_SESSION['uid'] ?>!</h3>
         <span>
-            <a href="#" class="language">language selector</a>
+            <a href="#" class="language" style="color: white;margin-right: 10px;">Language Selector</a>
             <ul class="language-popup">
                 <li><a href="#">English</a></li>
                 <li><a href="#">Korean</a></li>
@@ -24,21 +24,6 @@
         </span>
     </div>
 
-    <div class="middle2">
-        <div class="card">some info</div>
-        <div class="card">some info</div>
-        <div class="card">some info</div>
-    </div>
-
-    <div class="middle3">
-        <div>some info</div>
-        <div>some info</div>
-    </div>
-
-    <!-- blog feed -->
-    <div class="middle4">
-        blog feed
-    </div>
 
 </section>
 <?php include("dashboard_right.php") ?>

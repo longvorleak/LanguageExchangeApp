@@ -37,7 +37,7 @@
     <div id="no-hamburger">
         <a href="./index.php">
             <div class="logo">
-                <img src="https://4m4you.com/wp-content/uploads/2020/06/logo-placeholder-300x120.png" id="logo-img">
+                <img src="..//public/images/logo2.png" id="logo-img">
             </div>
         </a>
         <div>
