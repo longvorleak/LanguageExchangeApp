@@ -51,10 +51,11 @@
                         <li class="li-menu"><a href="#">Korean</a></li>
                         <li class="li-menu"><a href="#">Spanish</a></li>
                         <li class="li-menu"><a href="#">Dutch</a></li>
+                        <li class="li-menu"><a href="#">Turkish</a></li>
                     </ul>
                 </span>
 
-                <a href=<?= BASE . "/index.php?action=login" ?> id="signInUp">Sign In/Up</a>
+                <a href=<?= BASE . "/index.php?action=login" ?> id="signInUp">Sign In/Sign up</a>
             </span>
         </div>
     </div>

@@ -7,31 +7,14 @@ define('BASE', $httpProtocol . '://' . $_SERVER['HTTP_HOST'] . '/sites/LanguageE
 
 require("./controller/controller.php");
 
+// TODO: NAME ALL NAVIGATION FUNCTIONS TO VIEW
 try {
     $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : null;
 
     switch ($action) {
-        case "signUp":
-            // echo "<pre>";
-            // print_r($_REQUEST);
-            // echo "</pre>";
-            signUp($_REQUEST);
-            break;
-        case "regularLogin":
-            regularLogin($_REQUEST);
-            break;
-        case "googleLogin":
-            googleLogin($_REQUEST);
-            break;
-        case "kakaoLogin":
-            kakaoLogin($_REQUEST);
-            break;
-        case "signUpFailed":
-            signUpFailed();
-            break;
-        case "loginFailed":
-            loginFailed();
-            break;
+// --------------------------------------------------------------------
+// -----------------------PAGE NAVIGATION------------------------------
+// --------------------------------------------------------------------
         case "aboutUs":
             aboutUs();
             break;
@@ -49,13 +32,6 @@ try {
         case "profileEdit":
             profileEditPage();
             break;
-        case "profilePhotoUpload":
-            // echo "<pre>";
-            // print_r($_FILES['fileToUpload']);
-            // print_r($_REQUEST);
-            // echo "</pre>";
-            imageUpload($_FILES['fileToUpload']);
-            break;
         case "profileView":
             profileView();
             break;
@@ -68,17 +44,8 @@ try {
         case "forgotPassword":
             forgotPassword();
             break;
-        case "usernameEmailCheck":
-            usernameEmailCheck($_REQUEST);
-            break;
-        case "existingUserCheckPassed":
-            changePasswordView($_REQUEST);
-            break;
         case "existingUserCheckFailed":
             usernameEmailCheckFailed();
-            break;
-        case "changePasswordStatus":
-            changePasswordStatus($_REQUEST);
             break;
         case "changePasswordSuccess":
             changePasswordSuccess();
@@ -88,6 +55,50 @@ try {
             break;
         case "settings":
             settingsPageView();
+            break;
+// --------------------------------------------------------------------
+// -----------------------USER SIGN UP---------------------------------
+// --------------------------------------------------------------------
+        case "signUp":
+            signUp($_REQUEST);
+            break;
+        case "signUpSuccess":
+            signUpSuccess();
+            break;
+        case "signUpFailed":
+            signUpFailed();
+            break;
+// --------------------------------------------------------------------
+// -----------------------USER LOGINS----------------------------------
+// --------------------------------------------------------------------
+        case "regularLogin":
+            regularLogin($_REQUEST);
+            break;
+        case "loginFailed":
+            loginFailed();
+            break;
+        case "googleLogin":
+            // googleLogin($_REQUEST, $_REQUEST['g_csrf_token']);
+            googleLogin($_REQUEST);
+            break;
+        case "kakaoLogin":
+            // kakaoLogin($_REQUEST, $_REQUEST['iss']);
+            break;
+        case "profilePhotoUpload":
+            // echo "<pre>";
+            // print_r($_FILES['fileToUpload']);
+            // print_r($_REQUEST);
+            // echo "</pre>";
+            imageUpload($_FILES['fileToUpload']);
+            break;
+        case "usernameEmailCheck":
+            usernameEmailCheck($_REQUEST);
+            break;
+        case "existingUserCheckPassed":
+            changePasswordView($_REQUEST);
+            break;
+        case "changePasswordStatus":
+            changePasswordStatus($_REQUEST);
             break;
         default:
             startLandingPage();

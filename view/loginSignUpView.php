@@ -9,42 +9,16 @@
     <div class="form-container sign-up-container" id="sign-up-container">
         <form action=<?= BASE . "/index.php?action=signUp" ?> method="POST" id="sign-up-form">
             <h2>Create Account</h2>
-            <div id="g_id_onload" data-client_id=<?= $_SERVER['CLIENT_ID']; ?> data-ux_mode="popup" data-login_uri="http://localhost/sites/LanguageExchangeApp/index.php?action=googleLogin" data-auto_prompt="false">
-            </div>
-            <div class="g_id_signin" data-type="icon" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="pill" data-logo_alignment="left" data-locale="en_US">
-            </div>
-            <?php 
-            // if (isset($_GET['action']) and $_GET['action'] == 'signUpFailed') {
-            //     if (isset($_GET['reason'])) {
-            //         $message = $_GET['reason'];
-            //         $reason = $_GET['reason'];
-            //         switch ($reason) {
-            //             case "emptyFields":
-            //                 $message = "Please fill out all required fields.";
-            //                 break;
-            //             case "usernameEmail":
-            //                 $message = "Please choose a different username and email.";
-            //                 break;
-            //             case "email":
-            //                 $message = "Please choose a different email.";
-            //                 break;
-            //             case "username":
-            //                 $message = "Please choose a different username.";
-            //                 break;
-            //             default:
-            //                 break;
-            //         } 
-                    ?>
-                    <!-- <p><?= $message ?></p> -->
-            <?php
-            //     }
-            // } 
-            ?>
             <?php
             if (isset($_GET['action']) and $_GET['action'] == 'signUpFailed') {
             ?>
                 <p>Signup failed. Please try again.</p>
             <?php
+                if (isset($_GET['reason'])) {
+            ?>
+                    <p><?= $_GET['reason']; ?></p>
+            <?php
+                }
             }
             ?>
 
@@ -58,12 +32,7 @@
                 <div class="svg-container start">
                     <i class="fa-solid fa-user"></i>
                 </div>
-                <input 
-                    type="text" 
-                    name="username" 
-                    placeholder="Username*" 
-                    id="su-name" 
-                    maxlength="50" />
+                <input type="text" name="username" placeholder="Username*" id="su-name" maxlength="50" />
                 <div class="svg-container check" id="su-name-check">
                     <i class="fa-solid fa-check" style="color: var(--dark-primary);"></i>
                 </div>
@@ -73,12 +42,7 @@
                 <div class="svg-container start">
                     <i class="fa-solid fa-envelope"></i>
                 </div>
-                <input 
-                    type="text" 
-                    name="email" 
-                    placeholder="E-mail*" 
-                    id="su-mail" 
-                    maxlength="255" />
+                <input type="text" name="email" placeholder="E-mail*" id="su-mail" maxlength="255" />
                 <div class="svg-container check" id="su-mail-check">
                     <i class="fa-solid fa-check" style="color: var(--dark-primary);"></i>
                 </div>
@@ -98,10 +62,7 @@
                 <div class="svg-container start">
                     <i class="fa-solid fa-lock"></i>
                 </div>
-                <input type="password" 
-                name="password" 
-                placeholder="Password*" 
-                id="su-pwd1" />
+                <input type="password" name="password" placeholder="Password*" id="su-pwd1" />
                 <div class="svg-container eye" id="su-pwd-show">
                     <i class="fa-solid fa-eye" id="togglePwd"></i>
                 </div>
@@ -111,11 +72,7 @@
                 <div class="svg-container start">
                     <i class="fa-solid fa-lock"></i>
                 </div>
-                <input 
-                    type="password" 
-                    name="passwordConfirm" 
-                    placeholder="Confirm password*" 
-                    id="su-pwd2" />
+                <input type="password" name="passwordConfirm" placeholder="Confirm password*" id="su-pwd2" />
                 <div class="svg-container eye" id="su-pwd2-show">
                     <i class="fa-solid fa-eye" id="togglePwd2"></i>
                 </div>
@@ -123,6 +80,10 @@
 
             <input type="submit" class="sign-button" value="Sign up" id="sign-up-btn" />
             <a id="mobile-in">Sign In <i class="fa-solid fa-arrow-right" style="color: var(--dark-primary);"></i></a>
+            <div id="g_id_onload" data-client_id=<?= $_SERVER['CLIENT_ID']; ?> data-ux_mode="popup" data-login_uri="http://localhost/sites/LanguageExchangeApp/index.php?action=googleLogin" data-auto_prompt="false">
+            </div>
+            <div class="g_id_signin" data-type="icon" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="pill" data-logo_alignment="left" data-locale="en_US">
+            </div>
         </form>
     </div>
     <div class="form-container sign-in-container" id="sign-in-container">
@@ -142,10 +103,6 @@
                 <p>Password changed. Please login.</p>
             <?php
             } ?>
-            <div id="g_id_onload" data-client_id=<?= $_SERVER['CLIENT_ID']; ?> data-ux_mode="popup" data-login_uri="http://localhost/sites/LanguageExchangeApp/index.php?action=googleLogin" data-auto_prompt="false">
-            </div>
-            <div class="g_id_signin" data-type="icon" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="pill" data-logo_alignment="left" data-locale="en_US">
-            </div>
             <div class="input-field">
                 <div class="svg-container start">
                     <i class="fa-solid fa-user"></i>
@@ -157,24 +114,24 @@
                 <div class="svg-container start">
                     <i class="fa-solid fa-lock"></i>
                 </div>
-                <input 
-                    type="password" 
-                    name="password" 
-                    placeholder="Password" 
-                    id="si-pwd" />
+                <input type="password" name="password" placeholder="Password" id="si-pwd" />
                 <div class="svg-container eye" id="si-pwd-show">
                     <i class="fa-solid fa-eye" id="togglePwdSi"></i>
                 </div>
             </div>
             <div id="remember">
                 <input type="checkbox" name="auto" id="auto" name="rememberCheck">
-                <label class="remember" for="auto">Remember me?</label>
+                <label class="remember" for="auto">Remember for 30 days</label>
             </div>
 
             <a href=<?= BASE . "/index.php?action=forgotPassword" ?>>Forgot your password?</a>
 
             <input type="submit" class="sign-button" value="Sign In" />
             <a id="mobile-up">Sign Up <i class="fa-solid fa-arrow-right" style="color: var(--dark-primary);"></i></a>
+            <div id="g_id_onload" data-client_id=<?= $_SERVER['CLIENT_ID']; ?> data-ux_mode="popup" data-login_uri="http://localhost/sites/LanguageExchangeApp/index.php?action=googleLogin" data-auto_prompt="false">
+            </div>
+            <div class="g_id_signin" data-type="icon" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="pill" data-logo_alignment="left" data-locale="en_US">
+            </div>
         </form>
     </div>
     <div class="overlay-container">
@@ -233,7 +190,7 @@
         signUpContainer.style.zIndex = 2;
     });
 
-// Toggle to show password 
+    // Toggle to show password 
     const togglePwd = document.getElementById("su-pwd-show");
     const pwdToggle = document.querySelector(".input-field i#togglePwd");
     const su_pwd = document.getElementById("su-pwd1");
@@ -247,7 +204,7 @@
             pwdToggle.classList.add("fa-eye");
         }
         const type =
-        su_pwd.getAttribute("type") === "password" ? "text" : "password";
+            su_pwd.getAttribute("type") === "password" ? "text" : "password";
         su_pwd.setAttribute("type", type);
         togglePwd.innerHTML = "";
         togglePwd.appendChild(pwdToggle);
@@ -266,7 +223,7 @@
             pwd2Toggle.classList.add("fa-eye");
         }
         const type2 =
-        su_pwd2_inp.getAttribute("type") === "password" ? "text" : "password";
+            su_pwd2_inp.getAttribute("type") === "password" ? "text" : "password";
         su_pwd2_inp.setAttribute("type", type2);
         togglePwd2.innerHTML = "";
         togglePwd2.appendChild(pwd2Toggle);
@@ -285,19 +242,19 @@
             pwdSiToggle.classList.add("fa-eye");
         }
         const typeSi =
-        si_pwd.getAttribute("type") === "password" ? "text" : "password";
+            si_pwd.getAttribute("type") === "password" ? "text" : "password";
         si_pwd.setAttribute("type", typeSi);
         togglePwdSi.innerHTML = "";
         togglePwdSi.appendChild(pwdSiToggle);
     });
-    
-// ==== Regex ====
+
+    // ==== Regex ====
     var regName = /^[a-zA-Z0-9]{4,}/;
     var regMail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     var regDate = /^\d{4}-\d{2}-\d{2}$/;
     var regPwd = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$/;
 
-// === Validate Username ===
+    // === Validate Username ===
 
     let user = document.getElementById('su-name');
     let check_user = document.getElementById('su-name-check');
@@ -383,15 +340,15 @@
     const su_form = document.getElementById('sign-up-form');
 
     su_form.addEventListener("submit", function(e) {
-        let errorUser =  checkUser(true);
-        let errorMail =  checkMail(true);
-        let errorPwd1 =  checkPwd1(true);
-        let errorPwd2 =  checkPwd2(true);
+        let errorUser = checkUser(true);
+        let errorMail = checkMail(true);
+        let errorPwd1 = checkPwd1(true);
+        let errorPwd2 = checkPwd2(true);
         if (
             errorUser &&
             errorMail &&
             errorPwd1 &&
-            errorPwd2 
+            errorPwd2
         ) {
             su_form.submit();
         } else {

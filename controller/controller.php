@@ -3,6 +3,7 @@
 require_once("./model/LoginManager.php");
 require_once("./model/SignUpManager.php");
 require_once("./model/UploadManager.php");
+require_once("./model/UserProfileManager.php");
 
 // --------------------------------------------------------------------
 // -----------------------PAGE NAVIGATION------------------------------
@@ -44,15 +45,22 @@ function profileView() {
 
 function signUp($response){
     $signup_manager = new SignUpManager();
-    $user_login = $signup_manager->signUp($response);
-    if($user_login){
-        $_SESSION['username'] = $user_login['username'];
-        $_SESSION['photo'] = $user_login['profile_img_path'];
+    $user_login = $signup_manager->userSignUp($response);
+    // echoPre($user_login);
+    if(!str_contains($user_login, "<br>")){
+        $_SESSION['uid'] = $user_login;
+        // $user_profile_manager = new UserProfileManager();
+        // $user_info = $user_profile_manager->getUser($_SESSION['uid']);
+        // echoPre($user_info);
+        // header("Location: ./index.php?action=signUpSuccess&user={$user_info['username']}");
         require('./view/home.php');
-        // header("Location: ./index.php?action=signUpSuccess");
     } else {
-        header("Location: ./index.php?action=signUpFailed");
+        header("Location: ./index.php?action=signUpFailed&reason=$user_login");
     }
+}
+
+function signUpSuccess() {
+    require('./view/home.php');
 }
 
 function signUpFailed() {
@@ -66,12 +74,14 @@ function signUpFailed() {
 function regularLogin($response) {
     $login_manager = new LoginManager();
     $user_login = $login_manager->userLogin($response);
+    // echoPre($user_login);
     // print_r($user_login);
     if ($user_login) {
         // setcookie('username', $user_login);
         // session_start();
-        $_SESSION['username'] = $user_login['username'];
-        $_SESSION['photo'] = $user_login['profile_img_path'];
+        $_SESSION['uid'] = $user_login['uid'];
+        // $_SESSION['username'] = $user_login['username'];
+        // $_SESSION['photo'] = $user_login['profile_img_path'];
         require('./view/home.php');
     } else {
         header("Location: ./index.php?action=loginFailed");
@@ -80,16 +90,9 @@ function regularLogin($response) {
 
 function googleLogin($response) {
     $response = json_decode(base64_decode(str_replace('', '/', str_replace('-', '+', explode('.', $response['credential'])[1]))),true);
-    // echo "<pre>";
-    // print_r($response);
-    // echo "</pre>";
     $login_manager = new LoginManager();
     $user_login = $login_manager->googleCheck($response);
-    // print_r($user_login);
-    // setcookie('username', $user_login);
-    // session_start();
-    $_SESSION['username'] = $user_login['username'];
-    $_SESSION['photo'] = $user_login['profile_img_path'];
+    $_SESSION['uid'] = $user_login['uid'];
     require('./view/home.php');
 }
 
@@ -178,3 +181,19 @@ function changePasswordSuccess() {
 function changePasswordFailed() {
     require('./view/changePasswordView.php');
 }
+
+
+// --------------------------------------------------------------------
+// -----------------------UTILITY FUNCTIONS----------------------------
+// --------------------------------------------------------------------
+function echoPre($user_fetch) {
+        if (is_array($user_fetch)) {
+            echo "<pre>";
+            print_r($user_fetch);
+            echo "</pre>";
+        } else {
+            echo "<pre>";
+            echo $user_fetch;
+            echo "</pre>";
+        }
+    }

@@ -1,8 +1,8 @@
 <link rel="stylesheet" href=<?= BASE . "/public/css/home.css" ?>>
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 
-<!-- <?php session_start(); ?> -->
-<?php $title = "SpeakEasy - Welcome {$_SESSION['username']}!" ?>
+<!-- <?php $title = "SpeakEasy - Welcome {$_REQUEST['user']}!" ?> -->
+<?php $title = "SpeakEasy - Welcome {$_SESSION['uid']}!" ?>
 
 <?php ob_start(); ?>
 <?php include("side_menuView.php") ?>
@@ -11,7 +11,8 @@
 
     <div class="middle1">
         <h2>Home</h2>
-        <h3>Hello <?= $_SESSION['username'] ?>!</h3>
+        <!-- <h3>Hello <?= $_REQUEST['user'] ?>!</h3> -->
+        <h3>Hello <?= $_SESSION['uid'] ?>!</h3>
         <span>
             <a href="#" class="language">language selector</a>
             <ul class="language-popup">

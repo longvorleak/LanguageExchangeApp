@@ -15,7 +15,7 @@
                     <li><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" />My Account</li>
                 </a>
                 <a href=<?= BASE . "/index.php?action=profileEdit" ?>>
-                    <?php if (!$_SESSION['photo']) {
+                    <?php if (!isset($_SESSION['photo'])) {
                     ?>
                         <li><i class="fa-solid fa-user"></i>Profile Photo</li>
                     <?php
