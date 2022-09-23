@@ -61,8 +61,16 @@ class LoginManager extends Manager
         if (!empty($response)) {
             return $response;
         } else {
-            $uid = $this->uidCreate(); // creating unique id for user
             $db = $this->dbConnect();
+
+            do {
+                $uid = $this->uidCreate();
+
+                $req = $db->prepare("SELECT uid FROM users WHERE uid = ?");
+                $req->execute(array($uid));
+
+                $res = $req->fetch(PDO::FETCH_ASSOC);
+            } while (!empty($res));
 
             $req = $db->prepare('INSERT INTO users (uid, firstname, lastname, username, email, profile_img_path) VALUES(:inUID, :inFirstName, :inLastName, :inUsername, :inEmail, :inPhoto)');
             $req->execute(array(
@@ -74,7 +82,7 @@ class LoginManager extends Manager
                 'inPhoto' => $user_fetch['picture']
             ));
 
-            $req = $db->prepare('SELECT firstname, profile_img_path FROM users WHERE email = ?');
+            $req = $db->prepare('SELECT uid, firstname, profile_img_path FROM users WHERE email = ?');
             $req->execute(array($user_fetch['email']));
             $response = $req->fetch(PDO::FETCH_ASSOC);
             $req->closeCursor();
@@ -88,7 +96,8 @@ class LoginManager extends Manager
     }
 
     public function existingUserCheck($user_fetch) {
-        $response = $this->userCheck($user_fetch);
+        // TODO: CHANGE PARAMETERS TO MATCH NEW userCheck function
+        // $response = $this->userCheck($user_fetch);
         // $response = $this->userCheck($user_fetch, 'username', 'email');
 
         if (!empty($response)) {
@@ -99,7 +108,8 @@ class LoginManager extends Manager
     }
 
     public function changePasswordCheck($user_fetch) {
-        $response = $this->userCheck($user_fetch);
+        // TODO: CHANGE PARAMETERS TO MATCH NEW userCheck function
+        // $response = $this->userCheck($user_fetch);
 
         if (!empty($response)) {
             $db = $this->dbConnect();

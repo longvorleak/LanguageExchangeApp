@@ -38,55 +38,86 @@ class Manager
         return $token;
     }
 
-    protected function userCheck($user_fetch)
-    // protected function userCheck($user_fetch, $str, $str2 = null)
-    {
+    protected function userCheck($user_fetch, $str, $str2 = null) {
+    // protected function userCheck($user_fetch) {
 
         $uid = $this->uidCreate(); // creating unique id for user
         $db = $this->dbConnect();
 
-        // switch ($str) {
-        //     case "username":
-        //         break;
+        switch ($str) {
+            // FOR REGULAR LOGIN
+            case "emailUsername":
+                // TODO: VERIFY WITH SUDE WHAT PARAMETERS SHOULD BE QUERIED FROM DB
+                $req = $db->prepare('SELECT uid, username, email, password FROM users WHERE username = ? OR email = ?');
+                $req->execute(array($user_fetch['emailUsername'], $user_fetch['emailUsername']));
+                $response = $req->fetch(PDO::FETCH_ASSOC);
+
+                if (!empty($response) and password_verify($user_fetch['password'], $response['password'])) {
+                    return $response;
+                } else {
+                    return null;
+                }
+
+                break;
+            //FOR SIGN UP
+            case "username":
+                $req = $db->prepare('SELECT uid, username, email FROM users WHERE uid = ? OR username = ? OR email = ?');
+                $req->execute(array($uid, $str, $str2));
+                // $req = $db->prepare('SELECT uid, username, email FROM users WHERE uid = ? OR username = ? OR email = ?');
+                // $req->execute(array($uid, $str, $str2));
+                $response = $req->fetch(PDO::FETCH_ASSOC);
+                $req->closeCursor();
+                return $response;
+                break;
+            // FOR GOOGLE LOGIN/SIGN UP
+            case "iss":
+                $req = $db->prepare('SELECT uid, firstname, username, email, profile_img_path FROM users WHERE username = ? OR email = ?');
+                $req->execute(array($str2, $str2));
+                break;
+        }
+
+        // $response = $req->fetch(PDO::FETCH_ASSOC);
+        // $req->closeCursor();
+        // return $response;
+
+        // // FOR SIGN UP
+        // if (isset($user_fetch['username']) AND isset($user_fetch['email'])) {
+        //     $req = $db->prepare('SELECT uid, username, email FROM users WHERE uid = ? OR username = ? OR email = ?');
+        //     $req->execute(array($uid, $user_fetch['username'], $user_fetch['email']));
         // }
 
-        // FOR SIGN UP
-        if (isset($user_fetch['username']) AND isset($user_fetch['email'])) {
-            $req = $db->prepare('SELECT uid, username, email FROM users WHERE uid = ? OR username = ? OR email = ?');
-            $req->execute(array($uid, $user_fetch['username'], $user_fetch['email']));
-        }
+        // // FOR LOGIN
+        // if (isset($user_fetch['emailUsername'])) {
+        //     $req = $db->prepare('SELECT uid, firstname, username, email, profile_img_path, password FROM users WHERE username = ? OR email = ?');
+        //     $req->execute(array($user_fetch['emailUsername'], $user_fetch['emailUsername']));
+        //     $response = $req->fetch(PDO::FETCH_ASSOC);
+        //     if (!empty($response) and password_verify($user_fetch['password'], $response['password'])) {
+        //         return $response;
+        //     }
+        // }
 
-        // FOR LOGIN
-        if (isset($user_fetch['emailUsername'])) {
-            $req = $db->prepare('SELECT uid, firstname, username, email, profile_img_path, password FROM users WHERE username = ? OR email = ?');
-            $req->execute(array($user_fetch['emailUsername'], $user_fetch['emailUsername']));
-            $response = $req->fetch(PDO::FETCH_ASSOC);
-            if (!empty($response) and password_verify($user_fetch['password'], $response['password'])) {
-                return $response;
-            }
-        }
+        // // FOR GOOGLE
+        // if (isset($user_fetch['iss'])) {
+        //     $req = $db->prepare('SELECT uid, firstname, username, email, profile_img_path FROM users WHERE username = ? OR email = ?');
+        //     $req->execute(array($user_fetch['email'], $user_fetch['email']));
+        // }
 
-        // FOR GOOGLE
-        if (isset($user_fetch['iss'])) {
-            $req = $db->prepare('SELECT uid, firstname, username, email, profile_img_path FROM users WHERE username = ? OR email = ?');
-            $req->execute(array($user_fetch['email'], $user_fetch['email']));
-        }
+        // // FOR CHECKING IF USERNAME AND EMAIL EXISITS IN DATABASE FOR FORGET PASSWORD FLOW
+        // if (isset($user_fetch['usernameCheck']) and isset($user_fetch['emailCheck'])) {
+        //     $req = $db->prepare('SELECT username, email FROM users WHERE username = ? AND email = ?');
+        //     $req->execute(array($user_fetch['usernameCheck'], $user_fetch['emailCheck']));
+        // }
 
-        // FOR 
-        if (isset($user_fetch['usernameCheck']) and isset($user_fetch['emailCheck'])) {
-            $req = $db->prepare('SELECT username, email FROM users WHERE username = ? AND email = ?');
-            $req->execute(array($user_fetch['usernameCheck'], $user_fetch['emailCheck']));
-        }
+        // // FOR SUCCESSFULLY CHANGING PASSWORD
+        // if (isset($user_fetch['existingUsername']) and isset($user_fetch['existingEmail']) and isset($user_fetch['newPassword']) and isset($user_fetch['newPasswordConfirm']) and $user_fetch['newPassword'] == $user_fetch['newPasswordConfirm']) {
+        //     $req = $db->prepare('SELECT username, email FROM users WHERE username = ? AND email = ?');
+        //     $req->execute(array($user_fetch['existingUsername'], $user_fetch['existingEmail']));
+        // }
 
-        if (isset($user_fetch['existingUsername']) and isset($user_fetch['existingEmail']) and isset($user_fetch['newPassword']) and isset($user_fetch['newPasswordConfirm']) and $user_fetch['newPassword'] == $user_fetch['newPasswordConfirm']) {
-            $req = $db->prepare('SELECT username, email FROM users WHERE username = ? AND email = ?');
-            $req->execute(array($user_fetch['existingUsername'], $user_fetch['existingEmail']));
-        }
+        // $response = $req->fetch(PDO::FETCH_ASSOC);
+        // $req->closeCursor();
 
-        $response = $req->fetch(PDO::FETCH_ASSOC);
-        $req->closeCursor();
-
-        return $response;
+        // return $response;
     }
 }
 

@@ -1,7 +1,6 @@
 <link rel="stylesheet" href=<?= BASE . "/public/css/imageForm.css" ?>>
 <script src=<?= BASE . "/public/js/imageUpload.js" ?> defer></script>
 
-<!-- <?php session_start(); ?> -->
 <?php $title = "SpeakEasy - Profile Image Upload"; ?>
 
 <?php ob_start(); ?>
