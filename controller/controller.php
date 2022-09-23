@@ -8,7 +8,7 @@ require_once("./model/UploadManager.php");
 // -----------------------PAGE NAVIGATION------------------------------
 // --------------------------------------------------------------------
 
-function startSplash() {
+function startLandingPage() {
     require('./view/landingPageView.php');
 }
 
