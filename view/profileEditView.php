@@ -1,4 +1,6 @@
 <link rel="stylesheet" href=<?= BASE . "/public/css/profileEdit.css"; ?> />
+<link rel="stylesheet" href=<?= BASE . "/public/css/settings.css" ?>>
+
 <script src=<?= BASE . "/public/js/updateProfile.js" ?> defer></script>
 <script src=<?= BASE . "/public/js/imageUpload.js" ?> defer></script>
 
@@ -37,7 +39,8 @@
 
     <button disabled class="save-lang" onclick="saveLang();">Save</button>
 </div>
-<?php include("settingsView.php") ?>
+<?php include("side_menuView.php");?>
+<?php include("settingsBar.php") ?>
 <div id="profile-edit">
     <h1>Profile</h1>
     <p>This information will be displayed publicly</p>

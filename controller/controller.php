@@ -29,6 +29,8 @@ function settingsPageView() {
 }
 
 function profileEditView() {
+    // TODO: get user's profile info from the Model
+    // pre-populate the inputs with their info if it exists
     require('./view/profileEditView.php');
 }
 
