@@ -8,7 +8,7 @@
 
 <div class="container">
     <h1>Profile Image Upload</h1>
-    <h3><?= $_SESSION['firstname'] ?></h3>
+    <h3><?= $_SESSION['username'] ?></h3>
     <form method="POST" action=<?= BASE . "/index.php?action=profilePhotoUpload" ?> enctype="multipart/form-data" id="form-container">
         <div class="avatar-upload">
             <div class="avatar-edit">

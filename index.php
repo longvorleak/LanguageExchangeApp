@@ -61,6 +61,7 @@ try {
             break;
         case "profileEditView":
             profileEditView();
+            break;
         case "imageUploaded":
             imageUploaded();
             break;

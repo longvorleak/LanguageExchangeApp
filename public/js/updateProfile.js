@@ -12,11 +12,6 @@ let learningLangArr = [];
 let currentlyModifying;
 let arr;
 
-// remove language
-function remLang(){
-    let removeLangs = document.querySelectorAll(".removeLanguage");
-    removeLangs
-}
 
 function createTable() {
     addedLangsContainer.innerHTML = "";
@@ -36,9 +31,6 @@ function createTable() {
         removeLanguage.classList.add("fa-solid");
         removeLanguage.classList.add("fa-xmark");
         removeLanguage.classList.add("removeLanguage");
-        removeLanguage.setAttribute("onclick", "remLang()");
-
-    
         addedLangsContainer.appendChild(addLangBox);
         addLangBox.appendChild(table);
         table.appendChild(tr);
@@ -49,6 +41,10 @@ function createTable() {
         tr.appendChild(td1);
         td1.textContent = prof;
         tr.appendChild(td3);
+        removeLanguage.onclick = function(){
+            remLang(i);
+            document.querySelector('.save-lang').disabled = false;
+        }
         td3.appendChild(removeLanguage);
         for (let i=0; i<selectLanguage.length; i++) {
             if (lang === selectLanguage[i].textContent) {
@@ -56,6 +52,12 @@ function createTable() {
             }
         }
     }
+}
+
+// remove language
+function remLang(i){
+    arr.splice(i,1);
+    createTable();
 }
 
 //open modal
@@ -109,12 +111,15 @@ const addLang = function(){
     }           
 }    
 
-
 //save lang from modal
 let saveLang = function(){
+    let knownLangList = document.getElementById("knownLangsList");
+    let knownLangsP = document.getElementById("knownLangsP");
+    let learningLangList = document.getElementById("learningLangsList");
+    let learningLangsP = document.getElementById("learningLangsP");
+
+
     if(currentlyModifying === "known_lang"){
-        let knownLangList = document.getElementById("knownLangsList");
-        let knownLangsP = document.getElementById("knownLangsP");
         knownLangsP.textContent = "";
         knownLangList.value = "";
         for (let i=0; i<knownLangArr.length; i++) {
@@ -127,8 +132,6 @@ let saveLang = function(){
         } 
     } 
     else {
-        let learningLangList = document.getElementById("learningLangsList");
-        let learningLangsP = document.getElementById("learningLangsP");
         learningLangsP.textContent = "";
         learningLangList.value = "";
         for (let i=0; i<learningLangArr.length; i++) {
@@ -141,9 +144,23 @@ let saveLang = function(){
             learningLangList.value += learningLangArr[i];
         }
     }
+
+    if (learningLangArr.length == 0){
+        learningLangsP.textContent = "No languages yet..";
+    } 
+    if (knownLangArr.length == 0){
+        knownLangsP.textContent = "No languages yet..";
+    }
+
     overlay.classList.toggle("display-none");
     modal.classList.toggle("display-none");
     html.style.overflow = "visible";
     document.querySelector('.save-lang').disabled = true;
+}
+
+function saveAndReset(){
+    
+    
+
 }
 
