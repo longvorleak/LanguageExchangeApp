@@ -132,11 +132,11 @@ class SignUpManager extends Manager { //we should decide about using user id or 
 
 
         if($num === 1) echo "<script>alert('Your account has been updated successfully');</script>";
-        header('Location: ./index.php?action=startSplash');
+        header('Location: ./index.php?action=startLandingPage');
         return $id;
     }else{
         echo "<script>alert('Missing information. Profile update process is aborting...')</script>"; 
-        header('Location: ./index.php?action=startSplash');
+        header('Location: ./index.php?action=startLandingPage');
         return $response['id'];
     }
 

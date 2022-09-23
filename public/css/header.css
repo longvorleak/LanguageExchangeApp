@@ -1,5 +1,3 @@
-/* @import url("style.css"); */
-
 /* hides the hamburger menu */
 #hamburger {
 	display: none;
@@ -27,7 +25,9 @@
 .header-right {
 	display: flex;
 	gap: 20px;
-	font-size: 1.16rem;
+	font-size: 1rem;
+	text-transform: uppercase;
+	align-items: center;
 }
 
 .header-animation a {
@@ -51,7 +51,7 @@
 	width: 130px;
 	text-align: center;
 	border: 1px solid var(--divider);
-	background-color: var(--main-primary);
+	background-color: var(--dark-primary);
 	border-radius: var(--button-radius);
 	color: var(--divider);
 	padding: 12px;
@@ -83,6 +83,7 @@
 	z-index: 1;
 	width: 102px;
 	height: auto;
+	margin-top: 15px;
 	text-align: center;
 	transition: all 0.3s ease 0s, visibility 0s linear 0.3s,
 		z-index 0s linear 0.01s;

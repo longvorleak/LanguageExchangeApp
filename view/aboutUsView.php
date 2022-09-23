@@ -9,6 +9,7 @@
 <div class="dark">
     <div class="section-header">
         <h1>Who We Are</h1>
+        <div class="h1-line"></div>
     </div>
     <p>We're a global team of language and technology lovers, with offices and team members in nearly every continent! Our mission is to connect the world through language, culture, and community. With over 30 million members, you're in good company.</p>
 </div>
@@ -16,6 +17,7 @@
 <div class="light">
     <div class="section-header">
         <h1>The Team</h1>
+        <div class="h1-line"></div>
     </div>
     <div class="team">
         <div class="member">
@@ -29,7 +31,7 @@
             <p class="position">Team member</p>
         </div>
         <div class="member">
-            <img src="https://i.pravatar.cc/250?img=<?= rand(1, 70) ?>" alt="member" title="member picture" class="profile" />
+            <img src="https://i.pravatar.cc/250?img=46" alt="member" title="member picture" class="profile" />
             <p class="name">Sude</p>
             <p class="position">Team member</p>
         </div>
@@ -38,12 +40,33 @@
             <p class="name">Vorleak</p>
             <p class="position">Team member</p>
         </div>
+        <div class="member">
+            <img src="https://i.pravatar.cc/250?img=<?= rand(1, 70) ?>" alt="member" title="member picture" class="profile" />
+            <p class="name">Alex</p>
+            <p class="position">Team member</p>
+        </div>
+        <div class="member">
+            <img src="https://i.pravatar.cc/250?img=<?= rand(1, 70) ?>" alt="member" title="member picture" class="profile" />
+            <p class="name">Insu</p>
+            <p class="position">Team member</p>
+        </div>
+        <div class="member">
+            <img src="https://i.pravatar.cc/250?img=<?= rand(1, 70) ?>" alt="member" title="member picture" class="profile" />
+            <p class="name">James</p>
+            <p class="position">Team member</p>
+        </div>
+        <div class="member">
+            <img src="https://i.pravatar.cc/250?img=<?= rand(1, 70) ?>" alt="member" title="member picture" class="profile" />
+            <p class="name">Michael</p>
+            <p class="position">Team member</p>
+        </div>
     </div>
 </div>
 
 <div class="dark">
     <div class="section-header">
         <h1>Contact Us</h1>
+        <div class="h1-line"></div>
     </div>
     <div class="contact">
         <div>
@@ -67,7 +90,7 @@
     </div>
 </div>
 
-<?php include(ROOT . "/view/footerView.php"); ?>
+<?php include(ROOT . "/view/footer.php"); ?>
 
 <?php $content = ob_get_clean(); ?>
 

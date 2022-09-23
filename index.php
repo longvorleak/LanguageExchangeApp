@@ -89,7 +89,7 @@ try {
             settingsPageView();
             break;
         default:
-            startSplash();
+            startLandingPage();
             break;
     }
 } catch (Exception $e) { // if we catch an exception

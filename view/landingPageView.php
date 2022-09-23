@@ -1,4 +1,4 @@
-<link rel="stylesheet" href=<?= BASE . "/public/css/splash.css" ?>>
+<link rel="stylesheet" href=<?= BASE . "/public/css/landingPage.css" ?>>
 
 <?php $title = "SpeakEasy" ?>
 
@@ -13,6 +13,7 @@
     </div>
     <div class="section-text">
         <h1>Learn a new language</h1>
+        <div class="h1-line"></div>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel beatae id perferendis ex dolor eveniet neque. Laudantium, tempore hic numquam ab et rerum ipsum cumque dolore voluptate impedit soluta unde.</p>
         <br />
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea explicabo, reiciendis, in doloremque expedita dolore, earum sunt veniam voluptates iure molestiae unde. Quos voluptatum mollitia odio assumenda accusantium alias ratione?</p>
@@ -21,6 +22,7 @@
 <!-- SECTION 2 -->
 <section class="section even center">
     <h1>The Ultimate Language Exchange</h1>
+    <div class="h1-line"></div>
     <p class="center-p">Learn a language, explore new cultures, and make friends</p>
     <div class="section2-div">
         <div>
@@ -51,6 +53,7 @@
 <section class="section odd">
     <div class="section-text">
         <h1>Learn from qualified instructors!</h1>
+        <div class="h1-line"></div>
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit eum explicabo nobis ex distinctio itaque possimus eligendi! Ullam vero similique, ab illum dignissimos ut laudantium iste quaerat quo quis accusamus?</p>
     </div>
     <div class="section-img">
@@ -64,6 +67,7 @@
     </div>
     <div class="section-text">
         <h1>Join live events!</h1>
+        <div class="h1-line"></div>
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit eum explicabo nobis ex distinctio itaque possimus eligendi! Ullam vero similique, ab illum dignissimos ut laudantium iste quaerat quo quis accusamus?</p>
     </div>
 </section>
@@ -71,6 +75,7 @@
 <section class="section odd">
     <div class="section-text">
         <h1>See what your friends are up to!</h1>
+        <div class="h1-line"></div>
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit eum explicabo nobis ex distinctio itaque possimus eligendi! Ullam vero similique, ab illum dignissimos ut laudantium iste quaerat quo quis accusamus?</p>
     </div>
     <div class="section-img">
@@ -84,12 +89,14 @@
     </div>
     <div class="section-text">
         <h1>Make new friends!</h1>
+        <div class="h1-line"></div>
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit eum explicabo nobis ex distinctio itaque possimus eligendi! Ullam vero similique, ab illum dignissimos ut laudantium iste quaerat quo quis accusamus?</p>
     </div>
 </section>
 <!-- SECTION 7 -->
 <section class="section odd center">
     <h1>What People are Saying</h1>
+    <div class="h1-line"></div>
     <p class="center-p">It's never been this fun to learn languages. Millions of happy SpeakEasy members agree!</p>
     <div class="section-box">
         <div class="section-card">
@@ -131,7 +138,7 @@
     </div>
 </section>
 
-<?php include(ROOT . "/view/footerView.php"); ?>
+<?php include(ROOT . "/view/footer.php"); ?>
 
 <?php $content = ob_get_clean(); ?>
 

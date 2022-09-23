@@ -1,21 +1,3 @@
-:root {
-    --dark-primary: #017081;
-    --main-primary: #12adc1;
-    --light-primary: #b2dfdb;
-    --divider: #f9f6f6;
-    --accent-color: #f7a701;
-    --primary-text:#212121;
-    --secondary-text: #757575;
-    --white-text: #FFF;
-    --button-radius: 25px;
-    --border-radius: 15px;
-}
-
-*{
-    margin: 0;
-    padding: 0;
-}
-
 body{
     display: flex;
 }
