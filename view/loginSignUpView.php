@@ -295,42 +295,8 @@
     };
 
     // === validate DOB ===
-    // let dob = document.getElementById('su-dob');
-    // let check_dob = document.getElementById('su-dob-check');
-    // let error_dob = document.getElementById('error-dob');
-
-    //  //Check whether valid date format
-    //  function checkDate() {
-    //  if (regDate.test(dob)) {
-    //             var parts = dateString.split("/");
-    //             var dtDOB = new Date(parts[1] + "/" + parts[0] + "/" + parts[2]);
-    //             var dtCurrent = new Date();
-    //             error_dob.innerHTML = "Eligibility 18 years ONLY."
-    //             if (dtCurrent.getFullYear() - dtDOB.getFullYear() < 18) {
-    //                 return false;
-    //             }
-
-    //             if (dtCurrent.getFullYear() - dtDOB.getFullYear() == 18) {
-
-    //                 //CD: 11/06/2018 and DB: 15/07/2000. Will turned 18 on 15/07/2018.
-    //                 if (dtCurrent.getMonth() < dtDOB.getMonth()) {
-    //                     return false;
-    //                 }
-    //                 if (dtCurrent.getMonth() == dtDOB.getMonth()) {
-    //                     //CD: 11/06/2018 and DB: 15/06/2000. Will turned 18 on 15/06/2018.
-    //                     if (dtCurrent.getDate() < dtDOB.getDate()) {
-    //                         return false;
-    //                     }
-    //                 }
-    //             }
-    //             error_dob.innerHTML = "";
-    //             return true;
-    //         } else {
-    //             error_dob.innerHTML = "Enter date in dd/MM/yyyy format ONLY."
-    //             return false;
-    //         }
-    //  }
-
+    // TODO: Date of Birthday validation
+    
     // === Validate Password ===
 
     let pwd1 = document.getElementById('su-pwd1');

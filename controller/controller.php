@@ -9,7 +9,7 @@ require_once("./model/UserProfileManager.php");
 // -----------------------PAGE NAVIGATION------------------------------
 // --------------------------------------------------------------------
 
-function startSplash() {
+function startLandingPage() {
     require('./view/landingPageView.php');
 }
 
@@ -30,6 +30,8 @@ function settingsPageView() {
 }
 
 function profileEditView() {
+    // TODO: get user's profile info from the Model
+    // pre-populate the inputs with their info if it exists
     require('./view/profileEditView.php');
 }
 
