@@ -78,17 +78,12 @@ try {
             loginFailed();
             break;
         case "googleLogin":
-            // googleLogin($_REQUEST, $_REQUEST['g_csrf_token']);
             googleLogin($_REQUEST);
             break;
         case "kakaoLogin":
             // kakaoLogin($_REQUEST, $_REQUEST['iss']);
             break;
         case "profilePhotoUpload":
-            // echo "<pre>";
-            // print_r($_FILES['fileToUpload']);
-            // print_r($_REQUEST);
-            // echo "</pre>";
             imageUpload($_FILES['fileToUpload']);
             break;
         case "usernameEmailCheck":

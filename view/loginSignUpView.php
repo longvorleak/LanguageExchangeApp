@@ -82,7 +82,7 @@
             <a id="mobile-in">Sign In <i class="fa-solid fa-arrow-right" style="color: var(--dark-primary);"></i></a>
             <div id="g_id_onload" data-client_id=<?= $_SERVER['CLIENT_ID']; ?> data-ux_mode="popup" data-login_uri="http://localhost/sites/LanguageExchangeApp/index.php?action=googleLogin" data-auto_prompt="false">
             </div>
-            <div class="g_id_signin" data-type="icon" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="pill" data-logo_alignment="left" data-locale="en_US">
+            <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="pill" data-logo_alignment="left" data-locale="en_US">
             </div>
         </form>
     </div>
@@ -130,7 +130,7 @@
             <a id="mobile-up">Sign Up <i class="fa-solid fa-arrow-right" style="color: var(--dark-primary);"></i></a>
             <div id="g_id_onload" data-client_id=<?= $_SERVER['CLIENT_ID']; ?> data-ux_mode="popup" data-login_uri="http://localhost/sites/LanguageExchangeApp/index.php?action=googleLogin" data-auto_prompt="false">
             </div>
-            <div class="g_id_signin" data-type="icon" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="pill" data-logo_alignment="left" data-locale="en_US">
+            <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_up_with" data-shape="pill" data-logo_alignment="left" data-locale="en_US">
             </div>
         </form>
     </div>
